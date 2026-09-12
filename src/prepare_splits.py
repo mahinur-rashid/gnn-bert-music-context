@@ -102,6 +102,17 @@ def split_text_dataset(tag: str, seed: int = SEED,
     return sp
 
 
+def split_musiccaps(seed: int = SEED) -> dict[str, list[str]]:
+    """Split over *every* captioned clip, not only those kept by the tag table,
+    so Task 4 can use all downloaded audio."""
+    from .text_data import load_musiccaps_captions
+
+    caps = load_musiccaps_captions()
+    ids = caps["id"].astype(str).tolist()
+    LOG.info("musiccaps: %d captioned clips", len(ids))
+    return grouped_split(ids, ids, seed=seed)
+
+
 def split_gtzan(seed: int = SEED) -> dict[str, list[str]]:
     root = path("gtzan_audio")
     files = sorted(root.rglob("*.wav"))
@@ -115,6 +126,8 @@ def build(dataset: str, seed: int = SEED,
           force_artist_safe: bool = False) -> dict[str, list[str]]:
     if dataset == "gtzan":
         return split_gtzan(seed)
+    if dataset == "musiccaps":
+        return split_musiccaps(seed)
     return split_text_dataset(dataset, seed, force_artist_safe)
 
 

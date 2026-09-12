@@ -20,7 +20,8 @@ from .config import path
 from .graph_builder import load_graphs
 from .utils import LOG, split_labels
 
-GRAPH_DATASETS = ["gtzan", "fma_small", "fma_medium", "mtat", "deam", "deam_feats"]
+GRAPH_DATASETS = ["gtzan", "fma_small", "fma_medium", "mtat", "deam",
+                  "deam_feats", "musiccaps"]
 
 
 # --------------------------------------------------------------------------- #
@@ -29,22 +30,49 @@ GRAPH_DATASETS = ["gtzan", "fma_small", "fma_medium", "mtat", "deam", "deam_feat
 
 
 def gtzan_table() -> pd.DataFrame:
+    """Fallback when ``python -m src.text_data --dataset gtzan`` has not been run.
+
+    The filename is deliberately NOT used as text: it *is* the genre label.
+    """
     files = sorted(path("gtzan_audio").rglob("*.wav"))
     return pd.DataFrame({
         "id": [f"{f.parent.name}/{f.stem}" for f in files],
         "labels": [f.parent.name for f in files],
-        "text": [f"Track: {f.stem}. Genre excerpt from the GTZAN collection." for f in files],
-        "group": [f.parent.name for f in files],
+        "text": ["An instrumental music excerpt." for _ in files],
+        "group": [f"{f.parent.name}/{f.stem}" for f in files],
     })
 
 
-def text_table(dataset: str) -> tuple[pd.DataFrame, list[str]]:
+def text_table(dataset: str, include_unlabeled: bool = False
+               ) -> tuple[pd.DataFrame, list[str]]:
     """Label/text table for a graph dataset (``deam_feats`` reuses ``deam``)."""
     if dataset == "gtzan":
-        t = gtzan_table()
-        return t, sorted(t["labels"].unique().tolist())
+        try:
+            return text_data.load("gtzan")
+        except FileNotFoundError:
+            t = gtzan_table()
+            return t, sorted(t["labels"].unique().tolist())
+
     tag = "deam" if dataset == "deam_feats" else dataset
-    return text_data.load(tag)
+    df, vocab = text_data.load(tag)
+
+    if dataset == "musiccaps" and include_unlabeled:
+        # The tag table drops clips whose aspects fall outside the top-50.
+        # Contrastive training only needs a caption, so re-add them with an
+        # empty label set rather than throwing the audio away.
+        caps = text_data.load_musiccaps_captions()
+        known = set(df["id"].astype(str))
+        extra = caps[~caps["id"].astype(str).isin(known)]
+        if len(extra):
+            df = pd.concat([df, pd.DataFrame({
+                "id": extra["id"].astype(str),
+                "text": extra["text"].astype(str),
+                "labels": "",
+                "group": extra["id"].astype(str),
+                "split": "",
+            })], ignore_index=True)
+            LOG.info("musiccaps: +%d captioned clips without top-50 aspects", len(extra))
+    return df, vocab
 
 
 def split_name(dataset: str) -> str:
@@ -61,8 +89,9 @@ class LabelSpec:
     meta: dict = field(default_factory=dict)
 
 
-def build_labels(dataset: str, label_mode: str = "auto") -> tuple[pd.DataFrame, LabelSpec]:
-    df, vocab = text_table(dataset)
+def build_labels(dataset: str, label_mode: str = "auto",
+                 include_unlabeled: bool = False) -> tuple[pd.DataFrame, LabelSpec]:
+    df, vocab = text_table(dataset, include_unlabeled)
     df = df.copy()
     df["id"] = df["id"].astype(str)
 
@@ -131,11 +160,12 @@ def build_pyg_splits(
     want_mel: bool = False,
     limit: int | None = None,
     standardize: bool = True,
+    include_unlabeled: bool = False,
 ) -> dict:
     """-> {'splits': {'train': [Data], ...}, 'spec': LabelSpec, ...}"""
     from torch_geometric.data import Data
 
-    df, spec = build_labels(dataset, label_mode)
+    df, spec = build_labels(dataset, label_mode, include_unlabeled)
     splits = prepare_splits.load(split_name(dataset))
     wanted = {str(i) for ids in splits.values() for i in ids} & set(spec.ids)
     graphs = load_graphs(dataset, ids=wanted, want_mel=want_mel)
