@@ -62,6 +62,20 @@ def get_logger(name: str = "gbmc") -> logging.Logger:
 LOG = get_logger()
 
 
+def quiet_transformers() -> None:
+    """Silence HuggingFace's per-checkpoint load report and progress bars."""
+    import os
+
+    os.environ.setdefault("TRANSFORMERS_VERBOSITY", "error")
+    os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+    try:
+        import transformers
+
+        transformers.logging.set_verbosity_error()
+    except Exception:  # pragma: no cover
+        pass
+
+
 def save_json(obj: Any, dest: str | Path) -> Path:
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
