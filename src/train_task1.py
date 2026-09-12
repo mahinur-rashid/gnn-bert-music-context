@@ -30,7 +30,7 @@ from .utils import (LOG, Timer, count_params, get_device, quiet_transformers,
 
 quiet_transformers()
 
-DATASETS = ["musiccaps", "mtat", "fma_small", "fma_medium", "deam"]
+DATASETS = ["musiccaps", "mtat", "fma_small", "fma_medium", "deam", "gtzan"]
 
 
 # --------------------------------------------------------------------------- #
@@ -125,15 +125,18 @@ def train_one(dataset: str, args) -> dict:
          {"params": head_params, "lr": args.head_lr}],
         weight_decay=args.weight_decay,
     )
-    steps = max(1, len(loaders["train"])) * args.epochs
-    sched = torch.optim.lr_scheduler.OneCycleLR(
-        optim, max_lr=[args.lr, args.head_lr], total_steps=steps, pct_start=0.1
+    # With early stopping the run may end long before `epochs`, so a OneCycle
+    # schedule spanning the full budget would never reach its decay phase.
+    # A cosine schedule over a shorter horizon degrades gracefully instead.
+    sched = torch.optim.lr_scheduler.CosineAnnealingLR(
+        optim, T_max=max(1, min(args.epochs, 3 * max(args.patience, 1)))
     )
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
     crit = nn.BCEWithLogitsLoss()
 
-    history, best = [], {"val_macro_f1": -1.0}
+    history, best = [], {"val_macro_f1": -1.0, "epoch": 0}
     best_state: dict | None = None
+    stale = 0
     for epoch in range(1, args.epochs + 1):
         model.train()
         t0, run_loss, n = time.time(), 0.0, 0
@@ -150,13 +153,13 @@ def train_one(dataset: str, args) -> dict:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             scaler.step(optim)
             scaler.update()
-            sched.step()
             run_loss += loss.detach().item() * len(y)
             n += len(y)
             if step % args.log_every == 0:
                 LOG.info("  epoch %d step %d/%d loss %.4f",
                          epoch, step, len(loaders["train"]), run_loss / max(n, 1))
 
+        sched.step()
         vp, vt, vloss = predict(model, loaders["val"], device)
         vm = multilabel_metrics(vt, vp)
         rec = {"epoch": epoch, "train_loss": run_loss / max(n, 1), "val_loss": vloss,
@@ -170,6 +173,13 @@ def train_one(dataset: str, args) -> dict:
         if vm["macro_f1"] > best["val_macro_f1"]:
             best = {"val_macro_f1": vm["macro_f1"], "epoch": epoch}
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+            stale = 0
+        else:
+            stale += 1
+            if args.patience and epoch >= args.min_epochs and stale >= args.patience:
+                LOG.info("early stop at epoch %d (no val improvement for %d epochs)",
+                         epoch, stale)
+                break
 
     if best_state is not None:
         model.load_state_dict(best_state)
@@ -275,6 +285,10 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--dataset", default="musiccaps", choices=DATASETS + ["all"])
     ap.add_argument("--model_name", default=CFG["text"]["model_name"])
     ap.add_argument("--epochs", type=int, default=c["epochs"])
+    ap.add_argument("--patience", type=int, default=c["patience"],
+                    help="stop after this many epochs without val macro-F1 gain; 0 disables")
+    ap.add_argument("--min_epochs", type=int, default=c["min_epochs"],
+                    help="never early-stop before this epoch")
     ap.add_argument("--batch_size", type=int, default=c["batch_size"])
     ap.add_argument("--lr", type=float, default=c["lr"], help="BERT learning rate")
     ap.add_argument("--head_lr", type=float, default=c["head_lr"])

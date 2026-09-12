@@ -28,7 +28,7 @@ import pandas as pd
 from .config import CFG, path, out_dir
 from .utils import LOG, clean_text, humanize, join_labels, save_json, split_labels
 
-DATASETS = ["musiccaps", "mtat", "fma", "deam"]
+DATASETS = ["musiccaps", "mtat", "fma", "deam", "gtzan"]
 
 
 # --------------------------------------------------------------------------- #
@@ -437,6 +437,102 @@ def build_deam(top_k: int = 20) -> pd.DataFrame:
 
 
 # --------------------------------------------------------------------------- #
+# 5. GTZAN -- feature-derived pseudo-caption -> genre
+# --------------------------------------------------------------------------- #
+#
+# GTZAN ships no metadata whatsoever: the only text attached to a clip is its
+# filename, which *is* the label ("blues.00000.wav").  Using it would leak the
+# target, so the textual context is instead written from the hand-crafted
+# descriptors in `features_30_sec.csv` -- tempo, brightness, loudness,
+# percussiveness, harmonic content.  This is a legitimate text channel (it
+# describes the audio, not the label) and it keeps GTZAN comparable with the
+# other Task 1 datasets, but it is *generated*, not human-written, which is the
+# single most important caveat when reading GTZAN's Task 1 numbers.
+
+GTZAN_BANDS = {
+    # field -> (thresholds, phrases); thresholds are dataset quantiles
+    "tempo": ([76, 100, 125, 150],
+              ["very slow", "slow", "moderate", "up-tempo", "very fast"]),
+    "spectral_centroid_mean": ([1400, 1900, 2500, 3100],
+                               ["very dark", "dark", "balanced", "bright", "very bright"]),
+    "rms_mean": ([0.05, 0.09, 0.15, 0.22],
+                 ["very quiet", "quiet", "moderate", "loud", "very loud"]),
+    "zero_crossing_rate_mean": ([0.05, 0.08, 0.12, 0.17],
+                                ["very smooth", "smooth", "moderately percussive",
+                                 "percussive", "very percussive"]),
+    "chroma_stft_mean": ([0.28, 0.35, 0.42, 0.50],
+                         ["a very narrow", "a narrow", "a moderate", "a wide",
+                          "a very wide"]),
+    "spectral_bandwidth_mean": ([1500, 1950, 2400, 2900],
+                                ["very focused", "focused", "moderately spread",
+                                 "spread", "very spread"]),
+}
+
+
+def _band(value: float, thresholds: list[float], phrases: list[str]) -> str:
+    for t, ph in zip(thresholds, phrases):
+        if value < t:
+            return ph
+    return phrases[-1]
+
+
+def gtzan_text(r: pd.Series) -> str:
+    """Natural-language descriptor built from hand-crafted audio features."""
+    b = {k: _band(float(r[k]), *GTZAN_BANDS[k]) for k in GTZAN_BANDS}
+    return (
+        f"A {b['tempo']} instrumental excerpt at about {float(r['tempo']):.0f} beats "
+        f"per minute. The timbre is {b['spectral_centroid_mean']} and "
+        f"{b['spectral_bandwidth_mean']} across the spectrum. The recording is "
+        f"{b['rms_mean']} and {b['zero_crossing_rate_mean']}. It covers "
+        f"{b['chroma_stft_mean']} range of pitch classes."
+    )
+
+
+def build_gtzan(top_k: int = 10) -> pd.DataFrame:
+    """GTZAN: 1'000 clips, 10 genres, text generated from audio descriptors."""
+    feat = pd.read_csv(path("gtzan_feat30"))
+    feat["stem"] = feat["filename"].astype(str).str.replace(".wav", "", regex=False)
+    # ids must match the graph/split ids, which are "<genre>/<stem>"
+    feat["id"] = feat["label"].astype(str) + "/" + feat["stem"]
+
+    out = pd.DataFrame({
+        "id": feat["id"],
+        "text": [gtzan_text(r) for _, r in feat.iterrows()],
+        "labels": feat["label"].astype(str),
+        # GTZAN has no artist metadata; each clip is its own group
+        "group": feat["id"],
+        "split": "",
+        "genre_top": feat["label"].astype(str),
+    })
+    out.attrs["vocab"] = sorted(out["labels"].unique().tolist())[:top_k]
+    LOG.info("gtzan: %d clips, %d genres (text generated from audio features)",
+             len(out), len(out.attrs["vocab"]))
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# MusicCaps captions for Task 4 (no label filtering)
+# --------------------------------------------------------------------------- #
+
+
+def load_musiccaps_captions() -> pd.DataFrame:
+    """Every captioned MusicCaps clip -- used by the contrastive task, which
+    needs the caption but not the top-50 aspect labels."""
+    df = pd.read_csv(path("musiccaps_csv"))
+    return pd.DataFrame({
+        "id": df["ytid"].astype(str),
+        "text": df["caption"].map(clean_text),
+        "aspects": [
+            "|".join(str(a).strip().lower() for a in ast.literal_eval(s))
+            if isinstance(s, str) else ""
+            for s in df["aspect_list"]
+        ],
+        "is_audioset_eval": df["is_audioset_eval"].astype(bool),
+        "is_balanced_subset": df["is_balanced_subset"].astype(bool),
+    })
+
+
+# --------------------------------------------------------------------------- #
 # dispatcher + persistence
 # --------------------------------------------------------------------------- #
 
@@ -445,6 +541,7 @@ _BUILDERS = {
     "mtat": build_mtat,
     "fma": build_fma,
     "deam": build_deam,
+    "gtzan": build_gtzan,
 }
 
 
@@ -515,6 +612,8 @@ def main() -> None:
                   "label_level": args.fma_label_level}
         elif ds == "deam":
             kw = {"top_k": args.top_k or 20}
+        elif ds == "gtzan":
+            kw = {"top_k": 10}
         df = build(ds, **kw)
         save(df, ds, kw)
 

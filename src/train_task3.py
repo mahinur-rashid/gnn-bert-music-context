@@ -29,7 +29,8 @@ from .utils import (LOG, Timer, count_params, get_device, quiet_transformers,
 
 quiet_transformers()
 
-DATASETS = ["fma_small", "fma_medium", "mtat", "deam", "deam_feats", "gtzan"]
+DATASETS = ["fma_small", "fma_medium", "mtat", "deam", "deam_feats",
+            "gtzan", "musiccaps"]
 
 
 # --------------------------------------------------------------------------- #
@@ -127,9 +128,10 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
     if bert_params:
         groups.append({"params": bert_params, "lr": args.lr_bert})
     optim = torch.optim.AdamW(groups, weight_decay=args.weight_decay)
-    steps = max(1, len(loaders["train"])) * args.epochs
-    sched = torch.optim.lr_scheduler.OneCycleLR(
-        optim, max_lr=[g["lr"] for g in groups], total_steps=steps, pct_start=0.1)
+    # cosine over a bounded horizon: with early stopping the run rarely reaches
+    # `epochs`, and a OneCycle schedule spanning the full budget would never decay
+    sched = torch.optim.lr_scheduler.CosineAnnealingLR(
+        optim, T_max=max(1, min(args.epochs, 3 * max(args.patience, 1))))
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
 
     key = "macro_f1" if multilabel else "accuracy"
@@ -151,7 +153,6 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             scaler.step(optim)
             scaler.update()
-            sched.step()
             bs = y.shape[0]
             run += loss.detach().item() * bs
             n += bs
@@ -160,6 +161,7 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
                          len(loaders["train"]), run / max(n, 1),
                          " ".join(f"{k}={v:.3f}" for k, v in parts.items()))
 
+        sched.step()
         val = evaluate(model, loaders["val"], device, multilabel, args)
         vm = val["metrics"]
         rec = {"epoch": epoch, "train_loss": run / max(n, 1), "val_loss": val["loss"],
@@ -180,8 +182,10 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
             patience = 0
         else:
             patience += 1
-            if args.patience and patience >= args.patience:
-                LOG.info("[%s] early stop", mode)
+            if (args.patience and epoch >= args.min_epochs
+                    and patience >= args.patience):
+                LOG.info("[%s] early stop at epoch %d (no val gain for %d epochs)",
+                         mode, epoch, patience)
                 break
 
     if best_state is not None:
@@ -413,7 +417,9 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--tune_thresholds", action="store_true", default=True)
     ap.add_argument("--no_tune_thresholds", dest="tune_thresholds", action="store_false")
     ap.add_argument("--no_standardize", action="store_true")
-    ap.add_argument("--patience", type=int, default=0)
+    ap.add_argument("--patience", type=int, default=c["patience"],
+                    help="0 disables early stopping")
+    ap.add_argument("--min_epochs", type=int, default=c["min_epochs"])
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--num_workers", type=int, default=0)
     ap.add_argument("--log_every", type=int, default=200)

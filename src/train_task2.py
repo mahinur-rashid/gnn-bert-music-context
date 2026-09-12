@@ -132,8 +132,10 @@ def train_model(model_name: str, bundle: dict, args, device) -> dict:
             patience = 0
         else:
             patience += 1
-            if args.patience and patience >= args.patience:
-                LOG.info("[%s] early stop at epoch %d", model_name, epoch)
+            if (args.patience and epoch >= args.min_epochs
+                    and patience >= args.patience):
+                LOG.info("[%s] early stop at epoch %d (no val gain for %d epochs)",
+                         model_name, epoch, patience)
                 break
 
     if best_state is not None:
@@ -286,7 +288,11 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--tune_thresholds", action="store_true", default=True)
     ap.add_argument("--no_tune_thresholds", dest="tune_thresholds", action="store_false")
     ap.add_argument("--no_standardize", action="store_true")
-    ap.add_argument("--patience", type=int, default=15, help="0 disables early stopping")
+    ap.add_argument("--patience", type=int, default=c["patience"],
+                    help="0 disables early stopping")
+    ap.add_argument("--min_epochs", type=int, default=c["min_epochs"],
+                    help="never early-stop before this epoch -- the CNN baseline "
+                         "dips mid-training before recovering")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--num_workers", type=int, default=0)
     ap.add_argument("--log_every", type=int, default=5)
