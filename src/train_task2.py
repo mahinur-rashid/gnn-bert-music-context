@@ -183,6 +183,10 @@ def run(args) -> dict:
         args.dataset, label_mode=args.label_mode, want_mel=need_mel,
         limit=args.limit, standardize=not args.no_standardize,
     )
+    if need_mel and not hasattr(bundle["splits"]["train"][0], "mel"):
+        LOG.warning("%s: no mel patches stored -- skipping the CNN baseline "
+                    "(rebuild graphs without --no_mel to include it)", args.dataset)
+        models = [m for m in models if m != "cnn"]
     spec = bundle["spec"]
     multilabel = spec.multilabel
 
