@@ -1,7 +1,7 @@
 # Coverage check against `Instructions.pdf`
 
-Every requirement in the brief, and where it is implemented. Task 4 and the
-final report are deliberately deferred (MusicCaps audio not downloaded yet).
+Every requirement in the brief, and where it is implemented. All four tasks are
+implemented; only the final report is still outstanding.
 
 ## Section 3 — Dataset requirements
 
@@ -60,16 +60,17 @@ final report are deliberately deferred (MusicCaps audio not downloaded yet).
 | t-SNE of z coloured by genre **and** mood | ✅ | `tsne_plots` → `*_tsne_genre.png`, `*_tsne_mood.png` |
 | 3 case studies: graph paths + caption/lyric alignment | ✅ | `case_studies` → `results/case_studies/*.json` |
 
-## Section 4.4 — Task 4 (Advanced) — deferred
+## Section 4.4 — Task 4 (Advanced)
 
 | Deliverable | Status | Where |
 |---|---|---|
-| Dual-encoder GNN–BERT with contrastive training | 🟡 model implemented | `contrastive.DualEncoder` |
-| InfoNCE loss | ✅ implemented | `contrastive.info_nce` |
-| Retrieval metrics R@1/5/10, median rank | ✅ implemented | `contrastive.retrieval_metrics` |
-| Training driver + retrieval table + 10 qualitative examples | ⏳ pending | needs `Datasets/musiccaps/audio/` |
-| Zero-shot tag prediction vs Task 3 | ⏳ pending | same |
-| Human evaluation (5 listeners) | ⏳ pending | same |
+| Dual-encoder GNN–BERT with contrastive training | ✅ | `contrastive.DualEncoder`, `train_task4.train` |
+| InfoNCE loss (symmetric, in-batch negatives) | ✅ | `contrastive.info_nce` |
+| Retrieval metrics R@1/5/10 + median rank, both directions | ✅ | `contrastive.retrieval_metrics` |
+| Retrieval evaluation table on the MusicCaps test split | ✅ | `results/metrics/task4_musiccaps_contrastive.json` |
+| 10 qualitative examples (query caption → top-3 clips) | ✅ | `results/retrieval_examples/*_examples.json` |
+| Zero-shot tag prediction from captions vs the Task 3 supervised model | ✅ | `train_task4.zero_shot_tagging` → `results/zero_shot/` |
+| Human evaluation: ≥ 5 listeners rate match on [1,5] | ✅ sheet generated | `results/retrieval_examples/*_listening_test.csv` (ratings to be filled in by listeners) |
 
 ## Section 6 — Evaluation metrics
 
@@ -88,7 +89,7 @@ final report are deliberately deferred (MusicCaps audio not downloaded yet).
 | 1 — BERT multi-label tag classifier | ✅ | `train_task1.train_one` |
 | 2 — GNN encoder on music segment graph | ✅ | `graph_builder` + `train_task2.train_model` |
 | 3 — GNN–BERT fusion for context understanding | ✅ | `train_task3.train_fusion` |
-| 4 — contrastive GNN–BERT | 🟡 loss/model only | `contrastive.py` |
+| 4 — contrastive GNN–BERT | ✅ | `contrastive.py` + `train_task4.py` |
 
 ## Section 8 — Baselines (≥ 2 required, all 4 implemented)
 
@@ -106,7 +107,7 @@ final report are deliberately deferred (MusicCaps audio not downloaded yet).
 | Full source code | ✅ | `src/` |
 | ≥ 20 preprocessed graph samples (`.pt` / `.json`) | ✅ | `data/processed/graph_samples/<dataset>/` (20 per dataset) |
 | Evaluation tables + plots (F1, AUC-PR, t-SNE) | ✅ | `results/metrics/`, `results/plots/`, `results/comparison/` |
-| Retrieval examples | ⏳ | Task 4 |
+| Retrieval examples | ✅ | `results/retrieval_examples/` |
 | Final report PDF (6–10 pages) | ⏳ | `report/` — to be written |
 | Demo notebook `notebooks/demo_context.ipynb` | ✅ | end-to-end single-track inference |
 | Required project structure | ✅ | see README §4 |
@@ -118,6 +119,23 @@ final report are deliberately deferred (MusicCaps audio not downloaded yet).
 
 * **Cross-dataset comparison** (`src/compare_datasets.py`) — each task run over
   every applicable dataset from Table 1 with identical hyper-parameters, reporting
-  train / val / test metrics side by side plus generalisation-gap charts.
+  train / val / test metrics side by side plus generalisation-gap charts:
+
+  | task | datasets compared |
+  |---|---|
+  | 1 | FMA-small, MagnaTagATune, GTZAN, MusicCaps |
+  | 2 | GTZAN, FMA-medium |
+  | 3 | FMA-medium, MagnaTagATune, DEAM |
+  | 4 | DEAM, MusicCaps (with audio) |
+
+* GTZAN made usable for Task 1 without label leakage, by generating its text from
+  hand-crafted audio descriptors instead of the genre-bearing filename.
 * GCN third convolution option, per-tag threshold tuning on validation,
-  mixed-precision training, and an EDA notebook.
+  mixed-precision training, early stopping with a `min_epochs` floor that keeps
+  the CNN baseline comparison fair, and an EDA notebook.
+
+## Still outstanding
+
+* **Final report PDF** (6–10 pages, NeurIPS/IEEE/ICML template) — `report/`.
+* **Listening-test ratings** — the sheet is generated with one row per retrieval
+  pair and five empty rating columns; it needs ≥ 5 human listeners to fill it in.
