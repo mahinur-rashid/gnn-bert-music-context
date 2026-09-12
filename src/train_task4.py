@@ -166,7 +166,7 @@ def train(args) -> dict:
         groups.append({"params": bert_params, "lr": args.lr_bert})
     optim = torch.optim.AdamW(groups, weight_decay=args.weight_decay)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optim, T_max=max(1, min(args.epochs, 3 * max(args.patience, 1))))
+        optim, T_max=max(1, args.epochs))
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
 
     history, best, best_state, stale = [], {"val_r@5": -1.0, "epoch": 0}, None, 0

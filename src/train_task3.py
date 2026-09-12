@@ -131,7 +131,7 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
     # cosine over a bounded horizon: with early stopping the run rarely reaches
     # `epochs`, and a OneCycle schedule spanning the full budget would never decay
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optim, T_max=max(1, min(args.epochs, 3 * max(args.patience, 1))))
+        optim, T_max=max(1, args.epochs))
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
 
     key = "macro_f1" if multilabel else "accuracy"

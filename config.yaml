@@ -79,13 +79,19 @@ text:
 # --- task hyper-parameters --------------------------------------------------
 # Every task trains for up to `epochs` and stops early once the validation
 # metric has not improved for `patience` epochs; `min_epochs` blocks early
-# stopping during the initial noisy phase (the CNN baseline in particular dips
-# mid-training before recovering, and stopping there would understate it).
-# The best-validation checkpoint is always restored before test evaluation.
+# stopping during the initial noisy phase. The best-validation checkpoint is
+# always restored before test evaluation.
+#
+# NOTE on the 20-epoch budget: the GNNs and BERT converge well inside it, but
+# the CNN mel baseline (B2) is the slowest learner in the set -- on GTZAN it was
+# still climbing at epoch 45 and only reached its 0.80 macro-F1 near epoch 60.
+# At 20 epochs it lands nearer 0.60-0.65, so Task 2's graph-vs-CNN margin is
+# flattering to the GNNs. Raise task2.epochs (e.g. --epochs 60) for the headline
+# baseline table if that comparison matters in the report.
 task1:
-  epochs: 100
-  patience: 10
-  min_epochs: 3
+  epochs: 20
+  patience: 4
+  min_epochs: 2
   batch_size: 32
   lr: 2.0e-5
   head_lr: 1.0e-3
@@ -93,9 +99,9 @@ task1:
   top_k_tags: 50
 
 task2:
-  epochs: 100
-  patience: 10
-  min_epochs: 25
+  epochs: 20
+  patience: 4
+  min_epochs: 8
   batch_size: 32
   lr: 1.0e-3
   weight_decay: 5.0e-4
@@ -105,9 +111,9 @@ task2:
   conv: "sage"        # sage | gat | gcn
 
 task3:
-  epochs: 100
-  patience: 10
-  min_epochs: 3
+  epochs: 20
+  patience: 4
+  min_epochs: 2
   batch_size: 16
   lr_bert: 2.0e-5
   lr_other: 1.0e-3
@@ -122,9 +128,9 @@ task3:
 # every other item in the batch is a negative, so batch_size sets the difficulty
 # of the contrastive problem and the resolution of the R@K metrics.
 task4:
-  epochs: 100
-  patience: 10
-  min_epochs: 5
+  epochs: 20
+  patience: 4
+  min_epochs: 3
   batch_size: 64
   lr_bert: 2.0e-5
   lr_other: 1.0e-3

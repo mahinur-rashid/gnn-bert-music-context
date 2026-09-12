@@ -129,7 +129,7 @@ def train_one(dataset: str, args) -> dict:
     # schedule spanning the full budget would never reach its decay phase.
     # A cosine schedule over a shorter horizon degrades gracefully instead.
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optim, T_max=max(1, min(args.epochs, 3 * max(args.patience, 1)))
+        optim, T_max=max(1, args.epochs)
     )
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
     crit = nn.BCEWithLogitsLoss()
