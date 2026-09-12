@@ -10,7 +10,7 @@ language representations with message passing over music-structure graphs.
 | 1 (Easy) | BERT multi-label tag classifier | ✅ implemented + run |
 | 2 (Medium) | GraphSAGE / GAT on segment+chord graphs | ✅ implemented + run |
 | 3 (Hard) | GNN–BERT fusion (cross-attention, multi-task) | ✅ implemented + run |
-| 4 (Advanced) | Contrastive MusicCaps retrieval | 🚧 model + InfoNCE written, training driver pending MusicCaps audio |
+| 4 (Advanced) | Contrastive dual-encoder retrieval (InfoNCE) | ✅ implemented |
 
 ---
 
@@ -46,16 +46,19 @@ Datasets/
   Deam_Dataset/
     MEMD_audio/*.mp3   features/*.csv   annotations/...   metadata/*.csv
   musiccaps/
-    musiccaps-public.csv                    (audio/ — needed only for Task 4)
+    musiccaps-public.csv
+  musiccaps_with_audio/                     (needed for Task 4)
+    wav/[<ytid>]-[<start>-<end>].wav        5'161 x 10 s clips
+    musiccaps-downloaded.csv  download_manifest.csv  download_failures.csv
 ```
 
 | Dataset | Used for | Labels |
 |---|---|---|
-| MusicCaps | Task 1 | top-50 caption aspects (5'521 expert captions) |
+| MusicCaps | Tasks 1, 3, 4 | top-50 caption aspects; free-text captions for retrieval |
 | MagnaTagATune | Tasks 1, 2, 3 | top-50 tags after synonym merging, 25'863 clips |
 | FMA small / medium | Tasks 1, 2, 3 | 8 / 16 top genres, top-50 `genres_all` |
-| GTZAN | Task 2 | 10 genres, 1'000 clips |
-| DEAM | Tasks 1, 2, 3 | 20 genre tags + valence/arousal (1–9 → [-1,1]) |
+| GTZAN | Tasks 1, 2 | 10 genres, 1'000 clips |
+| DEAM | Tasks 1–4 | 20 genre tags + valence/arousal (1–9 → [-1,1]) |
 
 ## 3. Pipeline
 
@@ -72,12 +75,16 @@ python -m src.prepare_splits --dataset all
 python -m src.graph_builder --dataset gtzan     --jobs 10
 python -m src.graph_builder --dataset fma_small --jobs 10
 python -m src.graph_builder --dataset deam      --jobs 10
+python -m src.graph_builder --dataset musiccaps --jobs 10
 python -m src.graph_builder --dataset mtat      --jobs 10 --no_mel
-python -m src.graph_builder --dataset fma_medium --jobs 10 --no_mel   # optional, ~30 min
+python -m src.graph_builder --dataset fma_medium --jobs 10            # ~35 min
 
 # or all of the above in one call
 python -m src.prepare_data --stage all --jobs 10
 ```
+
+MusicCaps clips are only 10 s long, so `config.yaml → audio.per_dataset.musiccaps`
+shortens their window/hop to 2 s / 1 s (12 nodes instead of 24).
 
 **Audio front-end** (`src/audio_features.py`): 22'050 Hz mono → STFT →
 log-mel (128) / MFCC (20) / chroma-CQT (12) / spectral contrast (7) / centroid,
@@ -108,16 +115,26 @@ note the standard MTAT directory split is not fully artist-disjoint; pass
 ### 3.2 Task 1 — BERT tag classifier
 
 ```powershell
-python -m src.train_task1 --dataset musiccaps --epochs 5 --attention_viz
-python -m src.train_task1 --dataset mtat      --epochs 5
-python -m src.train_task1 --dataset fma_medium --epochs 5
+python -m src.train_task1 --dataset musiccaps --attention_viz
+python -m src.train_task1 --dataset mtat
+python -m src.train_task1 --dataset fma_small
+python -m src.train_task1 --dataset gtzan
 python -m src.train_task1 --dataset all
 ```
 
-`t = BERT_CLS(X_text)`, `ŷ_k = σ(w_kᵀt + b_k)`, BCE per tag, AdamW + OneCycle,
-fp16. Per-tag decision thresholds are tuned on validation. Outputs: macro/micro
-F1 + AUC-PR curves vs epoch, 5 example predictions with `[CLS]` attention
-(`--attention_viz`), and the B1 random/majority baselines.
+`t = BERT_CLS(X_text)`, `ŷ_k = σ(w_kᵀt + b_k)`, BCE per tag, AdamW with a cosine
+schedule, fp16. Per-tag decision thresholds are tuned on validation. Outputs:
+macro/micro F1 + AUC-PR curves vs epoch, 5 example predictions with `[CLS]`
+attention (`--attention_viz`), and the B1 random/majority baselines.
+
+> **GTZAN and Task 1.** GTZAN ships no metadata: the only text attached to a clip
+> is its filename, which *is* the label (`blues.00000.wav`). Using it would leak
+> the target, so `text_data.build_gtzan` writes the textual context from the
+> hand-crafted descriptors in `features_30_sec.csv` (tempo, brightness, loudness,
+> percussiveness, pitch-class spread). That text is **generated, not
+> human-written** — the single most important caveat when reading GTZAN's Task 1
+> numbers.
+
 
 ### 3.3 Task 2 — GNN on music structure graphs
 
@@ -146,20 +163,38 @@ only on DEAM. Produces t-SNE of `z` coloured by genre and by mood quadrant,
 3 case studies (chord path + strongest similarity edges + text tokens the graph
 attends to) and the graph coherence score `S_graph`.
 
-### 3.5 Cross-dataset comparison
+### 3.5 Task 4 — contrastive cross-modal retrieval
 
 ```powershell
-python -m src.compare_datasets --task 1
-python -m src.compare_datasets --task 2
-python -m src.compare_datasets --task 3
+python -m src.train_task4 --dataset musiccaps --save_model
+python -m src.train_task4 --dataset deam
+```
+
+A dual encoder (GraphSAGE over the audio graph, BERT over the caption) is trained
+with symmetric InfoNCE; every other item in the batch is a negative, so
+`--batch_size` sets both the difficulty of the contrastive problem and the
+resolution of R@K. Outputs: the retrieval table (caption→audio and audio→caption
+R@1/5/10 + median rank, against a `K/N` random reference), 10 qualitative
+caption→top-3-clip examples, a 5-listener listening-test sheet for the human
+evaluation, and zero-shot tag prediction scored against the Task 3 supervised
+model on the same tags.
+
+### 3.6 Cross-dataset comparison
+
+```powershell
+python -m src.compare_datasets --task 1     # fma_small, magnatagatune, gtzan, musiccaps
+python -m src.compare_datasets --task 2     # gtzan, fma_medium
+python -m src.compare_datasets --task 3     # fma_medium, magnatagatune, deam
+python -m src.compare_datasets --task 4     # deam, musiccaps (with audio)
 python -m src.compare_datasets --task all
 ```
 
 Runs one task across every applicable dataset with identical hyper-parameters and
 writes `results/comparison/task<N>_dataset_comparison.{md,json,png}` plus a
-train/val/test macro-F1 chart per dataset.
+train/val/test macro-F1 chart per dataset. Override the line-up with
+`--datasets a b c`.
 
-### 3.6 Aggregating results
+### 3.7 Aggregating results
 
 ```powershell
 python -m src.evaluate --summarize     # -> results/metrics.json + results/summary.md
@@ -183,10 +218,10 @@ gnn-bert-music-context/
     bert_encoder.py         # BERT encoder + Task 1 classifier
     gnn_model.py            # GraphSAGE / GAT / GCN + MelCNN baseline
     fusion_model.py         # cross-attention GNN-BERT fusion
-    contrastive.py          # Task 4 dual encoder + InfoNCE
+    contrastive.py          # Task 4 dual encoder + InfoNCE + retrieval metrics
     baselines.py            # B1 random/majority, B4 PCA+MLP
     train.py                # dispatcher
-    train_task1.py train_task2.py train_task3.py
+    train_task1.py train_task2.py train_task3.py train_task4.py
     compare_datasets.py     # cross-dataset tables + plots
     prepare_data.py         # one-shot preprocessing
     evaluate.py             # metrics, plots, summary CLI
@@ -202,7 +237,24 @@ Per-tag precision/recall/F1 → **macro-F1** (mean over tags) and **micro-F1**
 reports **MAE**, RMSE and **R²** for valence and arousal; `S_graph` measures the
 fraction of graph edges whose learnt node embeddings have cosine similarity > τ.
 
-## 6. Reproducibility
+Retrieval (Task 4) reports **R@1/5/10** and median rank in both directions,
+against the `K/N` random reference for the test-set size.
+
+## 6. Training schedule
+
+Every task trains for up to `epochs: 100` and stops once the validation metric
+has not improved for `patience: 10` epochs; `min_epochs` blocks early stopping
+during the initial noisy phase. This matters for the fairness of the baseline
+comparison: the CNN mel baseline dips for ~20 epochs mid-training before
+recovering, and stopping inside that dip understated it by ~0.17 macro-F1 on
+GTZAN in an earlier run, so `task2.min_epochs` is set to 25. The
+best-validation checkpoint is always restored before test evaluation, and every
+model in a comparison gets the same `epochs`, `patience` and `min_epochs`.
+
+The early-stopping model selection metric per task: macro-F1 (Task 1), macro-F1
+or accuracy (Task 2), macro-F1 (Task 3), caption→audio R@5 (Task 4).
+
+## 7. Reproducibility
 
 Every run is seeded (`config.yaml: seed: 42`), records its full argument
 namespace in `results/metrics/<tag>.json`, and restores the best-validation
