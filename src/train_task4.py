@@ -359,6 +359,16 @@ def zero_shot_tagging(model, bundle: dict, loaders: dict, device, args, tag: str
         Y.append(batch.y.float().cpu())
     G = torch.cat(G)
     Y = torch.cat(Y).numpy()
+    # clips carried purely for their caption have no tag labels -- scoring them
+    # would count guaranteed misses against the model
+    labelled = Y.sum(1) > 0
+    if labelled.sum() < 2:
+        LOG.warning("zero-shot tagging skipped: fewer than 2 labelled test clips")
+        return {}
+    if not labelled.all():
+        LOG.info("zero-shot tagging on %d/%d test clips that carry tags",
+                 int(labelled.sum()), len(Y))
+    G, Y = G[labelled], Y[labelled]
     scores = (G @ tag_emb.t()).numpy()
     # map cosine similarities into [0, 1] so the usual thresholded metrics apply
     probs = (scores - scores.min()) / max(float(np.ptp(scores)), 1e-8)
