@@ -18,7 +18,7 @@ TASK_MODULES = {
     "1": "src.train_task1",
     "2": "src.train_task2",
     "3": "src.train_task3",
-    "4": "src.contrastive",
+    "4": "src.train_task4",
     "compare": "src.compare_datasets",
     "prepare": "src.prepare_data",
 }
@@ -28,7 +28,7 @@ USAGE = f"""usage: python -m src.train --task {{{'|'.join(TASK_MODULES)}}} [task
   --task 1        BERT multi-label tag classifier          (src/train_task1.py)
   --task 2        GNN on music structure graphs            (src/train_task2.py)
   --task 3        GNN-BERT fusion                          (src/train_task3.py)
-  --task 4        contrastive MusicCaps retrieval          (src/contrastive.py)
+  --task 4        contrastive MusicCaps retrieval          (src/train_task4.py)
   --task compare  cross-dataset comparison for tasks 1-3   (src/compare_datasets.py)
   --task prepare  build text tables, splits and graphs     (src/prepare_data.py)
 """

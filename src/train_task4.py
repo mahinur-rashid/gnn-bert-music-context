@@ -32,7 +32,7 @@ from . import text_data
 from .bert_encoder import make_tokenizer
 from .config import CFG, SEED, results_dir
 from .contrastive import DualEncoder, info_nce, retrieval_metrics
-from .evaluate import multilabel_metrics, plot_history, record_result, tune_thresholds
+from .evaluate import multilabel_metrics, plot_history, record_result
 from .utils import (LOG, Timer, count_params, get_device, quiet_transformers,
                     save_json, set_seed)
 
@@ -361,7 +361,7 @@ def zero_shot_tagging(model, bundle: dict, loaders: dict, device, args, tag: str
     Y = torch.cat(Y).numpy()
     scores = (G @ tag_emb.t()).numpy()
     # map cosine similarities into [0, 1] so the usual thresholded metrics apply
-    probs = (scores - scores.min()) / max(scores.ptp(), 1e-8)
+    probs = (scores - scores.min()) / max(float(np.ptp(scores)), 1e-8)
 
     metrics = multilabel_metrics(Y, probs, thresholds=0.5)
     LOG.info("zero-shot tagging | macro-F1 %.4f  micro-F1 %.4f  AUC-PR %.4f",

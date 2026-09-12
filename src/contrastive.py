@@ -1,14 +1,10 @@
-"""Task 4 (Advanced) -- contrastive GNN-BERT alignment on MusicCaps.
+"""Task 4 (Advanced) -- contrastive GNN-BERT alignment (model + objective).
 
-STATUS: the model and the InfoNCE objective are implemented here; the training
-and retrieval-evaluation driver is intentionally left for later because the
-MusicCaps **audio** (10 s YouTube clips) has not been downloaded yet -- the
-repository currently ships only ``musiccaps-public.csv``.
+The dual encoder, the InfoNCE objective and the retrieval metrics live here;
+the training/evaluation driver is :mod:`src.train_task4`.
 
-Once the clips are in ``Datasets/musiccaps/audio/<ytid>.wav`` the pipeline is:
-
-    python -m src.graph_builder --dataset musiccaps --jobs 8
-    python -m src.contrastive --epochs 20            # (driver to be added)
+    python -m src.graph_builder --dataset musiccaps --jobs 10
+    python -m src.train_task4  --dataset musiccaps
 
 InfoNCE over paired (graph, caption):
 
@@ -79,10 +75,9 @@ def retrieval_metrics(g: torch.Tensor, t: torch.Tensor,
 
 
 def main() -> None:  # pragma: no cover
-    raise SystemExit(
-        "Task 4 training driver not implemented yet -- MusicCaps audio is not "
-        "downloaded. See the module docstring for the intended pipeline."
-    )
+    from .train_task4 import main as run
+
+    run()
 
 
 if __name__ == "__main__":

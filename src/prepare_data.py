@@ -18,6 +18,7 @@ GRAPH_PRESETS = {
     "fma_small": True,
     "fma_medium": False,
     "mtat": False,
+    "musiccaps": True,
     "deam_feats": False,
 }
 
@@ -29,6 +30,7 @@ def stage_text(args) -> None:
         ("fma", {"subset": "small", "top_k": args.top_k, "label_level": "all"}),
         ("fma", {"subset": "medium", "top_k": args.top_k, "label_level": "all"}),
         ("deam", {"top_k": 20}),
+        ("gtzan", {"top_k": 10}),
     ]:
         with Timer(f"text/{ds}{kw.get('subset', '')}"):
             df = text_data.build(ds, **kw)
@@ -59,7 +61,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="build every preprocessing artefact")
     ap.add_argument("--stage", default="all", choices=["all", "text", "splits", "graphs"])
     ap.add_argument("--graph_datasets", nargs="*",
-                    default=["gtzan", "deam", "fma_small", "mtat"])
+                    default=["gtzan", "deam", "musiccaps", "fma_small",
+                             "mtat", "fma_medium"])
     ap.add_argument("--top_k", type=int, default=CFG["task1"]["top_k_tags"])
     ap.add_argument("--musiccaps_labels", default="aspects", choices=["aspects", "audioset"])
     ap.add_argument("--jobs", type=int, default=8)
