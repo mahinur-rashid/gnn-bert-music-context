@@ -16,7 +16,7 @@ GRAPH_PRESETS = {
     "gtzan": True,
     "deam": True,
     "fma_small": True,
-    "fma_medium": False,
+    "fma_medium": True,     # Task 2 compares against the CNN mel baseline here
     "mtat": False,
     "musiccaps": True,
     "deam_feats": False,
