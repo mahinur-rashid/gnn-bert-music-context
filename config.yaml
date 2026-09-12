@@ -89,8 +89,8 @@ text:
 # flattering to the GNNs. Raise task2.epochs (e.g. --epochs 60) for the headline
 # baseline table if that comparison matters in the report.
 task1:
-  epochs: 20
-  patience: 4
+  epochs: 50
+  patience: 5
   min_epochs: 2
   batch_size: 32
   lr: 2.0e-5
@@ -99,8 +99,8 @@ task1:
   top_k_tags: 50
 
 task2:
-  epochs: 20
-  patience: 4
+  epochs: 50
+  patience: 5
   min_epochs: 8
   batch_size: 32
   lr: 1.0e-3
@@ -111,8 +111,8 @@ task2:
   conv: "sage"        # sage | gat | gcn
 
 task3:
-  epochs: 20
-  patience: 4
+  epochs: 50
+  patience: 5
   min_epochs: 2
   batch_size: 16
   lr_bert: 2.0e-5
@@ -128,8 +128,8 @@ task3:
 # every other item in the batch is a negative, so batch_size sets the difficulty
 # of the contrastive problem and the resolution of the R@K metrics.
 task4:
-  epochs: 20
-  patience: 4
+  epochs: 50
+  patience: 5
   min_epochs: 3
   batch_size: 64
   lr_bert: 2.0e-5
