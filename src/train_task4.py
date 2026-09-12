@@ -374,7 +374,7 @@ def zero_shot_tagging(model, bundle: dict, loaders: dict, device, args, tag: str
         out["delta_macro_f1"] = metrics["macro_f1"] - supervised.get("macro_f1", float("nan"))
         LOG.info("Task 3 supervised macro-F1 %.4f -> zero-shot is %.4f lower",
                  supervised.get("macro_f1", float("nan")), -out["delta_macro_f1"])
-    save_json(out, results_dir("metrics") / f"{tag}_zero_shot.json")
+    save_json(out, results_dir("zero_shot") / f"{tag}.json")
     return out
 
 
