@@ -1,0 +1,161 @@
+{
+  "task": 1,
+  "datasets": [
+    "fma_small",
+    "mtat",
+    "gtzan",
+    "musiccaps"
+  ],
+  "rows": [
+    {
+      "dataset": "fma_small",
+      "model": "BERT(distilbert-base-uncased)",
+      "n_train": 200,
+      "n_val": 64,
+      "n_test": 64,
+      "n_classes": 50,
+      "train": {
+        "macro_f1": 0.03539853033277228,
+        "micro_f1": 0.11736810906935388,
+        "samples_f1": 0.11839303528428918,
+        "auc_pr": 0.1330727385999326,
+        "auc_roc": 0.5237335246813385
+      },
+      "val": {
+        "macro_f1": 0.06432030169451601,
+        "micro_f1": 0.16091954022988506,
+        "samples_f1": 0.15988994007690793,
+        "auc_pr": 0.16314226418298647,
+        "auc_roc": 0.5529038501589054
+      },
+      "test": {
+        "macro_f1": 0.02949821635870812,
+        "micro_f1": 0.11731843575418995,
+        "samples_f1": 0.1180438650240798,
+        "auc_pr": 0.2414083918951425,
+        "auc_roc": 0.719315657065351
+      },
+      "baseline_random": {
+        "macro_f1": 0.01106100795755968,
+        "micro_f1": 0.13953488372093023,
+        "samples_f1": 0.12708333333333333,
+        "auc_pr": 0.20080419897529142,
+        "auc_roc": 0.5402651029574923
+      },
+      "best_epoch": 1
+    },
+    {
+      "dataset": "mtat",
+      "model": "BERT(distilbert-base-uncased)",
+      "n_train": 200,
+      "n_val": 64,
+      "n_test": 64,
+      "n_classes": 50,
+      "train": {
+        "macro_f1": 0.10371403018099042,
+        "micro_f1": 0.156170531039641,
+        "samples_f1": 0.15245257733529144,
+        "auc_pr": 0.1625991304999223,
+        "auc_roc": 0.5932714178018051
+      },
+      "val": {
+        "macro_f1": 0.12795756618548115,
+        "micro_f1": 0.19033383158943698,
+        "samples_f1": 0.18506141451668343,
+        "auc_pr": 0.1934759119384337,
+        "auc_roc": 0.5827779184825301
+      },
+      "test": {
+        "macro_f1": 0.0758304211430978,
+        "micro_f1": 0.12222222222222222,
+        "samples_f1": 0.11652623097276299,
+        "auc_pr": 0.18149101018114816,
+        "auc_roc": 0.5138610015620362
+      },
+      "baseline_random": {
+        "macro_f1": 0.04522186039234094,
+        "micro_f1": 0.10079575596816977,
+        "samples_f1": 0.08770686778499279,
+        "auc_pr": 0.13172192610576317,
+        "auc_roc": 0.5131241958616434
+      },
+      "best_epoch": 1
+    },
+    {
+      "dataset": "gtzan",
+      "model": "BERT(distilbert-base-uncased)",
+      "n_train": 200,
+      "n_val": 64,
+      "n_test": 64,
+      "n_classes": 10,
+      "train": {
+        "macro_f1": 0.15672409078479627,
+        "micro_f1": 0.37601626016260165,
+        "samples_f1": 0.38049999999999995,
+        "auc_pr": 0.6087370472042289,
+        "auc_roc": 0.7809375
+      },
+      "val": {
+        "macro_f1": 0.16045582675925077,
+        "micro_f1": 0.29102167182662536,
+        "samples_f1": 0.3,
+        "auc_pr": 0.2795010826142826,
+        "auc_roc": 0.5958994708994709
+      },
+      "test": {
+        "macro_f1": 0.11672982891688607,
+        "micro_f1": 0.2445141065830721,
+        "samples_f1": 0.24687499999999998,
+        "auc_pr": 0.30596261638637307,
+        "auc_roc": 0.6194444444444445
+      },
+      "baseline_random": {
+        "macro_f1": 0.07890199637023594,
+        "micro_f1": 0.192,
+        "samples_f1": 0.15104166666666666,
+        "auc_pr": 0.17595813695480975,
+        "auc_roc": 0.4965608465608467
+      },
+      "best_epoch": 1
+    },
+    {
+      "dataset": "musiccaps",
+      "model": "BERT(distilbert-base-uncased)",
+      "n_train": 200,
+      "n_val": 64,
+      "n_test": 64,
+      "n_classes": 50,
+      "train": {
+        "macro_f1": 0.11552911663172964,
+        "micro_f1": 0.11341598134282559,
+        "samples_f1": 0.11041752059022959,
+        "auc_pr": 0.10238740930285671,
+        "auc_roc": 0.5831764545716482
+      },
+      "val": {
+        "macro_f1": 0.14719440032379197,
+        "micro_f1": 0.1363978899773926,
+        "samples_f1": 0.13373034995906932,
+        "auc_pr": 0.15983850023273366,
+        "auc_roc": 0.5366388651853361
+      },
+      "test": {
+        "macro_f1": 0.12543185309163968,
+        "micro_f1": 0.12038095238095238,
+        "samples_f1": 0.1166405970568839,
+        "auc_pr": 0.1546188316902087,
+        "auc_roc": 0.6134763596982514
+      },
+      "baseline_random": {
+        "macro_f1": 0.052455033528562935,
+        "micro_f1": 0.07142857142857142,
+        "samples_f1": 0.084323489010989,
+        "auc_pr": 0.13579209099160838,
+        "auc_roc": 0.5039847867667132
+      },
+      "best_epoch": 1
+    }
+  ],
+  "failures": {},
+  "table_markdown": "| dataset | model | n_train | n_test | n_classes | test_macro_f1 | test_micro_f1 | test_auc_pr | val_macro_f1 | val_micro_f1 | train_macro_f1 | train_micro_f1 | random_macro_f1 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| fma_small | BERT(distilbert-base-uncased) | 200 | 64 | 50 | 0.0295 | 0.1173 | 0.2414 | 0.0643 | 0.1609 | 0.0354 | 0.1174 | 0.0111 |\n| mtat | BERT(distilbert-base-uncased) | 200 | 64 | 50 | 0.0758 | 0.1222 | 0.1815 | 0.1280 | 0.1903 | 0.1037 | 0.1562 | 0.0452 |\n| gtzan | BERT(distilbert-base-uncased) | 200 | 64 | 10 | 0.1167 | 0.2445 | 0.3060 | 0.1605 | 0.2910 | 0.1567 | 0.3760 | 0.0789 |\n| musiccaps | BERT(distilbert-base-uncased) | 200 | 64 | 50 | 0.1254 | 0.1204 | 0.1546 | 0.1472 | 0.1364 | 0.1155 | 0.1134 | 0.0525 |"
+}

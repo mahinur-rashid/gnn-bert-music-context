@@ -1,0 +1,360 @@
+[
+  {
+    "track_id": "2",
+    "text": "artist : american bach soloists. album : j s bach solo cantatas. track : 01 bwv54 i aria. excerpt 30 - 59 seconds.",
+    "true_tags": [
+      "classical",
+      "strings",
+      "violin",
+      "opera"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "slow",
+        "p": 0.3083
+      },
+      {
+        "tag": "ambient",
+        "p": 0.271
+      },
+      {
+        "tag": "techno",
+        "p": 0.2642
+      },
+      {
+        "tag": "electronic",
+        "p": 0.2615
+      },
+      {
+        "tag": "classical",
+        "p": 0.2451
+      }
+    ],
+    "chord_path": "E:maj -> G#:min -> E:maj -> A:maj -> E:maj -> E:maj -> A:maj -> E:maj -> N -> N -> E:maj -> B:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 8,
+        "to_segment": 9,
+        "cosine": 0.7544,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 9,
+        "to_segment": 8,
+        "cosine": 0.7544,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 18,
+        "cosine": 0.71,
+        "chords": "B:maj -> B:maj"
+      },
+      {
+        "from_segment": 18,
+        "to_segment": 17,
+        "cosine": 0.71,
+        "chords": "B:maj -> B:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 8,
+        "cosine": 0.0,
+        "chords": "E:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 9,
+        "cosine": 0.0,
+        "chords": "E:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 1,
+        "cosine": 0.0,
+        "chords": "E:maj -> G#:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 2,
+        "cosine": 0.0,
+        "chords": "E:maj -> E:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ".",
+        "weight": 0.0379
+      },
+      {
+        "token": ".",
+        "weight": 0.0366
+      },
+      {
+        "token": ".",
+        "weight": 0.0365
+      },
+      {
+        "token": ".",
+        "weight": 0.0361
+      },
+      {
+        "token": "##s",
+        "weight": 0.0336
+      },
+      {
+        "token": ":",
+        "weight": 0.0334
+      },
+      {
+        "token": ":",
+        "weight": 0.0333
+      },
+      {
+        "token": ":",
+        "weight": 0.0331
+      },
+      {
+        "token": "seconds",
+        "weight": 0.0322
+      }
+    ]
+  },
+  {
+    "track_id": "6",
+    "text": "artist : american bach soloists. album : j s bach solo cantatas. track : 01 bwv54 i aria. excerpt 146 - 175 seconds.",
+    "true_tags": [
+      "classical",
+      "strings",
+      "violin",
+      "opera",
+      "baroque"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "slow",
+        "p": 0.3109
+      },
+      {
+        "tag": "ambient",
+        "p": 0.2703
+      },
+      {
+        "tag": "techno",
+        "p": 0.2615
+      },
+      {
+        "tag": "electronic",
+        "p": 0.2599
+      },
+      {
+        "tag": "classical",
+        "p": 0.2473
+      }
+    ],
+    "chord_path": "E:maj -> E:maj -> E:maj -> A:maj -> A:maj -> E:maj -> E:maj -> E:maj -> G#:min -> E:maj -> C#:min -> C#:min",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 18,
+        "to_segment": 17,
+        "cosine": 0.8635,
+        "chords": "G#:maj -> G#:maj"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 18,
+        "cosine": 0.8635,
+        "chords": "G#:maj -> G#:maj"
+      },
+      {
+        "from_segment": 2,
+        "to_segment": 1,
+        "cosine": 0.7773,
+        "chords": "E:maj -> E:maj"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 2,
+        "cosine": 0.7773,
+        "chords": "E:maj -> E:maj"
+      },
+      {
+        "from_segment": 3,
+        "to_segment": 4,
+        "cosine": 0.7345,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 4,
+        "to_segment": 3,
+        "cosine": 0.7345,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 8,
+        "cosine": 0.0,
+        "chords": "E:maj -> G#:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 10,
+        "cosine": 0.0,
+        "chords": "E:maj -> C#:min"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ".",
+        "weight": 0.038
+      },
+      {
+        "token": ".",
+        "weight": 0.0368
+      },
+      {
+        "token": ".",
+        "weight": 0.0367
+      },
+      {
+        "token": ".",
+        "weight": 0.0357
+      },
+      {
+        "token": "##s",
+        "weight": 0.0337
+      },
+      {
+        "token": ":",
+        "weight": 0.0335
+      },
+      {
+        "token": ":",
+        "weight": 0.0334
+      },
+      {
+        "token": ":",
+        "weight": 0.0331
+      }
+    ]
+  },
+  {
+    "track_id": "10",
+    "text": "artist : american bach soloists. album : j s bach solo cantatas. track : 01 bwv54 i aria. excerpt 262 - 291 seconds.",
+    "true_tags": [
+      "classical",
+      "opera"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "slow",
+        "p": 0.31
+      },
+      {
+        "tag": "ambient",
+        "p": 0.2742
+      },
+      {
+        "tag": "electronic",
+        "p": 0.2673
+      },
+      {
+        "tag": "techno",
+        "p": 0.2661
+      },
+      {
+        "tag": "classical",
+        "p": 0.2493
+      }
+    ],
+    "chord_path": "B:maj -> E:maj -> B:maj -> B:maj -> N -> N -> B:maj -> B:maj -> E:maj -> B:maj -> E:maj -> E:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 2,
+        "to_segment": 1,
+        "cosine": 0.7418,
+        "chords": "B:maj -> E:maj"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 2,
+        "cosine": 0.7418,
+        "chords": "E:maj -> B:maj"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 18,
+        "cosine": 0.7331,
+        "chords": "F#:maj -> F#:maj"
+      },
+      {
+        "from_segment": 18,
+        "to_segment": 17,
+        "cosine": 0.7331,
+        "chords": "F#:maj -> F#:maj"
+      },
+      {
+        "from_segment": 11,
+        "to_segment": 10,
+        "cosine": 0.7031,
+        "chords": "E:maj -> E:maj"
+      },
+      {
+        "from_segment": 10,
+        "to_segment": 11,
+        "cosine": 0.7031,
+        "chords": "E:maj -> E:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 1,
+        "cosine": 0.0,
+        "chords": "B:maj -> E:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 2,
+        "cosine": 0.0,
+        "chords": "B:maj -> B:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ".",
+        "weight": 0.0376
+      },
+      {
+        "token": ".",
+        "weight": 0.0364
+      },
+      {
+        "token": ".",
+        "weight": 0.0364
+      },
+      {
+        "token": ".",
+        "weight": 0.0357
+      },
+      {
+        "token": "##s",
+        "weight": 0.0336
+      },
+      {
+        "token": ":",
+        "weight": 0.0335
+      },
+      {
+        "token": ":",
+        "weight": 0.0335
+      },
+      {
+        "token": ":",
+        "weight": 0.0332
+      },
+      {
+        "token": "i",
+        "weight": 0.0321
+      }
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "task": 4,
+  "dataset": "deam",
+  "model": "contrastive dual-encoder (sage + distilbert-base-uncased)",
+  "n_train": 310,
+  "n_val": 50,
+  "n_test": 40,
+  "n_classes": 20,
+  "embed_dim": 256,
+  "temperature": 0.07,
+  "args": {
+    "dataset": "deam",
+    "model_name": "distilbert-base-uncased",
+    "epochs": 2,
+    "patience": 10,
+    "min_epochs": 5,
+    "batch_size": 32,
+    "lr_bert": 2e-05,
+    "lr_other": 0.001,
+    "weight_decay": 0.01,
+    "embed_dim": 256,
+    "hidden": 256,
+    "gnn_layers": 3,
+    "conv": "sage",
+    "temperature": 0.07,
+    "dropout": 0.2,
+    "max_length": 192,
+    "freeze_bert": false,
+    "n_trainable_layers": null,
+    "zero_shot_tags": true,
+    "n_examples": 10,
+    "no_standardize": false,
+    "limit": 400,
+    "num_workers": 0,
+    "log_every": 100,
+    "save_model": false,
+    "seed": 42
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.48866086159983,
+      "val_loss": 3.072577953338623,
+      "val_r@1": 0.05999999865889549,
+      "val_r@5": 0.18000000715255737,
+      "val_r@10": 0.2800000011920929,
+      "val_median_rank": 21.0,
+      "secs": 3.1728463172912598
+    },
+    {
+      "epoch": 2,
+      "train_loss": 3.3339846580259263,
+      "val_loss": 3.0256699323654175,
+      "val_r@1": 0.019999999552965164,
+      "val_r@5": 0.25999999046325684,
+      "val_r@10": 0.41999998688697815,
+      "val_median_rank": 14.0,
+      "secs": 2.454652786254883
+    }
+  ],
+  "best_epoch": 2,
+  "test": {
+    "audio_to_caption_R@1": 0.05000000074505806,
+    "audio_to_caption_R@5": 0.22499999403953552,
+    "audio_to_caption_R@10": 0.32499998807907104,
+    "audio_to_caption_median_rank": 14.0,
+    "caption_to_audio_R@1": 0.05000000074505806,
+    "caption_to_audio_R@5": 0.25,
+    "caption_to_audio_R@10": 0.375,
+    "caption_to_audio_median_rank": 13.0
+  },
+  "baselines": {
+    "random_retrieval": {
+      "random_R@1": 0.025,
+      "random_R@5": 0.125,
+      "random_R@10": 0.25
+    }
+  },
+  "zero_shot_tags": {
+    "zero_shot": {
+      "macro_f1": 0.06681818181818182,
+      "micro_f1": 0.09036144578313253,
+      "samples_f1": 0.04371734259892155,
+      "auc_pr": 0.4088606183433342,
+      "auc_roc": 0.5584924253334032
+    },
+    "prompt": "a music clip that sounds {tag}",
+    "n_tags": 20,
+    "task3_supervised": {
+      "macro_f1": 0.289866993224903,
+      "micro_f1": 0.3565365025466893,
+      "samples_f1": 0.2713657967895256,
+      "auc_pr": 0.4122499220283374,
+      "auc_roc": 0.8518133167237982,
+      "mae_valence": 0.1788804196242222,
+      "rmse_valence": 0.21826327269778945,
+      "r2_valence": 0.47289673909491736,
+      "mae_arousal": 0.20829564693915306,
+      "rmse_arousal": 0.26134090393454595,
+      "r2_arousal": 0.3215219439291497,
+      "mae_mean": 0.1935880332816876,
+      "graph_coherence": 0.999828708461802
+    },
+    "delta_macro_f1": -0.22304881140672117
+  },
+  "examples_file": "E:\\gnn-bert-music-context\\results\\retrieval_examples\\task4_deam_contrastive_examples.json"
+}

@@ -1,0 +1,107 @@
+{
+  "task": 4,
+  "datasets": [
+    "deam",
+    "musiccaps"
+  ],
+  "rows": [
+    {
+      "dataset": "deam",
+      "model": "contrastive",
+      "n_train": 145,
+      "n_val": 36,
+      "n_test": 19,
+      "n_classes": 20,
+      "train": {},
+      "val": {},
+      "test": {
+        "audio_to_caption_R@1": 0.05263157933950424,
+        "audio_to_caption_R@5": 0.31578946113586426,
+        "audio_to_caption_R@10": 0.4736842215061188,
+        "audio_to_caption_median_rank": 11.0,
+        "caption_to_audio_R@1": 0.05263157933950424,
+        "caption_to_audio_R@5": 0.2631579041481018,
+        "caption_to_audio_R@10": 0.5263158082962036,
+        "caption_to_audio_median_rank": 10.0
+      },
+      "baseline_random": {
+        "macro_f1": 0.2631578947368421
+      },
+      "random_retrieval": {
+        "random_R@1": 0.05263157894736842,
+        "random_R@5": 0.2631578947368421,
+        "random_R@10": 0.5263157894736842
+      },
+      "zero_shot_tags": {
+        "zero_shot": {
+          "macro_f1": 0.05859213250517599,
+          "micro_f1": 0.08695652173913043,
+          "samples_f1": 0.06634232640424591,
+          "auc_pr": 0.5666264930489266,
+          "auc_roc": 0.5
+        },
+        "prompt": "a music clip that sounds {tag}",
+        "n_tags": 20,
+        "task3_supervised": {
+          "macro_f1": 0.04852941176470588,
+          "micro_f1": 0.4864864864864865,
+          "samples_f1": 0.47368421052631576,
+          "auc_pr": 0.6111769974131006,
+          "auc_roc": 0.5482954545454546,
+          "mae_valence": 0.19492237034596896,
+          "rmse_valence": 0.2326515048568549,
+          "r2_valence": 0.2675227349567423,
+          "mae_arousal": 0.3379223899621713,
+          "rmse_arousal": 0.40834370481115473,
+          "r2_arousal": -0.6936599876608982,
+          "mae_mean": 0.2664223801540701,
+          "graph_coherence": 1.0
+        },
+        "delta_macro_f1": 0.010062720740470106
+      },
+      "best_epoch": 1
+    },
+    {
+      "dataset": "musiccaps",
+      "model": "contrastive",
+      "n_train": 169,
+      "n_val": 18,
+      "n_test": 13,
+      "n_classes": 50,
+      "train": {},
+      "val": {},
+      "test": {
+        "audio_to_caption_R@1": 0.1538461595773697,
+        "audio_to_caption_R@5": 0.38461539149284363,
+        "audio_to_caption_R@10": 0.7692307829856873,
+        "audio_to_caption_median_rank": 7.0,
+        "caption_to_audio_R@1": 0.07692307978868484,
+        "caption_to_audio_R@5": 0.4615384638309479,
+        "caption_to_audio_R@10": 0.8461538553237915,
+        "caption_to_audio_median_rank": 6.0
+      },
+      "baseline_random": {
+        "macro_f1": 0.38461538461538464
+      },
+      "random_retrieval": {
+        "random_R@1": 0.07692307692307693,
+        "random_R@5": 0.38461538461538464,
+        "random_R@10": 0.7692307692307693
+      },
+      "zero_shot_tags": {
+        "zero_shot": {
+          "macro_f1": 0.11563636363636365,
+          "micro_f1": 0.1271186440677966,
+          "samples_f1": 0.09038985127964085,
+          "auc_pr": 0.20805406013739344,
+          "auc_roc": 0.468989898989899
+        },
+        "prompt": "a music clip that sounds {tag}",
+        "n_tags": 50
+      },
+      "best_epoch": 2
+    }
+  ],
+  "failures": {},
+  "table_markdown": "| dataset | model | n_train | n_test | n_classes | test_caption_to_audio_R@1 | test_caption_to_audio_R@5 | test_caption_to_audio_R@10 | test_audio_to_caption_R@5 | test_caption_to_audio_median_rank | random_reference |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| deam | contrastive | 145 | 19 | 20 | 0.0526 | 0.2632 | 0.5263 | 0.3158 | 10.0000 | 0.2632 |\n| musiccaps | contrastive | 169 | 13 | 50 | 0.0769 | 0.4615 | 0.8462 | 0.3846 | 6.0000 | 0.3846 |"
+}

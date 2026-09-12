@@ -1,0 +1,194 @@
+{
+  "task": 2,
+  "datasets": [
+    "gtzan",
+    "fma_small"
+  ],
+  "rows": [
+    {
+      "dataset": "gtzan",
+      "model": "sage",
+      "n_train": 160,
+      "n_val": 20,
+      "n_test": 20,
+      "n_classes": 10,
+      "train": {
+        "accuracy": 0.99375,
+        "macro_f1": 0.9937497558498378,
+        "micro_f1": 0.99375,
+        "auc_pr": 0.9728160134150998,
+        "n_classes": 10
+      },
+      "val": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "micro_f1": 1.0,
+        "auc_pr": 0.9909090909090909,
+        "n_classes": 10
+      },
+      "test": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "micro_f1": 1.0,
+        "auc_pr": 0.9904545454545454,
+        "n_classes": 10
+      },
+      "baseline_random": {
+        "accuracy": 0.45,
+        "macro_f1": 0.41333333333333333,
+        "micro_f1": 0.45,
+        "auc_pr": 0.5721653821324872,
+        "n_classes": 10
+      },
+      "cnn_baseline": {
+        "accuracy": 0.4,
+        "macro_f1": 0.19047619047619047,
+        "micro_f1": 0.4,
+        "auc_pr": 0.727401326743432,
+        "n_classes": 10
+      },
+      "per_model": {
+        "B1_random": {
+          "accuracy": 0.45,
+          "macro_f1": 0.41333333333333333,
+          "micro_f1": 0.45,
+          "auc_pr": 0.5721653821324872,
+          "n_classes": 10
+        },
+        "B1_majority": {
+          "accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "micro_f1": 0.5,
+          "auc_pr": 0.5,
+          "n_classes": 10
+        },
+        "B4_pca_mlp": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "micro_f1": 1.0,
+          "auc_pr": 0.9999999999999999,
+          "n_classes": 2
+        },
+        "sage": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "micro_f1": 1.0,
+          "auc_pr": 0.9904545454545454,
+          "n_classes": 10
+        },
+        "gat": {
+          "accuracy": 0.9,
+          "macro_f1": 0.898989898989899,
+          "micro_f1": 0.9,
+          "auc_pr": 0.8795605742296918,
+          "n_classes": 10
+        },
+        "gcn": {
+          "accuracy": 0.9,
+          "macro_f1": 0.898989898989899,
+          "micro_f1": 0.9,
+          "auc_pr": 0.8778571428571427,
+          "n_classes": 10
+        },
+        "cnn": {
+          "accuracy": 0.4,
+          "macro_f1": 0.19047619047619047,
+          "micro_f1": 0.4,
+          "auc_pr": 0.727401326743432,
+          "n_classes": 10
+        }
+      },
+      "best_epoch": 2
+    },
+    {
+      "dataset": "fma_small",
+      "model": "gcn",
+      "n_train": 171,
+      "n_val": 13,
+      "n_test": 16,
+      "n_classes": 8,
+      "train": {
+        "accuracy": 0.49707602339181284,
+        "macro_f1": 0.23683717673115753,
+        "micro_f1": 0.49707602339181284,
+        "auc_pr": 0.2854558099200163,
+        "n_classes": 8
+      },
+      "val": {
+        "accuracy": 0.8461538461538461,
+        "macro_f1": 0.6111111111111112,
+        "micro_f1": 0.8461538461538461,
+        "auc_pr": 0.7876190476190477,
+        "n_classes": 8
+      },
+      "test": {
+        "accuracy": 0.1875,
+        "macro_f1": 0.22916666666666666,
+        "micro_f1": 0.1875,
+        "auc_pr": 0.4925671550671551,
+        "n_classes": 8
+      },
+      "baseline_random": {
+        "accuracy": 0.375,
+        "macro_f1": 0.30158730158730157,
+        "micro_f1": 0.375,
+        "auc_pr": 0.3849029442779443,
+        "n_classes": 8
+      },
+      "cnn_baseline": {
+        "accuracy": 0.125,
+        "macro_f1": 0.058823529411764705,
+        "micro_f1": 0.125,
+        "auc_pr": 0.42624042624042624,
+        "n_classes": 8
+      },
+      "per_model": {
+        "B1_random": {
+          "accuracy": 0.375,
+          "macro_f1": 0.30158730158730157,
+          "micro_f1": 0.375,
+          "auc_pr": 0.3849029442779443,
+          "n_classes": 8
+        },
+        "B1_majority": {
+          "accuracy": 0.125,
+          "macro_f1": 0.05555555555555555,
+          "micro_f1": 0.125,
+          "auc_pr": 0.25,
+          "n_classes": 8
+        },
+        "sage": {
+          "accuracy": 0.125,
+          "macro_f1": 0.06666666666666667,
+          "micro_f1": 0.125,
+          "auc_pr": 0.6513798701298702,
+          "n_classes": 8
+        },
+        "gat": {
+          "accuracy": 0.125,
+          "macro_f1": 0.0625,
+          "micro_f1": 0.125,
+          "auc_pr": 0.4141865079365079,
+          "n_classes": 8
+        },
+        "gcn": {
+          "accuracy": 0.1875,
+          "macro_f1": 0.22916666666666666,
+          "micro_f1": 0.1875,
+          "auc_pr": 0.4925671550671551,
+          "n_classes": 8
+        },
+        "cnn": {
+          "accuracy": 0.125,
+          "macro_f1": 0.058823529411764705,
+          "micro_f1": 0.125,
+          "auc_pr": 0.42624042624042624,
+          "n_classes": 8
+        }
+      },
+      "best_epoch": 1
+    }
+  ],
+  "failures": {},
+  "table_markdown": "| dataset | model | n_train | n_test | n_classes | test_accuracy | test_macro_f1 | test_micro_f1 | test_auc_pr | val_accuracy | val_macro_f1 | train_accuracy | train_macro_f1 | random_macro_f1 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| gtzan | sage | 160 | 20 | 10 | 1.0000 | 1.0000 | 1.0000 | 0.9905 | 1.0000 | 1.0000 | 0.9938 | 0.9937 | 0.4133 |\n| fma_small | gcn | 171 | 16 | 8 | 0.1875 | 0.2292 | 0.1875 | 0.4926 | 0.8462 | 0.6111 | 0.4971 | 0.2368 | 0.3016 |"
+}

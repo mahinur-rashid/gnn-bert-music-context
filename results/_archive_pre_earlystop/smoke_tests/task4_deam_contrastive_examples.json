@@ -1,0 +1,272 @@
+[
+  {
+    "query_caption": "Track: Keep Your Lamp Trimmed And Burning [traditional]. Artist: Billy Childish.",
+    "gold_clip": "69",
+    "gold_rank": 8,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1505,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "175",
+        "similarity": 0.1348,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Don't You Want to Go to Heaven Uncle Sam. Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1327,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: How to go to sleep. Artist: Mr. & Mrs. Smith.",
+    "gold_clip": "78",
+    "gold_rank": 14,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1475,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1353,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      },
+      {
+        "clip": "175",
+        "similarity": 0.1321,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Don't You Want to Go to Heaven Uncle Sam. Artist: Steven Arntson."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: If You Love Me Like You Say. Artist: Paul Wine Jones.",
+    "gold_clip": "83",
+    "gold_rank": 15,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1448,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "192",
+        "similarity": 0.1251,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Lucky. Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1233,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Queen of Loneliness. Artist: Delta Dreambox.",
+    "gold_clip": "117",
+    "gold_rank": 6,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.144,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "192",
+        "similarity": 0.1262,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Lucky. Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1245,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major.",
+    "gold_clip": "137",
+    "gold_rank": 2,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1468,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1331,
+        "is_gold": true,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      },
+      {
+        "clip": "117",
+        "similarity": 0.1329,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Queen of Loneliness. Artist: Delta Dreambox."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson.",
+    "gold_clip": "150",
+    "gold_rank": 1,
+    "hit@1": true,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1601,
+        "is_gold": true,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1492,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      },
+      {
+        "clip": "192",
+        "similarity": 0.1457,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Lucky. Artist: Steven Arntson."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Don't You Want to Go to Heaven Uncle Sam. Artist: Steven Arntson.",
+    "gold_clip": "175",
+    "gold_rank": 3,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.147,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1306,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      },
+      {
+        "clip": "175",
+        "similarity": 0.1278,
+        "is_gold": true,
+        "caption_of_retrieved": "Track: Don't You Want to Go to Heaven Uncle Sam. Artist: Steven Arntson."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Lucky. Artist: Steven Arntson.",
+    "gold_clip": "192",
+    "gold_rank": 5,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1518,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "138",
+        "similarity": 0.1396,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Encounters With Abusive Men. Artist: Silver Process."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1332,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: In A Party Watching A Party. Artist: Silver Process.",
+    "gold_clip": "215",
+    "gold_rank": 12,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1517,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "192",
+        "similarity": 0.1391,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Lucky. Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.139,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Jazz Band With Jazz Hands. Artist: Silver Process.",
+    "gold_clip": "220",
+    "gold_rank": 16,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "150",
+        "similarity": 0.1402,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "192",
+        "similarity": 0.1325,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Lucky. Artist: Steven Arntson."
+      },
+      {
+        "clip": "137",
+        "similarity": 0.1283,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: I. Artist: Aaron Dunn-Sonatina No. 1 in C Major."
+      }
+    ]
+  }
+]

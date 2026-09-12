@@ -1,0 +1,165 @@
+[
+  {
+    "id": "2",
+    "text": "Artist: american bach soloists. Album: j s bach solo cantatas. Track: 01 bwv54 i aria. Excerpt 30-59 seconds.",
+    "true_tags": [
+      "classical",
+      "strings",
+      "violin",
+      "opera"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "classical",
+        "p": 0.7226
+      },
+      {
+        "tag": "strings",
+        "p": 0.4912
+      },
+      {
+        "tag": "opera",
+        "p": 0.4589
+      },
+      {
+        "tag": "violin",
+        "p": 0.2801
+      },
+      {
+        "tag": "male",
+        "p": 0.2259
+      }
+    ]
+  },
+  {
+    "id": "14674",
+    "text": "Artist: pain factor. Album: 8 seconds. Track: 03 rock star. Excerpt 175-204 seconds.",
+    "true_tags": [
+      "techno",
+      "drums",
+      "rock",
+      "heavy"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "techno",
+        "p": 0.8287
+      },
+      {
+        "tag": "electronic",
+        "p": 0.5857
+      },
+      {
+        "tag": "synth",
+        "p": 0.4819
+      },
+      {
+        "tag": "beats",
+        "p": 0.2408
+      },
+      {
+        "tag": "fast",
+        "p": 0.228
+      }
+    ]
+  },
+  {
+    "id": "29561",
+    "text": "Artist: utopia banished. Album: night of the black wyvern. Track: 06 the darkness we burn. Excerpt 30-59 seconds.",
+    "true_tags": [
+      "rock",
+      "loud",
+      "heavy"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "male",
+        "p": 0.6681
+      },
+      {
+        "tag": "slow",
+        "p": 0.3572
+      },
+      {
+        "tag": "vocals",
+        "p": 0.2572
+      },
+      {
+        "tag": "ambient",
+        "p": 0.254
+      },
+      {
+        "tag": "guitar",
+        "p": 0.1784
+      }
+    ]
+  },
+  {
+    "id": "43779",
+    "text": "Artist: strojovna 07. Album: dirnix. Track: 10 problem. Excerpt 59-88 seconds.",
+    "true_tags": [
+      "techno",
+      "drums",
+      "electronic",
+      "fast",
+      "synth",
+      "dance"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "techno",
+        "p": 0.9736
+      },
+      {
+        "tag": "dance",
+        "p": 0.892
+      },
+      {
+        "tag": "fast",
+        "p": 0.8483
+      },
+      {
+        "tag": "beats",
+        "p": 0.8232
+      },
+      {
+        "tag": "electronic",
+        "p": 0.7833
+      }
+    ]
+  },
+  {
+    "id": "58801",
+    "text": "Artist: magnaloops. Album: electronica loops 1. Track: 43 osxivilion554. Excerpt 0-29 seconds.",
+    "true_tags": [
+      "slow",
+      "no vocals",
+      "ambient",
+      "quiet",
+      "soft",
+      "weird"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "ambient",
+        "p": 0.3905
+      },
+      {
+        "tag": "slow",
+        "p": 0.3375
+      },
+      {
+        "tag": "no vocals",
+        "p": 0.2919
+      },
+      {
+        "tag": "beats",
+        "p": 0.0707
+      },
+      {
+        "tag": "harpsichord",
+        "p": 0.0703
+      }
+    ]
+  }
+]

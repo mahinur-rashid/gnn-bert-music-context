@@ -1,0 +1,159 @@
+{
+  "task": 4,
+  "dataset": "deam",
+  "model": "contrastive dual-encoder (sage + distilbert-base-uncased)",
+  "n_train": 1431,
+  "n_val": 187,
+  "n_test": 177,
+  "n_classes": 20,
+  "embed_dim": 256,
+  "temperature": 0.07,
+  "temperature_learned": true,
+  "args": {
+    "dataset": "deam",
+    "model_name": "distilbert-base-uncased",
+    "epochs": 50,
+    "patience": 5,
+    "min_epochs": 3,
+    "batch_size": 64,
+    "lr_bert": 2e-05,
+    "lr_other": 0.001,
+    "weight_decay": 0.01,
+    "embed_dim": 256,
+    "hidden": 256,
+    "gnn_layers": 3,
+    "conv": "sage",
+    "temperature": 0.07,
+    "fixed_temperature": false,
+    "dropout": 0.2,
+    "max_length": 192,
+    "freeze_bert": false,
+    "n_trainable_layers": null,
+    "zero_shot_tags": true,
+    "n_examples": 10,
+    "no_standardize": false,
+    "limit": null,
+    "num_workers": 0,
+    "log_every": 100,
+    "save_model": false,
+    "seed": 42
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 4.113525991086607,
+      "val_loss": 4.04106346766154,
+      "val_r@1": 0.026737967506051064,
+      "val_r@5": 0.05882352963089943,
+      "val_r@10": 0.10695187002420425,
+      "val_median_rank": 56.0,
+      "secs": 6.1027796268463135
+    },
+    {
+      "epoch": 2,
+      "train_loss": 3.9185181210542543,
+      "val_loss": 4.112218538920085,
+      "val_r@1": 0.01604278013110161,
+      "val_r@5": 0.10160427540540695,
+      "val_r@10": 0.16577540338039398,
+      "val_median_rank": 40.0,
+      "secs": 5.529684066772461
+    },
+    {
+      "epoch": 3,
+      "train_loss": 3.6819837323274753,
+      "val_loss": 4.141723235448201,
+      "val_r@1": 0.01604278013110161,
+      "val_r@5": 0.06951871514320374,
+      "val_r@10": 0.14438502490520477,
+      "val_median_rank": 42.0,
+      "secs": 5.183989524841309
+    },
+    {
+      "epoch": 4,
+      "train_loss": 3.375195664679729,
+      "val_loss": 4.473082065582275,
+      "val_r@1": 0.0,
+      "val_r@5": 0.06951871514320374,
+      "val_r@10": 0.13903743028640747,
+      "val_median_rank": 50.0,
+      "secs": 5.220851182937622
+    },
+    {
+      "epoch": 5,
+      "train_loss": 3.0993805658059217,
+      "val_loss": 4.554082870483398,
+      "val_r@1": 0.010695187374949455,
+      "val_r@5": 0.07486630976200104,
+      "val_r@10": 0.1925133615732193,
+      "val_median_rank": 35.0,
+      "secs": 5.186563491821289
+    },
+    {
+      "epoch": 6,
+      "train_loss": 2.7338612841027006,
+      "val_loss": 5.124647776285808,
+      "val_r@1": 0.01604278013110161,
+      "val_r@5": 0.06417112052440643,
+      "val_r@10": 0.16042780876159668,
+      "val_median_rank": 44.0,
+      "secs": 5.231594562530518
+    },
+    {
+      "epoch": 7,
+      "train_loss": 2.415637015463338,
+      "val_loss": 5.619901974995931,
+      "val_r@1": 0.010695187374949455,
+      "val_r@5": 0.07486630976200104,
+      "val_r@10": 0.14973261952400208,
+      "val_median_rank": 39.0,
+      "secs": 5.280892848968506
+    }
+  ],
+  "best_epoch": 2,
+  "test": {
+    "audio_to_caption_R@1": 0.011299435049295425,
+    "audio_to_caption_R@5": 0.05649717524647713,
+    "audio_to_caption_R@10": 0.09604519605636597,
+    "audio_to_caption_median_rank": 62.0,
+    "caption_to_audio_R@1": 0.0,
+    "caption_to_audio_R@5": 0.050847455859184265,
+    "caption_to_audio_R@10": 0.10734463483095169,
+    "caption_to_audio_median_rank": 68.0
+  },
+  "baselines": {
+    "random_retrieval": {
+      "random_R@1": 0.005649717514124294,
+      "random_R@5": 0.02824858757062147,
+      "random_R@10": 0.05649717514124294
+    }
+  },
+  "zero_shot_tags": {
+    "zero_shot": {
+      "macro_f1": 0.1289423533427047,
+      "micro_f1": 0.13848768054375532,
+      "samples_f1": 0.10097949941936289,
+      "auc_pr": 0.16733669750731897,
+      "auc_roc": 0.5694829803770901
+    },
+    "prompt": "a music clip that sounds {tag}",
+    "n_tags": 20,
+    "task3_supervised": {
+      "macro_f1": 0.42868067396032883,
+      "micro_f1": 0.4165554072096128,
+      "samples_f1": 0.37720690741627927,
+      "auc_pr": 0.4516480958683012,
+      "auc_roc": 0.8449788289375373,
+      "mae_valence": 0.166509606154625,
+      "rmse_valence": 0.20817608617284855,
+      "r2_valence": 0.5204917806770705,
+      "mae_arousal": 0.20084024539564627,
+      "rmse_arousal": 0.25897877774257444,
+      "r2_arousal": 0.333731345475374,
+      "mae_mean": 0.18367492577513564,
+      "graph_coherence": 1.0
+    },
+    "delta_macro_f1": -0.2997383206176241
+  },
+  "examples_file": "E:\\gnn-bert-music-context\\results\\retrieval_examples\\task4_deam_contrastive_examples.json"
+}

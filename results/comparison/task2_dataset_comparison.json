@@ -1,0 +1,201 @@
+{
+  "task": 2,
+  "datasets": [
+    "gtzan",
+    "fma_small"
+  ],
+  "rows": [
+    {
+      "dataset": "gtzan",
+      "model": "gat",
+      "n_train": 799,
+      "n_val": 100,
+      "n_test": 100,
+      "n_classes": 10,
+      "train": {
+        "accuracy": 0.9962453066332916,
+        "macro_f1": 0.9962334860608653,
+        "micro_f1": 0.9962453066332916,
+        "auc_pr": 0.9996297167599183,
+        "n_classes": 10
+      },
+      "val": {
+        "accuracy": 0.84,
+        "macro_f1": 0.8398090815273477,
+        "micro_f1": 0.84,
+        "auc_pr": 0.8930650566386118,
+        "n_classes": 10
+      },
+      "test": {
+        "accuracy": 0.8,
+        "macro_f1": 0.7895125494896662,
+        "micro_f1": 0.8,
+        "auc_pr": 0.8826988374528696,
+        "n_classes": 10
+      },
+      "baseline_random": {
+        "accuracy": 0.11,
+        "macro_f1": 0.1124158882053619,
+        "micro_f1": 0.11,
+        "auc_pr": 0.14687397647035394,
+        "n_classes": 10
+      },
+      "cnn_baseline": {
+        "accuracy": 0.61,
+        "macro_f1": 0.5968978506873244,
+        "micro_f1": 0.61,
+        "auc_pr": 0.7353704678728359,
+        "n_classes": 10
+      },
+      "per_model": {
+        "B1_random": {
+          "accuracy": 0.11,
+          "macro_f1": 0.1124158882053619,
+          "micro_f1": 0.11,
+          "auc_pr": 0.14687397647035394,
+          "n_classes": 10
+        },
+        "B1_majority": {
+          "accuracy": 0.1,
+          "macro_f1": 0.01818181818181818,
+          "micro_f1": 0.1,
+          "auc_pr": 0.1,
+          "n_classes": 10
+        },
+        "B4_pca_mlp": {
+          "accuracy": 0.75,
+          "macro_f1": 0.7544952962115434,
+          "micro_f1": 0.75,
+          "auc_pr": 0.836236679505974,
+          "n_classes": 10
+        },
+        "sage": {
+          "accuracy": 0.73,
+          "macro_f1": 0.7233959899749374,
+          "micro_f1": 0.73,
+          "auc_pr": 0.8270196337690617,
+          "n_classes": 10
+        },
+        "gat": {
+          "accuracy": 0.8,
+          "macro_f1": 0.7895125494896662,
+          "micro_f1": 0.8,
+          "auc_pr": 0.8826988374528696,
+          "n_classes": 10
+        },
+        "gcn": {
+          "accuracy": 0.75,
+          "macro_f1": 0.7531858451295792,
+          "micro_f1": 0.75,
+          "auc_pr": 0.8605463399688732,
+          "n_classes": 10
+        },
+        "cnn": {
+          "accuracy": 0.61,
+          "macro_f1": 0.5968978506873244,
+          "micro_f1": 0.61,
+          "auc_pr": 0.7353704678728359,
+          "n_classes": 10
+        }
+      },
+      "best_epoch": 18
+    },
+    {
+      "dataset": "fma_small",
+      "model": "cnn",
+      "n_train": 6397,
+      "n_val": 800,
+      "n_test": 800,
+      "n_classes": 8,
+      "train": {
+        "accuracy": 0.5832421447553541,
+        "macro_f1": 0.579129656338941,
+        "micro_f1": 0.5832421447553541,
+        "auc_pr": 0.6394473019113389,
+        "n_classes": 8
+      },
+      "val": {
+        "accuracy": 0.55875,
+        "macro_f1": 0.5467846503806293,
+        "micro_f1": 0.55875,
+        "auc_pr": 0.5774553186184905,
+        "n_classes": 8
+      },
+      "test": {
+        "accuracy": 0.40625,
+        "macro_f1": 0.4101227048683336,
+        "micro_f1": 0.40625,
+        "auc_pr": 0.44631552757166754,
+        "n_classes": 8
+      },
+      "baseline_random": {
+        "accuracy": 0.15125,
+        "macro_f1": 0.151284354050222,
+        "micro_f1": 0.15125,
+        "auc_pr": 0.13468777339108173,
+        "n_classes": 8
+      },
+      "cnn_baseline": {
+        "accuracy": 0.40625,
+        "macro_f1": 0.4101227048683336,
+        "micro_f1": 0.40625,
+        "auc_pr": 0.44631552757166754,
+        "n_classes": 8
+      },
+      "per_model": {
+        "B1_random": {
+          "accuracy": 0.15125,
+          "macro_f1": 0.151284354050222,
+          "micro_f1": 0.15125,
+          "auc_pr": 0.13468777339108173,
+          "n_classes": 8
+        },
+        "B1_majority": {
+          "accuracy": 0.125,
+          "macro_f1": 0.027777777777777776,
+          "micro_f1": 0.125,
+          "auc_pr": 0.125,
+          "n_classes": 8
+        },
+        "B4_pca_mlp": {
+          "accuracy": 0.3775,
+          "macro_f1": 0.37497257688938546,
+          "micro_f1": 0.3775,
+          "auc_pr": 0.3745772534087628,
+          "n_classes": 8
+        },
+        "sage": {
+          "accuracy": 0.4,
+          "macro_f1": 0.39164954859589174,
+          "micro_f1": 0.4,
+          "auc_pr": 0.4335407208526817,
+          "n_classes": 8
+        },
+        "gat": {
+          "accuracy": 0.395,
+          "macro_f1": 0.38784555617067096,
+          "micro_f1": 0.395,
+          "auc_pr": 0.4215744435936418,
+          "n_classes": 8
+        },
+        "gcn": {
+          "accuracy": 0.38875,
+          "macro_f1": 0.3796438780536322,
+          "micro_f1": 0.38875,
+          "auc_pr": 0.4118849984701676,
+          "n_classes": 8
+        },
+        "cnn": {
+          "accuracy": 0.40625,
+          "macro_f1": 0.4101227048683336,
+          "micro_f1": 0.40625,
+          "auc_pr": 0.44631552757166754,
+          "n_classes": 8
+        }
+      },
+      "best_epoch": 11
+    }
+  ],
+  "failures": {},
+  "table_markdown": "| dataset | model | n_train | n_test | n_classes | test_accuracy | test_macro_f1 | test_micro_f1 | test_auc_pr | val_accuracy | val_macro_f1 | train_accuracy | train_macro_f1 | random_macro_f1 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| gtzan | gat | 799 | 100 | 10 | 0.8000 | 0.7895 | 0.8000 | 0.8827 | 0.8400 | 0.8398 | 0.9962 | 0.9962 | 0.1124 |\n| fma_small | cnn | 6397 | 800 | 8 | 0.4062 | 0.4101 | 0.4062 | 0.4463 | 0.5587 | 0.5468 | 0.5832 | 0.5791 | 0.1513 |"
+}

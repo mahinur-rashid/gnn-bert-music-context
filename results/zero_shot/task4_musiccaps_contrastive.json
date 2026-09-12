@@ -1,0 +1,11 @@
+{
+  "zero_shot": {
+    "macro_f1": 0.12428827229763041,
+    "micro_f1": 0.13216464724585375,
+    "samples_f1": 0.134272310417338,
+    "auc_pr": 0.09704383846736452,
+    "auc_roc": 0.5508731411203754
+  },
+  "prompt": "a music clip that sounds {tag}",
+  "n_tags": 50
+}

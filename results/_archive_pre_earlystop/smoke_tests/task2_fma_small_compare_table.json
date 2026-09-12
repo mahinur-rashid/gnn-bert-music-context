@@ -1,0 +1,50 @@
+[
+  {
+    "model": "B1_random",
+    "accuracy": 0.375,
+    "macro_f1": 0.30158730158730157,
+    "micro_f1": 0.375,
+    "auc_pr": 0.3849029442779443,
+    "n_classes": 8
+  },
+  {
+    "model": "B1_majority",
+    "accuracy": 0.125,
+    "macro_f1": 0.05555555555555555,
+    "micro_f1": 0.125,
+    "auc_pr": 0.25,
+    "n_classes": 8
+  },
+  {
+    "model": "sage",
+    "accuracy": 0.125,
+    "macro_f1": 0.06666666666666667,
+    "micro_f1": 0.125,
+    "auc_pr": 0.6513798701298702,
+    "n_classes": 8
+  },
+  {
+    "model": "gat",
+    "accuracy": 0.125,
+    "macro_f1": 0.0625,
+    "micro_f1": 0.125,
+    "auc_pr": 0.4141865079365079,
+    "n_classes": 8
+  },
+  {
+    "model": "gcn",
+    "accuracy": 0.1875,
+    "macro_f1": 0.22916666666666666,
+    "micro_f1": 0.1875,
+    "auc_pr": 0.4925671550671551,
+    "n_classes": 8
+  },
+  {
+    "model": "cnn",
+    "accuracy": 0.125,
+    "macro_f1": 0.058823529411764705,
+    "micro_f1": 0.125,
+    "auc_pr": 0.42624042624042624,
+    "n_classes": 8
+  }
+]

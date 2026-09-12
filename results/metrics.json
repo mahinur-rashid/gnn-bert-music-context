@@ -1,0 +1,112 @@
+[
+  {
+    "experiment": "task1_fma_small_distilbert-base-uncased",
+    "task": 1,
+    "dataset": "fma_small",
+    "model": "BERT(distilbert-base-uncased)",
+    "macro_f1": 0.267095912654529,
+    "micro_f1": 0.32446296890028853,
+    "auc_pr": 0.326394914940043
+  },
+  {
+    "experiment": "task1_gtzan_distilbert-base-uncased",
+    "task": 1,
+    "dataset": "gtzan",
+    "model": "BERT(distilbert-base-uncased)",
+    "macro_f1": 0.4803930595150108,
+    "micro_f1": 0.4511784511784512,
+    "auc_pr": 0.522835759502295
+  },
+  {
+    "experiment": "task1_mtat_distilbert-base-uncased",
+    "task": 1,
+    "dataset": "mtat",
+    "model": "BERT(distilbert-base-uncased)",
+    "macro_f1": 0.3040505781762242,
+    "micro_f1": 0.39154773311816027,
+    "auc_pr": 0.2869069001492203
+  },
+  {
+    "experiment": "task1_musiccaps_distilbert-base-uncased",
+    "task": 1,
+    "dataset": "musiccaps",
+    "model": "BERT(distilbert-base-uncased)",
+    "macro_f1": 0.6919397338674141,
+    "micro_f1": 0.7351555136663525,
+    "auc_pr": 0.7229619464318514
+  },
+  {
+    "experiment": "task2_fma_small_compare",
+    "task": 2,
+    "dataset": "fma_small",
+    "model": "sage+gat+gcn+cnn",
+    "accuracy": 0.40625,
+    "macro_f1": 0.4101227048683336,
+    "micro_f1": 0.40625,
+    "auc_pr": 0.44631552757166754
+  },
+  {
+    "experiment": "task2_gtzan_compare",
+    "task": 2,
+    "dataset": "gtzan",
+    "model": "sage+gat+gcn+cnn",
+    "accuracy": 0.61,
+    "macro_f1": 0.5968978506873244,
+    "micro_f1": 0.61,
+    "auc_pr": 0.7353704678728359
+  },
+  {
+    "experiment": "task3_deam_ablation",
+    "task": 3,
+    "dataset": "deam",
+    "model": "cross_attn+concat+bert_only+gnn_only",
+    "macro_f1": 0.42868067396032883,
+    "micro_f1": 0.4165554072096128,
+    "auc_pr": 0.4516480958683012,
+    "mae_mean": 0.18367492577513564,
+    "r2_valence": 0.5204917806770705
+  },
+  {
+    "experiment": "task3_fma_medium_ablation",
+    "task": 3,
+    "dataset": "fma_medium",
+    "model": "cross_attn+concat+bert_only+gnn_only",
+    "macro_f1": 0.3232307845237547,
+    "micro_f1": 0.4456249373559186,
+    "auc_pr": 0.3236035824349372
+  },
+  {
+    "experiment": "task3_fma_small_ablation",
+    "task": 3,
+    "dataset": "fma_small",
+    "model": "cross_attn+concat+bert_only+gnn_only",
+    "macro_f1": 0.20543811175653268,
+    "micro_f1": 0.2736644798500469,
+    "auc_pr": 0.29936504367984107
+  },
+  {
+    "experiment": "task3_mtat_ablation",
+    "task": 3,
+    "dataset": "mtat",
+    "model": "cross_attn+concat+bert_only+gnn_only",
+    "macro_f1": 0.35145702020445724,
+    "micro_f1": 0.4405881066899869,
+    "auc_pr": 0.34550598768064433
+  },
+  {
+    "experiment": "task4_deam_contrastive",
+    "task": 4,
+    "dataset": "deam",
+    "model": "contrastive dual-encoder (sage + distilbert-base-uncased)",
+    "caption_to_audio_R@5": 0.050847455859184265,
+    "caption_to_audio_R@10": 0.10734463483095169
+  },
+  {
+    "experiment": "task4_musiccaps_contrastive",
+    "task": 4,
+    "dataset": "musiccaps",
+    "model": "contrastive dual-encoder (sage + distilbert-base-uncased)",
+    "caption_to_audio_R@5": 0.19298245012760162,
+    "caption_to_audio_R@10": 0.3001949191093445
+  }
+]

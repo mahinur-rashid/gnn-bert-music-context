@@ -1,0 +1,159 @@
+[
+  {
+    "id": "2",
+    "text": "Artist: american bach soloists. Album: j s bach solo cantatas. Track: 01 bwv54 i aria. Excerpt 30-59 seconds.",
+    "true_tags": [
+      "classical",
+      "strings",
+      "violin",
+      "opera"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "choir",
+        "p": 0.2056
+      },
+      {
+        "tag": "classical",
+        "p": 0.1957
+      },
+      {
+        "tag": "no beat",
+        "p": 0.172
+      },
+      {
+        "tag": "synth",
+        "p": 0.159
+      },
+      {
+        "tag": "techno",
+        "p": 0.1565
+      }
+    ]
+  },
+  {
+    "id": "122",
+    "text": "Artist: tilopa. Album: turkishauch. Track: 01 1x3. Excerpt 204-233 seconds.",
+    "true_tags": [
+      "ambient",
+      "synth",
+      "flute"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "techno",
+        "p": 0.1694
+      },
+      {
+        "tag": "flute",
+        "p": 0.1629
+      },
+      {
+        "tag": "electronic",
+        "p": 0.1617
+      },
+      {
+        "tag": "female",
+        "p": 0.1382
+      },
+      {
+        "tag": "choir",
+        "p": 0.1367
+      }
+    ]
+  },
+  {
+    "id": "239",
+    "text": "Artist: seismic anamoly. Album: afterburner. Track: 01 afterburner. Excerpt 146-175 seconds.",
+    "true_tags": [
+      "rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "flute",
+        "p": 0.1633
+      },
+      {
+        "tag": "electronic",
+        "p": 0.1535
+      },
+      {
+        "tag": "techno",
+        "p": 0.1495
+      },
+      {
+        "tag": "choir",
+        "p": 0.1473
+      },
+      {
+        "tag": "classical",
+        "p": 0.1426
+      }
+    ]
+  },
+  {
+    "id": "510",
+    "text": "Artist: hans christian. Album: phantoms. Track: 01 backwards with my eyes closed. Excerpt 233-262 seconds.",
+    "true_tags": [
+      "strings",
+      "no vocals",
+      "fast",
+      "violin",
+      "indian"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "choir",
+        "p": 0.176
+      },
+      {
+        "tag": "flute",
+        "p": 0.1676
+      },
+      {
+        "tag": "techno",
+        "p": 0.1507
+      },
+      {
+        "tag": "classical",
+        "p": 0.1504
+      },
+      {
+        "tag": "electronic",
+        "p": 0.145
+      }
+    ]
+  },
+  {
+    "id": "1064",
+    "text": "Artist: american baroque. Album: the four seasons by vivaldi. Track: 01 concerto no 1 in d major rv 269 spring allegro. Excerpt 0-29 seconds.",
+    "true_tags": [
+      "classical",
+      "strings",
+      "flute",
+      "baroque"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "choir",
+        "p": 0.1987
+      },
+      {
+        "tag": "classical",
+        "p": 0.1965
+      },
+      {
+        "tag": "no beat",
+        "p": 0.1641
+      },
+      {
+        "tag": "cello",
+        "p": 0.1524
+      },
+      {
+        "tag": "female",
+        "p": 0.1492
+      }
+    ]
+  }
+]

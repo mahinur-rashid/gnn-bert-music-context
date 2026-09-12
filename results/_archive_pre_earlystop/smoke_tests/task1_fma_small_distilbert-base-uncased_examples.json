@@ -1,0 +1,150 @@
+[
+  {
+    "id": "182",
+    "text": "Track: Jules Lost His Jewels. Artist: Ariel Pink's Haunted Graffiti. Album: Worn Copy. Tags: ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Folk",
+        "p": 0.223
+      },
+      {
+        "tag": "International",
+        "p": 0.1727
+      },
+      {
+        "tag": "Europe",
+        "p": 0.1719
+      },
+      {
+        "tag": "Metal",
+        "p": 0.1525
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1471
+      }
+    ]
+  },
+  {
+    "id": "3624",
+    "text": "Track: Days of Summer. Artist: Fallen Leaves. Album: Live at WFMU on Evan Davies's Show on 9/16/2008. From London, UK. Tags: fallen leaves.",
+    "true_tags": [
+      "Post-Punk",
+      "Rock",
+      "Punk"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Folk",
+        "p": 0.232
+      },
+      {
+        "tag": "International",
+        "p": 0.1807
+      },
+      {
+        "tag": "Europe",
+        "p": 0.1582
+      },
+      {
+        "tag": "Electroacoustic",
+        "p": 0.1533
+      },
+      {
+        "tag": "Chill-out",
+        "p": 0.1455
+      }
+    ]
+  },
+  {
+    "id": "9155",
+    "text": "Track: Tossypot. Artist: Peeled Hearts Paste. Album: Plover Brand. From Sydney. Tags: peeled hearts paste.",
+    "true_tags": [
+      "Noise",
+      "Experimental"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Folk",
+        "p": 0.2647
+      },
+      {
+        "tag": "Europe",
+        "p": 0.1645
+      },
+      {
+        "tag": "International",
+        "p": 0.162
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1575
+      },
+      {
+        "tag": "Chill-out",
+        "p": 0.1403
+      }
+    ]
+  },
+  {
+    "id": "10443",
+    "text": "Track: Beast (1 Beast). Artist: Big Blood. Album: The Grove. From South Portland, Maine. Tags: maine, big blood.",
+    "true_tags": [
+      "Folk"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Folk",
+        "p": 0.2473
+      },
+      {
+        "tag": "International",
+        "p": 0.1737
+      },
+      {
+        "tag": "Europe",
+        "p": 0.16
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1378
+      },
+      {
+        "tag": "Electroacoustic",
+        "p": 0.1313
+      }
+    ]
+  },
+  {
+    "id": "11204",
+    "text": "Track: Steppin' In. Artist: Audible Intelligence. Album: netBloc Vol. 20: music to accompany the world traveller. Tags: audible intelligence.",
+    "true_tags": [
+      "Hip-Hop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Folk",
+        "p": 0.2339
+      },
+      {
+        "tag": "International",
+        "p": 0.1747
+      },
+      {
+        "tag": "Europe",
+        "p": 0.1687
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1477
+      },
+      {
+        "tag": "Metal",
+        "p": 0.1468
+      }
+    ]
+  }
+]

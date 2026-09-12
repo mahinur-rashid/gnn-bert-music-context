@@ -1,0 +1,149 @@
+[
+  {
+    "id": "182",
+    "text": "Track: Jules Lost His Jewels. Artist: Ariel Pink's Haunted Graffiti. Album: Worn Copy. Tags: ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Instrumental",
+        "p": 0.333
+      },
+      {
+        "tag": "Soundtrack",
+        "p": 0.1718
+      },
+      {
+        "tag": "Experimental",
+        "p": 0.0477
+      },
+      {
+        "tag": "Rock",
+        "p": 0.0436
+      },
+      {
+        "tag": "Pop",
+        "p": 0.0065
+      }
+    ]
+  },
+  {
+    "id": "38776",
+    "text": "Track: Silver Spear. Artist: Sl\u00e1inte. Album: Sl\u00e1inte. From Tacoma, Washington, USA. Tags: celtic, ireland, irish, slainte, slainte, irish, celtic.",
+    "true_tags": [
+      "International"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.2091
+      },
+      {
+        "tag": "Dubstep",
+        "p": 0.1557
+      },
+      {
+        "tag": "Metal",
+        "p": 0.1082
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1009
+      },
+      {
+        "tag": "Folk",
+        "p": 0.062
+      }
+    ]
+  },
+  {
+    "id": "76128",
+    "text": "Track: Budding. Artist: Broke For Free. Album: Gold Can Stay. From Santa Cruz, CA. Tags: video, broke for free.",
+    "true_tags": [
+      "Pop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Pop",
+        "p": 0.9293
+      },
+      {
+        "tag": "Experimental Pop",
+        "p": 0.8008
+      },
+      {
+        "tag": "Rock",
+        "p": 0.3849
+      },
+      {
+        "tag": "Punk",
+        "p": 0.0562
+      },
+      {
+        "tag": "Experimental",
+        "p": 0.0283
+      }
+    ]
+  },
+  {
+    "id": "117253",
+    "text": "Track: The Consequences of Others. Artist: Squire Tuck. Album: Music Box. Tags: a whimsical musical journey through the darkside and beyond, keyboards, acoustic pop, soundtrack for the soul, zivix jamstik smart midi guitar, instrumental, ovation applause ukulele, jamstik, fender squire 50s vibe butterscotch blonde telecaster guitar, tanglewood acoustic guitar, squire tuck, telecaster.",
+    "true_tags": [
+      "Instrumental"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Instrumental",
+        "p": 0.7856
+      },
+      {
+        "tag": "Experimental",
+        "p": 0.7121
+      },
+      {
+        "tag": "Electroacoustic",
+        "p": 0.4486
+      },
+      {
+        "tag": "Soundtrack",
+        "p": 0.3384
+      },
+      {
+        "tag": "Avant-Garde",
+        "p": 0.0158
+      }
+    ]
+  },
+  {
+    "id": "154309",
+    "text": "Track: A1 Symphony. Artist: Fleslit. Album: Journey. From Hong Kong. Tags: fleslit, trap beat free use, trap beat free dl, trap beat free download, trap beat free for profit use, trap beat freestyle, trap beat free, trap beat music, trap beat, journey instrumental music, trap beat free 2017, trap beat hard rap instrumental.",
+    "true_tags": [
+      "Hip-Hop Beats",
+      "Rap",
+      "Hip-Hop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Hip-Hop",
+        "p": 0.9436
+      },
+      {
+        "tag": "Electronic",
+        "p": 0.9129
+      },
+      {
+        "tag": "Rap",
+        "p": 0.2429
+      },
+      {
+        "tag": "Techno",
+        "p": 0.1579
+      },
+      {
+        "tag": "House",
+        "p": 0.1283
+      }
+    ]
+  }
+]

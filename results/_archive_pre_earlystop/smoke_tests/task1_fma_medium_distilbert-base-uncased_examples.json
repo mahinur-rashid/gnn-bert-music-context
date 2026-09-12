@@ -1,0 +1,149 @@
+[
+  {
+    "id": "181",
+    "text": "Track: Gopacapulco. Artist: Ariel Pink's Haunted Graffiti. Album: Scared Famous. Tags: ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Lo-Fi",
+      "Rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Experimental",
+        "p": 0.2465
+      },
+      {
+        "tag": "Rock",
+        "p": 0.0767
+      },
+      {
+        "tag": "Electronic",
+        "p": 0.0527
+      },
+      {
+        "tag": "Sound Collage",
+        "p": 0.0188
+      },
+      {
+        "tag": "Hip-Hop",
+        "p": 0.0043
+      }
+    ]
+  },
+  {
+    "id": "36959",
+    "text": "Track: Facing the Sea (Album Version). Artist: Garmisch. Album: Facing the Sea. From Malm\u00f6, Sweden. Tags: mgee, maine, garmisch.",
+    "true_tags": [
+      "Pop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Experimental",
+        "p": 0.8372
+      },
+      {
+        "tag": "Avant-Garde",
+        "p": 0.1826
+      },
+      {
+        "tag": "Progressive",
+        "p": 0.127
+      },
+      {
+        "tag": "Jazz",
+        "p": 0.0907
+      },
+      {
+        "tag": "Classical",
+        "p": 0.0699
+      }
+    ]
+  },
+  {
+    "id": "72004",
+    "text": "Track: Powerful Indeed. Artist: Kurobear. Album: Europa. Tags: kurobear.",
+    "true_tags": [
+      "Electronic"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.9992
+      },
+      {
+        "tag": "Ambient Electronic",
+        "p": 0.1507
+      },
+      {
+        "tag": "Dubstep",
+        "p": 0.0327
+      },
+      {
+        "tag": "Chip Music",
+        "p": 0.0243
+      },
+      {
+        "tag": "Chiptune",
+        "p": 0.0208
+      }
+    ]
+  },
+  {
+    "id": "116406",
+    "text": "Track: Like this (feat Life Shows). Artist: Asthmatic Astronaut. Album: Awaken. From Glasgow, Scotland. Tags: asthmatic astronaut.",
+    "true_tags": [
+      "Hip-Hop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Hip-Hop",
+        "p": 0.917
+      },
+      {
+        "tag": "Electronic",
+        "p": 0.2885
+      },
+      {
+        "tag": "Trip-Hop",
+        "p": 0.0561
+      },
+      {
+        "tag": "Rap",
+        "p": 0.0176
+      },
+      {
+        "tag": "Pop",
+        "p": 0.0154
+      }
+    ]
+  },
+  {
+    "id": "154309",
+    "text": "Track: A1 Symphony. Artist: Fleslit. Album: Journey. From Hong Kong. Tags: fleslit, trap beat free use, trap beat free dl, trap beat free download, trap beat free for profit use, trap beat freestyle, trap beat free, trap beat music, trap beat, journey instrumental music, trap beat free 2017, trap beat hard rap instrumental.",
+    "true_tags": [
+      "Rap",
+      "Hip-Hop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.9881
+      },
+      {
+        "tag": "Hip-Hop",
+        "p": 0.1448
+      },
+      {
+        "tag": "Trip-Hop",
+        "p": 0.0955
+      },
+      {
+        "tag": "House",
+        "p": 0.0476
+      },
+      {
+        "tag": "Dubstep",
+        "p": 0.021
+      }
+    ]
+  }
+]

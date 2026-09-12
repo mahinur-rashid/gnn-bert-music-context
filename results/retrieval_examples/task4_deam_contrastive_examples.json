@@ -1,0 +1,272 @@
+[
+  {
+    "query_caption": "Track: Keep Your Lamp Trimmed And Burning [traditional]. Artist: Billy Childish.",
+    "gold_clip": "69",
+    "gold_rank": 59,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "1497",
+        "similarity": 0.2899,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Random Rules. Artist: Silver Jews. Album: Live at WFMU on Benjamin Walker's Show on 9/8/2008. Listener tags: indie, Alt-country, indie rock, silver jews, Lo-Fi, alternative,"
+      },
+      {
+        "clip": "1976",
+        "similarity": 0.2822,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Toad. Artist: The Pink Noise. Album: Gilded Flowers. Listener tags: 90s, alternative, rock, alternative rock, toad the wet sprocket, pop, Favorite, music choice: classic alt"
+      },
+      {
+        "clip": "215",
+        "similarity": 0.2772,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: In A Party Watching A Party. Artist: Silver Process."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Flight of the Moth. Artist: Steven Arntson.",
+    "gold_clip": "235",
+    "gold_rank": 28,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "138",
+        "similarity": 0.3757,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Encounters With Abusive Men. Artist: Silver Process."
+      },
+      {
+        "clip": "1023",
+        "similarity": 0.3718,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Paris. Artist: Mr. & Mrs. Smith. Album: A Collector's Guidebook. Listener tags: hip hop, that shit cray, rap, Hip-Hop, PARRIS, best of 2011, i, jay-z, Kanye West, collaborat"
+      },
+      {
+        "clip": "2030",
+        "similarity": 0.3602,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: 990. Artist: In Faded Glory. Album: Polyplastic Heaven."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Not Found (Invisible). Artist: Jiony.",
+    "gold_clip": "479",
+    "gold_rank": 47,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "696",
+        "similarity": 0.3787,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Extraordinary Vibe. Artist: Nature."
+      },
+      {
+        "clip": "2038",
+        "similarity": 0.3753,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: rouge et blues. Artist: Fabrice Collette. Album: rouge et blues."
+      },
+      {
+        "clip": "524",
+        "similarity": 0.368,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Black Eyes. Artist: Nettle."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: parte 1 parte 4. Artist: MarginalS.",
+    "gold_clip": "713",
+    "gold_rank": 122,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "235",
+        "similarity": 0.3933,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Flight of the Moth. Artist: Steven Arntson."
+      },
+      {
+        "clip": "150",
+        "similarity": 0.3932,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "1965",
+        "similarity": 0.3894,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Track 12. Artist: The Wire Orchestra. Album: CordinRidin..... Listener tags: the used, emo, rock, screamo, alternative, alternative rock, punk, amazing, emocore, punk rock, "
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Stance Gives You Power. Artist: Hogan Grip.",
+    "gold_clip": "993",
+    "gold_rank": 7,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "2038",
+        "similarity": 0.369,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: rouge et blues. Artist: Fabrice Collette. Album: rouge et blues."
+      },
+      {
+        "clip": "696",
+        "similarity": 0.3595,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Extraordinary Vibe. Artist: Nature."
+      },
+      {
+        "clip": "650",
+        "similarity": 0.3557,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: City Tail. Artist: Ido Bukelman."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Learn. Artist: Steven Arntson. Album: Concertina Music 2005-2010. Listener tags: Meditation, new age, ambient, Meditation musik, For studying, meddditation, CHI TEA, relaxy, metamusic, study time, yoga, chillout, plumkanie, spacey, superlearning.",
+    "gold_clip": "1137",
+    "gold_rank": 28,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "216",
+        "similarity": 0.3667,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: On Things Invisible to the Eye (Act II). Artist: Lloyd Rodgers."
+      },
+      {
+        "clip": "841",
+        "similarity": 0.3633,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Nicotine Blues. Artist: Kurt Vile."
+      },
+      {
+        "clip": "1202",
+        "similarity": 0.3615,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Friends. Artist: The Black Swans. Album: Phoning It In 04/12/07. Listener tags: classic rock, rock, 60s, pop, beatles, The Beatles, british, psychedelic, oldies, classic, ri"
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: END. Artist: Blue Stork. Album: END. Listener tags: trip-hop, female vocalists, electronic, danish, triphop, stuff I should be able to inject directly into my blood, electronica, trip hop, favorites, Dreamy, magic, loooove, alternative, depressingly-uplifting, chillout.",
+    "gold_clip": "1364",
+    "gold_rank": 47,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "1076",
+        "similarity": 0.3385,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Straight But Gayish. Artist: The Discoghosts. Album: BAD. Listener tags: rap, House, dance, party, upfree24, the discoghosts, happy-go-go-go, discoghosts, up it up, gayish, "
+      },
+      {
+        "clip": "1077",
+        "similarity": 0.3372,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Happy Joy. Artist: The Discoghosts. Album: BAD. Listener tags: upfree24, the discoghosts, discoghosts, up it up, tracky birthday, tracky, upitup, joy, Birthday, Disco, happy"
+      },
+      {
+        "clip": "1066",
+        "similarity": 0.3361,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Life After Sundown. Artist: Glass Candy. Album: The Sick Sound of.... Listener tags: synthpop, electropop, Disco, electronic, electro, Radio, death disco, Italo Disco, loved"
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: Asylum (Permanent Underclass). Artist: D\u00e4lek. Album: Live at WFMU on Mike's Show on 9/25/2004. Listener tags: hip hop, Hip-Hop, experimental, noise, rap, underground hip-hop, dissonant, atmospheric, Avant-Garde, prda, hippetihopp, hiphop garagedancing, big sound, station 13, ink.",
+    "gold_clip": "1598",
+    "gold_rank": 80,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "1853",
+        "similarity": 0.2966,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Jungle. Artist: The Suzan. Album: Live at WFMU on Beastin the Airwaves June 3rd 2012. Listener tags: funk, Disco, 70s, Soundtrack, soul, pulp fiction, funky, dance, tarantin"
+      },
+      {
+        "clip": "1966",
+        "similarity": 0.2889,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Evolution. Artist: The Wire Orchestra. Album: CordinRidin..... Listener tags: chillout, jazz, nu jazz, downtempo, electronic, ambient, nu-jazz, ninja tune, lounge, chill, ac"
+      },
+      {
+        "clip": "375",
+        "similarity": 0.2869,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bit a Bullet. Artist: Mr. & Mrs. Smith."
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: With You. Artist: Monk Turner. Album: Love Story. Listener tags: country, josh turner, modern country, Love, favorite songs, love songs, deep voice, male vocalists, would you go with me, Country Favorites, My Country, two-step, my favorite, dance dance dance, favorites.",
+    "gold_clip": "1868",
+    "gold_rank": 71,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "375",
+        "similarity": 0.2838,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bit a Bullet. Artist: Mr. & Mrs. Smith."
+      },
+      {
+        "clip": "341",
+        "similarity": 0.2799,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Columbine. Artist: Audra Kubat."
+      },
+      {
+        "clip": "1412",
+        "similarity": 0.2784,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Old Mine. Artist: Roach Davies And The Fleas. Album: Navigator. Listener tags: motown, soul, 60s, oldies, northern soul, rhythm and blues, the isley brothers, funk, classic "
+      }
+    ]
+  },
+  {
+    "query_caption": "Track: rouge et blues. Artist: Fabrice Collette. Album: rouge et blues.",
+    "gold_clip": "2038",
+    "gold_rank": 90,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "235",
+        "similarity": 0.4469,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Flight of the Moth. Artist: Steven Arntson."
+      },
+      {
+        "clip": "150",
+        "similarity": 0.4366,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Bow to Your Neighbor (Excerpt). Artist: Steven Arntson."
+      },
+      {
+        "clip": "1965",
+        "similarity": 0.4362,
+        "is_gold": false,
+        "caption_of_retrieved": "Track: Track 12. Artist: The Wire Orchestra. Album: CordinRidin..... Listener tags: the used, emo, rock, screamo, alternative, alternative rock, punk, amazing, emocore, punk rock, "
+      }
+    ]
+  }
+]

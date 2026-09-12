@@ -1,0 +1,346 @@
+[
+  {
+    "track_id": "182",
+    "text": "track : jules lost his jewels. artist : ariel pink ' s haunted graffiti. album : worn copy. tags : ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Rock"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Experimental",
+        "p": 0.4497
+      },
+      {
+        "tag": "International",
+        "p": 0.3582
+      },
+      {
+        "tag": "Rock",
+        "p": 0.313
+      },
+      {
+        "tag": "Folk",
+        "p": 0.3031
+      },
+      {
+        "tag": "Pop",
+        "p": 0.2852
+      }
+    ],
+    "chord_path": "F#:maj -> A#:min -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> N",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 6,
+        "to_segment": 5,
+        "cosine": 0.8158,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 5,
+        "to_segment": 6,
+        "cosine": 0.8158,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 7,
+        "to_segment": 8,
+        "cosine": 0.7502,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 8,
+        "to_segment": 7,
+        "cosine": 0.7502,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 13,
+        "to_segment": 14,
+        "cosine": 0.7459,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 14,
+        "to_segment": 13,
+        "cosine": 0.7459,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 15,
+        "to_segment": 16,
+        "cosine": 0.7372,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 16,
+        "to_segment": 15,
+        "cosine": 0.7372,
+        "chords": "D#:maj -> D#:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ".",
+        "weight": 0.0388
+      },
+      {
+        "token": "jewels",
+        "weight": 0.0369
+      },
+      {
+        "token": ".",
+        "weight": 0.0358
+      },
+      {
+        "token": ".",
+        "weight": 0.0326
+      },
+      {
+        "token": ":",
+        "weight": 0.0313
+      },
+      {
+        "token": ":",
+        "weight": 0.0304
+      },
+      {
+        "token": "jules",
+        "weight": 0.0303
+      },
+      {
+        "token": "track",
+        "weight": 0.0302
+      }
+    ]
+  },
+  {
+    "track_id": "704",
+    "text": "track : mano de dios. artist : fosforo. album : macondo. from los angeles, ca. tags : fosforo, reggae, latin, spanish, reggaeton, fsforo.",
+    "true_tags": [
+      "International",
+      "Latin America"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Experimental",
+        "p": 0.4185
+      },
+      {
+        "tag": "International",
+        "p": 0.3762
+      },
+      {
+        "tag": "Folk",
+        "p": 0.308
+      },
+      {
+        "tag": "Pop",
+        "p": 0.2943
+      },
+      {
+        "tag": "Latin America",
+        "p": 0.2943
+      }
+    ],
+    "chord_path": "G:maj -> B:min -> F:maj -> G:maj -> G:maj -> G:maj -> N -> N -> B:min -> G:maj -> G:maj -> G:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 12,
+        "to_segment": 15,
+        "cosine": 0.8373,
+        "chords": "F:maj -> F:maj"
+      },
+      {
+        "from_segment": 15,
+        "to_segment": 12,
+        "cosine": 0.8373,
+        "chords": "F:maj -> F:maj"
+      },
+      {
+        "from_segment": 7,
+        "to_segment": 6,
+        "cosine": 0.7604,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 6,
+        "to_segment": 7,
+        "cosine": 0.7604,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 8,
+        "to_segment": 7,
+        "cosine": 0.7308,
+        "chords": "B:min -> N"
+      },
+      {
+        "from_segment": 7,
+        "to_segment": 8,
+        "cosine": 0.7308,
+        "chords": "N -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 3,
+        "cosine": 0.712,
+        "chords": "G:maj -> G:maj"
+      },
+      {
+        "from_segment": 3,
+        "to_segment": 0,
+        "cosine": 0.712,
+        "chords": "G:maj -> G:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ",",
+        "weight": 0.0704
+      },
+      {
+        "token": ".",
+        "weight": 0.035
+      },
+      {
+        "token": ":",
+        "weight": 0.0239
+      },
+      {
+        "token": ".",
+        "weight": 0.0214
+      },
+      {
+        "token": ":",
+        "weight": 0.0214
+      },
+      {
+        "token": "##oro",
+        "weight": 0.0211
+      },
+      {
+        "token": ".",
+        "weight": 0.0208
+      },
+      {
+        "token": "track",
+        "weight": 0.0201
+      }
+    ]
+  },
+  {
+    "track_id": "705",
+    "text": "track : tio cocodrilo. artist : fosforo. album : macondo. from los angeles, ca. tags : fosforo, reggae, latin, spanish, reggaeton, fsforo.",
+    "true_tags": [
+      "International",
+      "Latin America"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Experimental",
+        "p": 0.4383
+      },
+      {
+        "tag": "International",
+        "p": 0.3839
+      },
+      {
+        "tag": "Folk",
+        "p": 0.3076
+      },
+      {
+        "tag": "Latin America",
+        "p": 0.3056
+      },
+      {
+        "tag": "Pop",
+        "p": 0.301
+      }
+    ],
+    "chord_path": "D:maj -> N -> N -> D:maj -> D:maj -> B:min -> D:maj -> D:maj -> B:min -> B:min -> D:maj -> D:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 0,
+        "to_segment": 1,
+        "cosine": 0.0,
+        "chords": "D:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 2,
+        "cosine": 0.0,
+        "chords": "D:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 5,
+        "cosine": 0.0,
+        "chords": "D:maj -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 8,
+        "cosine": 0.0,
+        "chords": "D:maj -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 9,
+        "cosine": 0.0,
+        "chords": "D:maj -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 12,
+        "cosine": 0.0,
+        "chords": "D:maj -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 15,
+        "cosine": 0.0,
+        "chords": "D:maj -> G:maj"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 0,
+        "cosine": 0.0,
+        "chords": "N -> D:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": ",",
+        "weight": 0.0673
+      },
+      {
+        "token": ".",
+        "weight": 0.0382
+      },
+      {
+        "token": ":",
+        "weight": 0.0234
+      },
+      {
+        "token": ":",
+        "weight": 0.0228
+      },
+      {
+        "token": ".",
+        "weight": 0.0221
+      },
+      {
+        "token": ".",
+        "weight": 0.0211
+      },
+      {
+        "token": ":",
+        "weight": 0.0195
+      },
+      {
+        "token": "track",
+        "weight": 0.0193
+      }
+    ]
+  }
+]

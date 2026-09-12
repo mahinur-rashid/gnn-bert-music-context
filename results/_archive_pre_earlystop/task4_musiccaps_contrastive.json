@@ -1,0 +1,91 @@
+{
+  "task": 4,
+  "dataset": "musiccaps",
+  "model": "contrastive dual-encoder (sage + distilbert-base-uncased)",
+  "n_train": 333,
+  "n_val": 31,
+  "n_test": 36,
+  "n_classes": 50,
+  "embed_dim": 256,
+  "temperature": 0.07,
+  "args": {
+    "dataset": "musiccaps",
+    "model_name": "distilbert-base-uncased",
+    "epochs": 2,
+    "patience": 10,
+    "min_epochs": 5,
+    "batch_size": 32,
+    "lr_bert": 2e-05,
+    "lr_other": 0.001,
+    "weight_decay": 0.01,
+    "embed_dim": 256,
+    "hidden": 256,
+    "gnn_layers": 3,
+    "conv": "sage",
+    "temperature": 0.07,
+    "dropout": 0.2,
+    "max_length": 192,
+    "freeze_bert": false,
+    "n_trainable_layers": null,
+    "zero_shot_tags": true,
+    "n_examples": 10,
+    "no_standardize": false,
+    "limit": 400,
+    "num_workers": 0,
+    "log_every": 100,
+    "save_model": false,
+    "seed": 42
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.4542498130340116,
+      "val_loss": 3.223273277282715,
+      "val_r@1": 0.06451612710952759,
+      "val_r@5": 0.25806450843811035,
+      "val_r@10": 0.5161290168762207,
+      "val_median_rank": 9.0,
+      "secs": 2.473930835723877
+    },
+    {
+      "epoch": 2,
+      "train_loss": 3.166064724907861,
+      "val_loss": 3.263974189758301,
+      "val_r@1": 0.16129031777381897,
+      "val_r@5": 0.29032257199287415,
+      "val_r@10": 0.4193548262119293,
+      "val_median_rank": 12.0,
+      "secs": 2.483262300491333
+    }
+  ],
+  "best_epoch": 2,
+  "test": {
+    "audio_to_caption_R@1": 0.02777777798473835,
+    "audio_to_caption_R@5": 0.2222222238779068,
+    "audio_to_caption_R@10": 0.5,
+    "audio_to_caption_median_rank": 10.0,
+    "caption_to_audio_R@1": 0.0,
+    "caption_to_audio_R@5": 0.2777777910232544,
+    "caption_to_audio_R@10": 0.5277777910232544,
+    "caption_to_audio_median_rank": 10.0
+  },
+  "baselines": {
+    "random_retrieval": {
+      "random_R@1": 0.027777777777777776,
+      "random_R@5": 0.1388888888888889,
+      "random_R@10": 0.2777777777777778
+    }
+  },
+  "zero_shot_tags": {
+    "zero_shot": {
+      "macro_f1": 0.12649621730008126,
+      "micro_f1": 0.13245033112582782,
+      "samples_f1": 0.1280614249857532,
+      "auc_pr": 0.17765589385572506,
+      "auc_roc": 0.566664035482228
+    },
+    "prompt": "a music clip that sounds {tag}",
+    "n_tags": 50
+  },
+  "examples_file": "E:\\gnn-bert-music-context\\results\\retrieval_examples\\task4_musiccaps_contrastive_examples.json"
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "query_caption": "This song contains digital drums playing a simple groove along with two guitars. One strumming chords along with the snare the other one playing a melody on top. An e-bass is playing the footnote while a piano is playing a major and minor chord progression. A trumpet is playing a loud melody alongside the guitar. All the instruments sound flat and are being played by a keyboard. There are little b",
+    "gold_clip": "-0xzrMun0Rs",
+    "gold_rank": 181,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "k5kPBsMFlOc",
+        "similarity": 0.8332,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a live performance of shimmering shakers, acoustic rhythm guitar and arpeggiated harp melody. It sounds tropical and exotic even though the recor"
+      },
+      {
+        "clip": "bBy0NCoCEHc",
+        "similarity": 0.7864,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a live performance of a traditional song and it consists of a bell melody, followed by wooden percussion. There are some flat male vocals talking"
+      },
+      {
+        "clip": "yzjbAxCnt7U",
+        "similarity": 0.7643,
+        "is_gold": false,
+        "caption_of_retrieved": "The Disco song features a passionate male vocal, alongside harmonizing background vocals, singing over sustained strings melody, piano melody, brass melody, punchy kick and snare h"
+      }
+    ]
+  },
+  {
+    "query_caption": "This music is instrumental. The tempo is fast with electronic beats and rhythm on a DJ mixer. The music is youthful, hypnotic, groovy; burgeoning and trance .",
+    "gold_clip": "65KYS3lIRII",
+    "gold_rank": 73,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "INBx8CrIWcg",
+        "similarity": 0.8128,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features an electro song that consists of acid aggressive synth melody, repetitive synth lead melody, boomy 808 bass, claps and shimmering hi-hats. There "
+      },
+      {
+        "clip": "YZx0_GRtvJk",
+        "similarity": 0.8123,
+        "is_gold": false,
+        "caption_of_retrieved": "This song has a male vocalist singing a rhythmic vocal riff to the beat of digital drumming followed by the sound of a beep. The percussion is amateur and the vocals are muffled as"
+      },
+      {
+        "clip": "CdFutCUKTXI",
+        "similarity": 0.7882,
+        "is_gold": false,
+        "caption_of_retrieved": "This song is an instrumental. The tempo is fast with synthesiser arrangements , boomy bass and digital drumming. The song is youthful, enthusiastic, engaging, upbeat; vivacious, pu"
+      }
+    ]
+  },
+  {
+    "query_caption": "The song is an instrumental. The song is medium tempo with a moog bass accompaniment, keyboard organ tone and a strong bass line. The song is emotional and poignant. The song is a new age pop soundtrack.",
+    "gold_clip": "BWSJjF32tQA",
+    "gold_rank": 100,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "QUB_vpjogmo",
+        "similarity": 0.7772,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a dark moody piano melody and at the very end of the loop, a short snippet of muffled snare hit and flat male vocals. It sounds very noisy, as th"
+      },
+      {
+        "clip": "GAoGADilmV8",
+        "similarity": 0.7706,
+        "is_gold": false,
+        "caption_of_retrieved": "Ominous orchestral music with long held string notes, bowed string bass, electronic cymbal roll and concert bass drum. The mood is eerie."
+      },
+      {
+        "clip": "aupCwPVWsMo",
+        "similarity": 0.7588,
+        "is_gold": false,
+        "caption_of_retrieved": "This song contains a string section playing a short stroke melody in the lower range along to a digital acoustic drum playing a rather complex groove. Acoustic guitars are playing "
+      }
+    ]
+  },
+  {
+    "query_caption": "A male and female news reporter engage in a funny vocal banter. The background music is in medium tempo with harmonium accompaniment and subtle percussive rhythm with sudden percussion hits. The vocal dialogue is funny and engaging. The audio quality is overall very poor with painfully high gains.",
+    "gold_clip": "J7jVR6y6REA",
+    "gold_rank": 15,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "qMbGFWz9who",
+        "similarity": 0.7921,
+        "is_gold": false,
+        "caption_of_retrieved": "A male singer sings this classic pop song. The tempo is fast with keyboard harmony, violins,infectious drumming,funky bass guitar and synthesiser arrangement. There are sounds of s"
+      },
+      {
+        "clip": "0abzD7hBTRk",
+        "similarity": 0.7699,
+        "is_gold": false,
+        "caption_of_retrieved": "This music clip is of a male vocalist doing a beat box. The tempo is medium fast with the vocalist imitating the digital drums, turntable and Dj mixer to a perfection. This vocal p"
+      },
+      {
+        "clip": "SwRjY1-ojAU",
+        "similarity": 0.7581,
+        "is_gold": false,
+        "caption_of_retrieved": "Something like a jukebox or kid's toy is playing a sweet melody for babies while in the foreground a real baby is making noises with its voice. This seems to be an amateur recordin"
+      }
+    ]
+  },
+  {
+    "query_caption": "The low quality recording features a live performance of a regional Mexican song and it consists of passionate male vocal singing over groovy bass guitar, mellow synth keys melody and electric guitar melody, followed by shimmering tambourine, hi hats and punchy kick. It sounds passionate, emotional and soulful - like something you would hear at family gathering events.",
+    "gold_clip": "RNwiEsjrhiQ",
+    "gold_rank": 142,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "8hSmQpOPXJE",
+        "similarity": 0.8141,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a cover of a kids song that consists of sweet girl vocal singing over breathy flute melody, groovy bass and acoustic rhythm guitar. It sounds mel"
+      },
+      {
+        "clip": "bZJoTauRldE",
+        "similarity": 0.7636,
+        "is_gold": false,
+        "caption_of_retrieved": "A male singer sings this passionate vocal. The song is medium tempo with a groovy bass line, steady drumming rhythm and a violin playing a solo. The song is a live performance by a"
+      },
+      {
+        "clip": "3KQy3Cajo4E",
+        "similarity": 0.6957,
+        "is_gold": false,
+        "caption_of_retrieved": "A male singer sings this popular country hit with backup singers in vocal harmony. The song is in medium tempo with a walking bass , acoustic guitar strumming rhythmically, autohar"
+      }
+    ]
+  },
+  {
+    "query_caption": "This audio contains someone playing a melody on a banjo. A male voice is speaking with a deeper voice. This is an amateur recording.",
+    "gold_clip": "YqZNMFyPJOQ",
+    "gold_rank": 1,
+    "hit@1": true,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "YqZNMFyPJOQ",
+        "similarity": 0.7455,
+        "is_gold": true,
+        "caption_of_retrieved": "This audio contains someone playing a melody on a banjo. A male voice is speaking with a deeper voice. This is an amateur recording."
+      },
+      {
+        "clip": "NjoKxRwQxCE",
+        "similarity": 0.7154,
+        "is_gold": false,
+        "caption_of_retrieved": "This clip features a male voice in a narrative voice. This is accompanied by a synth sound using a ring modulator effect. The voice is calming. This song can be played in a documen"
+      },
+      {
+        "clip": "sVF7NNvdoJc",
+        "similarity": 0.6848,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a traditional song that consists of reverberant, fruity male vocal singing over wooden & percussive elements, sizzling triangle hits, sustained s"
+      }
+    ]
+  },
+  {
+    "query_caption": "The low quality recording features a flat male talking singing over ukulele chord progression, after which the flat male vocal is talking. It sounds like a tutorial and the recording is noisy and in mono.",
+    "gold_clip": "ftKCLRd9_no",
+    "gold_rank": 7,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "0abzD7hBTRk",
+        "similarity": 0.725,
+        "is_gold": false,
+        "caption_of_retrieved": "This music clip is of a male vocalist doing a beat box. The tempo is medium fast with the vocalist imitating the digital drums, turntable and Dj mixer to a perfection. This vocal p"
+      },
+      {
+        "clip": "qMbGFWz9who",
+        "similarity": 0.6569,
+        "is_gold": false,
+        "caption_of_retrieved": "A male singer sings this classic pop song. The tempo is fast with keyboard harmony, violins,infectious drumming,funky bass guitar and synthesiser arrangement. There are sounds of s"
+      },
+      {
+        "clip": "YqZNMFyPJOQ",
+        "similarity": 0.6547,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains someone playing a melody on a banjo. A male voice is speaking with a deeper voice. This is an amateur recording."
+      }
+    ]
+  },
+  {
+    "query_caption": "This song contains whales singing and then a piano starts playing a composition along. This may be playing in a documentary.",
+    "gold_clip": "p_o6NQX7lmE",
+    "gold_rank": 109,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "uS2kPLvEo6A",
+        "similarity": 0.742,
+        "is_gold": false,
+        "caption_of_retrieved": "This is a live performance of the Tibetan singing bowls. The performer is repeatedly striking the bowls with a small hammer and making them vibrate with resonant sound. These sound"
+      },
+      {
+        "clip": "3tbFP_JKzXw",
+        "similarity": 0.7122,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a harmonizing throaty male vocal singing over dissonant strings melody in the background. It sounds traditional and hopeful."
+      },
+      {
+        "clip": "E_34BmDVnOI",
+        "similarity": 0.6957,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a wide filtered, reverberant laser synth, punchy kick layered with energetic crash cymbal and synth pad chord. It sounds suspenseful, intense and"
+      }
+    ]
+  },
+  {
+    "query_caption": "This is the live performance of a Romanian folk music piece. It is instrumental. There is an accordion playing the leading melody while the fiddle, acoustic guitar and the upright bass play in the background. There is a percussive element in the rhythmic background. The atmosphere is lively and joyful.",
+    "gold_clip": "xR2p3UED4VU",
+    "gold_rank": 15,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "wwbATvWFaLY",
+        "similarity": 0.8247,
+        "is_gold": false,
+        "caption_of_retrieved": "This is a French opera music piece. It is an instrumental piece. There are two harpsichords performing the piece. There is a medieval sound to the piece. It has a dramatic and gran"
+      },
+      {
+        "clip": "4Yc71_dU3m4",
+        "similarity": 0.8131,
+        "is_gold": false,
+        "caption_of_retrieved": "This music is a lively instrumental of the Indian Classical instruments. The tempo is fast with a lead Veena harmony, spirited tabla and tanpura rhythm and melodic flute accompanim"
+      },
+      {
+        "clip": "dNK9bD3LNCc",
+        "similarity": 0.759,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a live performance of a country song that consists of a steel guitar melody, acoustic rhythm guitar chords and a walking bass guitar. There are s"
+      }
+    ]
+  },
+  {
+    "query_caption": "A nostalgic feeling trip hop song with an off kilter, Dilla inspired drum beat, a jazz piano playing complex chords and a male rapper.",
+    "gold_clip": "yRWndZvIAHc",
+    "gold_rank": 4,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "_8OIugVSFeE",
+        "similarity": 0.8176,
+        "is_gold": false,
+        "caption_of_retrieved": "A male singer sings Arabic vocals with backup singers in vocal harmony. The song is medium tempo with a steady drumming rhythm, percussive bass line, keyboard accompaniment and per"
+      },
+      {
+        "clip": "WoWF7gGzGVY",
+        "similarity": 0.7986,
+        "is_gold": false,
+        "caption_of_retrieved": "This is an indie/alternative music piece. There is a male vocalist singing melodically. In the background, an eastern sounding tune is playing with a bass and electronic drum beat "
+      },
+      {
+        "clip": "qtnE1hnCD0M",
+        "similarity": 0.7682,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a loud, gliding synth bass, muffled snare and kick hits, tinny hi hats and shimmering ride cymbals. There is a busy line sound effect and its rhy"
+      }
+    ]
+  }
+]

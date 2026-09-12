@@ -1,0 +1,161 @@
+[
+  {
+    "id": "4EwWBI-tHLk",
+    "text": "This music is a lively harmony of the brass and wind instruments. The tempo is fast with lively tuba, trombone, trumpet, clarinet with mandolin and resonator accompaniment and busking percussion that sounds like scratching. His music is loud, vibrant, perky, engaging and animated street busking.",
+    "true_tags": [
+      "instrumental",
+      "fast tempo",
+      "spirited"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "instrumental",
+        "p": 0.9944
+      },
+      {
+        "tag": "fast tempo",
+        "p": 0.9909
+      },
+      {
+        "tag": "loud",
+        "p": 0.6298
+      },
+      {
+        "tag": "energetic",
+        "p": 0.5639
+      },
+      {
+        "tag": "spirited",
+        "p": 0.2349
+      }
+    ],
+    "cls_attention_top_tokens": []
+  },
+  {
+    "id": "DMwvY--3XD0",
+    "text": "This children's song features the voices of children singing the main melody. This is accompanied by percussion playing a simple beat. A keyboard plays the sounds of a marimba to give this song a reggae feel. The bass plays the root notes followed by a run at every chord change. This song has a happy mood. This song can be played in a children's animation movie.",
+    "true_tags": [
+      "moderate tempo"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "bass",
+        "p": 0.7694
+      },
+      {
+        "tag": "moderate tempo",
+        "p": 0.6877
+      },
+      {
+        "tag": "percussion",
+        "p": 0.246
+      },
+      {
+        "tag": "instrumental",
+        "p": 0.1588
+      },
+      {
+        "tag": "upbeat",
+        "p": 0.1105
+      }
+    ],
+    "cls_attention_top_tokens": []
+  },
+  {
+    "id": "ckOe-8qdaew",
+    "text": "A male singer sings this cool spirited melody. The song is medium tempo with a steady drumming rhythm, guitar playing lead, guitar strumming, strong bass line and various percussion hits. The song is exciting and energetic. The song has poor audio quality.",
+    "true_tags": [
+      "male singer",
+      "medium tempo",
+      "exciting",
+      "spirited",
+      "emotional",
+      "poor audio quality"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "poor audio quality",
+        "p": 0.9953
+      },
+      {
+        "tag": "energetic",
+        "p": 0.8804
+      },
+      {
+        "tag": "spirited",
+        "p": 0.7749
+      },
+      {
+        "tag": "male singer",
+        "p": 0.6794
+      },
+      {
+        "tag": "passionate",
+        "p": 0.5686
+      }
+    ],
+    "cls_attention_top_tokens": []
+  },
+  {
+    "id": "TWV3YLscSaw",
+    "text": "The low quality recording features a passionate, reverberant male vocal singing over a wide arpeggiated acoustic guitar melody and acoustic guitar solo melody, followed by a simple bass. It sounds emotional and passionate.",
+    "true_tags": [
+      "low quality",
+      "emotional",
+      "passionate"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "emotional",
+        "p": 0.9998
+      },
+      {
+        "tag": "passionate",
+        "p": 0.9997
+      },
+      {
+        "tag": "low quality",
+        "p": 0.9976
+      },
+      {
+        "tag": "live performance",
+        "p": 0.0767
+      },
+      {
+        "tag": "acoustic guitar",
+        "p": 0.0099
+      }
+    ],
+    "cls_attention_top_tokens": []
+  },
+  {
+    "id": "7_80oVTLkGU",
+    "text": "This music is a percussion instrumental . The tempo is medium fast with a rhythmic tambourine beat. The music is minimal with the sound of the tambourine metal plates clanging and a dull drum head beat. The music is catchy, enthusiastic and has a rhythmic beat.",
+    "true_tags": [
+      "instrumental"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "instrumental",
+        "p": 1.0
+      },
+      {
+        "tag": "fast tempo",
+        "p": 0.2224
+      },
+      {
+        "tag": "percussion",
+        "p": 0.1306
+      },
+      {
+        "tag": "energetic",
+        "p": 0.0678
+      },
+      {
+        "tag": "amateur recording",
+        "p": 0.048
+      }
+    ],
+    "cls_attention_top_tokens": []
+  }
+]

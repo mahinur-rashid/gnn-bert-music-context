@@ -1,0 +1,272 @@
+[
+  {
+    "query_caption": "This song contains digital drums playing a simple groove along with two guitars. One strumming chords along with the snare the other one playing a melody on top. An e-bass is playing the footnote while a piano is playing a major and minor chord progression. A trumpet is playing a loud melody alongside the guitar. All the instruments sound flat and are being played by a keyboard. There are little b",
+    "gold_clip": "-0xzrMun0Rs",
+    "gold_rank": 9,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.0953,
+        "is_gold": false,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0915,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "-1OlgJWehn8",
+        "similarity": 0.0752,
+        "is_gold": false,
+        "caption_of_retrieved": "This clip is three tracks playing consecutively. The first one is an electric guitar lead harmony with a groovy bass line, followed by white noise and then a female vocalisation to"
+      }
+    ]
+  },
+  {
+    "query_caption": "This clip is three tracks playing consecutively. The first one is an electric guitar lead harmony with a groovy bass line, followed by white noise and then a female vocalisation to a vivacious melody with a keyboard harmony, slick drumming, funky bass lines and male backup. The three songs are unrelated and unsynced.",
+    "gold_clip": "-1OlgJWehn8",
+    "gold_rank": 10,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.0885,
+        "is_gold": false,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0876,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.0781,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      }
+    ]
+  },
+  {
+    "query_caption": "This is an amateur recording of a female voice beatboxing. It is a funny recording. It could be playing in the background of comedic social media content.",
+    "gold_clip": "-NmjCyqIavI",
+    "gold_rank": 7,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.1062,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      },
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0968,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "0m9-5BkL4Mc",
+        "similarity": 0.0952,
+        "is_gold": false,
+        "caption_of_retrieved": "The music features a timid boy voice singing a melody. Right in the opening of the music excerpt, before the boy starts to sing, an accordion can be heard playing a short melody. A"
+      }
+    ]
+  },
+  {
+    "query_caption": "The Romance song features an electric guitar lick, low toms roll and soft crash cymbal, followed by emotional piano chord progression and wide background crowd screams, as the passionate male vocal sings over it. Judging by the crowd sound effect, it seems that this is a live performance. Sounds emotional, passionate, heartfelt and romantic.",
+    "gold_clip": "-r2-9oyIzkQ",
+    "gold_rank": 11,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0726,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.0656,
+        "is_gold": false,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.0649,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      }
+    ]
+  },
+  {
+    "query_caption": "An acoustic drum set is playing a 16th note rhythm using the edge of his snare and a hihat sound opening and closing. A banjo is playing a fast melody along with a violin/viola playing the same melody. An upright bass is playing a walking bassline. This song may be playing in a funny tv-show.",
+    "gold_clip": "-uaTK8sa5Ms",
+    "gold_rank": 4,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.0917,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      },
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.0865,
+        "is_gold": false,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0851,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      }
+    ]
+  },
+  {
+    "query_caption": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted.",
+    "gold_clip": "-w4HLksto_k",
+    "gold_rank": 1,
+    "hit@1": true,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.1042,
+        "is_gold": true,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      },
+      {
+        "clip": "0abzD7hBTRk",
+        "similarity": 0.0983,
+        "is_gold": false,
+        "caption_of_retrieved": "This music clip is of a male vocalist doing a beat box. The tempo is medium fast with the vocalist imitating the digital drums, turntable and Dj mixer to a perfection. This vocal p"
+      },
+      {
+        "clip": "-NmjCyqIavI",
+        "similarity": 0.0901,
+        "is_gold": false,
+        "caption_of_retrieved": "This is an amateur recording of a female voice beatboxing. It is a funny recording. It could be playing in the background of comedic social media content."
+      }
+    ]
+  },
+  {
+    "query_caption": "A male vocalist sings this sweet animated song in a foreign language.The tempo is fast with an equally animated and cheerful piano accompaniment. The song is simple, sweet, adorable,catchy, lovable, catchy, upbeat, cute, engaging, winsome and charming. This song is a Children\u2019s song from an animated series.",
+    "gold_clip": "0J_TdiZ3TKA",
+    "gold_rank": 13,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "06IU9WsEp3s",
+        "similarity": 0.1068,
+        "is_gold": false,
+        "caption_of_retrieved": "A male vocalist sings this enthusiastic latin melody. The tempo is medium with keyboard harmony, rhythmic Spanish guitar,percussive congas, bongos and guiro with tambourine beats. "
+      },
+      {
+        "clip": "0fqtA_ZBn_8",
+        "similarity": 0.103,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a live performance of a traditional song that consists of fruity male vocals, alongside harmonizing boy background vocals, singing over subtle st"
+      },
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.088,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      }
+    ]
+  },
+  {
+    "query_caption": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rousing in spirit and fervour. The song has a bad audio quality.",
+    "gold_clip": "0NTzOtVmoiU",
+    "gold_rank": 2,
+    "hit@1": false,
+    "hit@5": true,
+    "top3_retrieved": [
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0868,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.082,
+        "is_gold": true,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "0m9-5BkL4Mc",
+        "similarity": 0.0664,
+        "is_gold": false,
+        "caption_of_retrieved": "The music features a timid boy voice singing a melody. Right in the opening of the music excerpt, before the boy starts to sing, an accordion can be heard playing a short melody. A"
+      }
+    ]
+  },
+  {
+    "query_caption": "This music clip is of a male vocalist doing a beat box. The tempo is medium fast with the vocalist imitating the digital drums, turntable and Dj mixer to a perfection. This vocal percussion is lively, rhythmic, youthful and engaging.",
+    "gold_clip": "0abzD7hBTRk",
+    "gold_rank": 10,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0994,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "0NTzOtVmoiU",
+        "similarity": 0.0915,
+        "is_gold": false,
+        "caption_of_retrieved": "The song is an instrumental. The song is fast in tempo, with a bagpiper playing a Solo melody accompanied by a drum rhythm and people cheering and clapping wildly. The song is rous"
+      },
+      {
+        "clip": "0m9-5BkL4Mc",
+        "similarity": 0.078,
+        "is_gold": false,
+        "caption_of_retrieved": "The music features a timid boy voice singing a melody. Right in the opening of the music excerpt, before the boy starts to sing, an accordion can be heard playing a short melody. A"
+      }
+    ]
+  },
+  {
+    "query_caption": "The music features a timid boy voice singing a melody. Right in the opening of the music excerpt, before the boy starts to sing, an accordion can be heard playing a short melody. A band that consists of drums, bass guitar and electric guitar is accompanying the boy. Listening to the electric guitar, I get country music vibes.",
+    "gold_clip": "0m9-5BkL4Mc",
+    "gold_rank": 6,
+    "hit@1": false,
+    "hit@5": false,
+    "top3_retrieved": [
+      {
+        "clip": "-w4HLksto_k",
+        "similarity": 0.0791,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a flat male vocal singing over digital piano melody and wooden percussion. The recording is noisy, in mono, loud and distorted."
+      },
+      {
+        "clip": "-mB_XLq6g1g",
+        "similarity": 0.0761,
+        "is_gold": false,
+        "caption_of_retrieved": "This audio contains an acoustic drum playing a groove along with a simple bassline. Trumpets are playing a melody that sounds out of tune and all over the place while a kids voice "
+      },
+      {
+        "clip": "0fqtA_ZBn_8",
+        "similarity": 0.0735,
+        "is_gold": false,
+        "caption_of_retrieved": "The low quality recording features a live performance of a traditional song that consists of fruity male vocals, alongside harmonizing boy background vocals, singing over subtle st"
+      }
+    ]
+  }
+]

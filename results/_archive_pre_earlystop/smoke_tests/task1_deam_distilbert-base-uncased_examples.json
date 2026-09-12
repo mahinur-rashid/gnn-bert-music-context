@@ -1,0 +1,148 @@
+[
+  {
+    "id": "456",
+    "text": "Track: Crack in Time. Artist: Stickfigure.",
+    "true_tags": [
+      "Electronic"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.5502
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1341
+      },
+      {
+        "tag": "Pop",
+        "p": 0.113
+      },
+      {
+        "tag": "Jazz",
+        "p": 0.0799
+      },
+      {
+        "tag": "Country",
+        "p": 0.0546
+      }
+    ]
+  },
+  {
+    "id": "649",
+    "text": "Track: I Remember You. Artist: Nature.",
+    "true_tags": [
+      "Jazz"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Pop",
+        "p": 0.317
+      },
+      {
+        "tag": "Rock",
+        "p": 0.2032
+      },
+      {
+        "tag": "Electronic",
+        "p": 0.1376
+      },
+      {
+        "tag": "Folk",
+        "p": 0.0957
+      },
+      {
+        "tag": "Country",
+        "p": 0.0721
+      }
+    ]
+  },
+  {
+    "id": "1388",
+    "text": "Track: Power Supply. Artist: Anamanaguchi. Album: Power Supply. Listener tags: chiptune, 8-bit, electronic, chiptunecore, 8bit, synth riffs, intricate rhythms, emphasis on instrumental performance, inventive instrumental arrangements, a synth-electric sonority, 8bit rock, Harsh Tasty Beats, busy beats, Dominant Use of Harmony, Meter Complexity.",
+    "true_tags": [
+      "Electronic",
+      "Rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.703
+      },
+      {
+        "tag": "Jazz",
+        "p": 0.1868
+      },
+      {
+        "tag": "Hiphop",
+        "p": 0.1226
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1114
+      },
+      {
+        "tag": "Pop",
+        "p": 0.1043
+      }
+    ]
+  },
+  {
+    "id": "703",
+    "text": "Track: Arana. Artist: Jazz at Mladost Club.",
+    "true_tags": [
+      "Jazz"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Jazz",
+        "p": 0.2563
+      },
+      {
+        "tag": "Rock",
+        "p": 0.1344
+      },
+      {
+        "tag": "Folk",
+        "p": 0.1324
+      },
+      {
+        "tag": "Classical",
+        "p": 0.1128
+      },
+      {
+        "tag": "International",
+        "p": 0.0959
+      }
+    ]
+  },
+  {
+    "id": "1600",
+    "text": "Track: Crazy. Artist: Blank & Kytt. Album: Heavy. Listener tags: Serious, Jangle, fallout, fallout new vegas, jazz, Big Band, swing, 40s, Fallout Soundtrack, upbeat, oldies, listen, 30s, golden oldies, handclaps.",
+    "true_tags": [
+      "Hiphop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.5239
+      },
+      {
+        "tag": "Rock",
+        "p": 0.3899
+      },
+      {
+        "tag": "Folk",
+        "p": 0.2604
+      },
+      {
+        "tag": "Hiphop",
+        "p": 0.2088
+      },
+      {
+        "tag": "Pop",
+        "p": 0.19
+      }
+    ]
+  }
+]

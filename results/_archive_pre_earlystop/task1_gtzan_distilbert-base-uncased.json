@@ -1,0 +1,138 @@
+{
+  "task": 1,
+  "dataset": "gtzan",
+  "model": "BERT(distilbert-base-uncased)",
+  "n_tags": 10,
+  "tags": [
+    "blues",
+    "classical",
+    "country",
+    "disco",
+    "hiphop",
+    "jazz",
+    "metal",
+    "pop",
+    "reggae",
+    "rock"
+  ],
+  "n_train": 800,
+  "n_val": 100,
+  "n_test": 100,
+  "args": {
+    "dataset": "gtzan",
+    "model_name": "distilbert-base-uncased",
+    "epochs": 4,
+    "patience": 2,
+    "min_epochs": 2,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "head_lr": 0.001,
+    "weight_decay": 0.01,
+    "max_length": 192,
+    "freeze_bert": false,
+    "n_trainable_layers": null,
+    "tune_thresholds": true,
+    "attention_viz": false,
+    "limit": null,
+    "num_workers": 0,
+    "log_every": 200,
+    "save_model": false,
+    "seed": 42
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.36649110436439514,
+      "val_loss": 0.33127039670944214,
+      "val_macro_f1": 0.0,
+      "val_micro_f1": 0.0,
+      "val_auc_pr": 0.26201223586596684,
+      "secs": 6.324343919754028
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3272766780853271,
+      "val_loss": 0.3228025957942009,
+      "val_macro_f1": 0.0,
+      "val_micro_f1": 0.0,
+      "val_auc_pr": 0.2656563145849849,
+      "secs": 5.6830315589904785
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.31108071327209474,
+      "val_loss": 0.29216741770505905,
+      "val_macro_f1": 0.06666666666666667,
+      "val_micro_f1": 0.14035087719298245,
+      "val_auc_pr": 0.3504100887405835,
+      "secs": 5.647038459777832
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2869634771347046,
+      "val_loss": 0.2752184644341469,
+      "val_macro_f1": 0.059259259259259255,
+      "val_micro_f1": 0.13675213675213677,
+      "val_auc_pr": 0.40250572137668483,
+      "secs": 5.609192848205566
+    }
+  ],
+  "best_epoch": 3,
+  "thresholds": [
+    0.1,
+    0.55,
+    0.05,
+    0.15000000000000002,
+    0.25,
+    0.15000000000000002,
+    0.15000000000000002,
+    0.15000000000000002,
+    0.1,
+    0.1
+  ],
+  "train": {
+    "macro_f1": 0.32906415221874485,
+    "micro_f1": 0.2806060606060606,
+    "samples_f1": 0.26488392857142856,
+    "auc_pr": 0.27283790842258604,
+    "auc_roc": 0.7494904513888889
+  },
+  "val": {
+    "macro_f1": 0.35973997651271195,
+    "micro_f1": 0.3024390243902439,
+    "samples_f1": 0.27871428571428564,
+    "auc_pr": 0.3504100887405835,
+    "auc_roc": 0.7587777777777779
+  },
+  "test": {
+    "macro_f1": 0.30253678917959725,
+    "micro_f1": 0.26730310262529833,
+    "samples_f1": 0.25269047619047613,
+    "auc_pr": 0.3130056935219608,
+    "auc_roc": 0.7630000000000001
+  },
+  "test_at_threshold_0.5": {
+    "macro_f1": 0.06956521739130435,
+    "micro_f1": 0.1415929203539823,
+    "samples_f1": 0.08,
+    "auc_pr": 0.3130056935219608,
+    "auc_roc": 0.7630000000000001
+  },
+  "baselines": {
+    "B1_random_tags": {
+      "macro_f1": 0.14785841609371023,
+      "micro_f1": 0.14492753623188406,
+      "samples_f1": 0.11166666666666666,
+      "auc_pr": 0.1265491516689914,
+      "auc_roc": 0.4764444444444444
+    },
+    "B1_majority_tags": {
+      "macro_f1": 0.0,
+      "micro_f1": 0.0,
+      "samples_f1": 0.0,
+      "auc_pr": 0.1,
+      "auc_roc": 0.5
+    }
+  },
+  "examples_file": "E:\\gnn-bert-music-context\\results\\examples\\task1_gtzan_distilbert-base-uncased_examples.json"
+}

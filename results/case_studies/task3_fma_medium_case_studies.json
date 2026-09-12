@@ -1,0 +1,370 @@
+[
+  {
+    "track_id": "181",
+    "text": "track : gopacapulco. artist : ariel pink ' s haunted graffiti. album : scared famous. tags : ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Rock",
+      "Lo-Fi"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.3562
+      },
+      {
+        "tag": "Trip-Hop",
+        "p": 0.0979
+      },
+      {
+        "tag": "Rock",
+        "p": 0.0928
+      },
+      {
+        "tag": "Pop",
+        "p": 0.075
+      },
+      {
+        "tag": "Instrumental",
+        "p": 0.0154
+      }
+    ],
+    "chord_path": "B:min -> B:min -> G#:min -> C#:maj -> C#:maj -> A#:min -> F#:maj -> B:min -> B:maj -> F#:maj -> C#:maj -> C#:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 18,
+        "to_segment": 17,
+        "cosine": 0.7694,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 18,
+        "cosine": 0.7694,
+        "chords": "N -> N"
+      },
+      {
+        "from_segment": 10,
+        "to_segment": 11,
+        "cosine": 0.7198,
+        "chords": "C#:maj -> C#:maj"
+      },
+      {
+        "from_segment": 11,
+        "to_segment": 10,
+        "cosine": 0.7198,
+        "chords": "C#:maj -> C#:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 1,
+        "cosine": 0.7131,
+        "chords": "B:min -> B:min"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 0,
+        "cosine": 0.7131,
+        "chords": "B:min -> B:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 9,
+        "cosine": 0.0,
+        "chords": "B:min -> F#:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 12,
+        "cosine": 0.0,
+        "chords": "B:min -> F#:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "famous",
+        "weight": 0.062
+      },
+      {
+        "token": "haunted",
+        "weight": 0.0565
+      },
+      {
+        "token": "s",
+        "weight": 0.0557
+      },
+      {
+        "token": "haunted",
+        "weight": 0.0539
+      },
+      {
+        "token": "graffiti",
+        "weight": 0.0414
+      },
+      {
+        "token": "'",
+        "weight": 0.0392
+      },
+      {
+        "token": ":",
+        "weight": 0.0392
+      },
+      {
+        "token": "graffiti",
+        "weight": 0.0376
+      },
+      {
+        "token": "scared",
+        "weight": 0.0369
+      },
+      {
+        "token": ":",
+        "weight": 0.0357
+      }
+    ]
+  },
+  {
+    "track_id": "182",
+    "text": "track : jules lost his jewels. artist : ariel pink ' s haunted graffiti. album : worn copy. tags : ariel pinks haunted graffiti.",
+    "true_tags": [
+      "Rock",
+      "Lo-Fi"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Electronic",
+        "p": 0.5466
+      },
+      {
+        "tag": "Ambient",
+        "p": 0.1814
+      },
+      {
+        "tag": "Rock",
+        "p": 0.0985
+      },
+      {
+        "tag": "Instrumental",
+        "p": 0.0768
+      },
+      {
+        "tag": "Ambient Electronic",
+        "p": 0.036
+      }
+    ],
+    "chord_path": "F#:maj -> A#:min -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> D#:maj -> N",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 6,
+        "to_segment": 5,
+        "cosine": 0.8158,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 5,
+        "to_segment": 6,
+        "cosine": 0.8158,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 7,
+        "to_segment": 8,
+        "cosine": 0.7502,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 8,
+        "to_segment": 7,
+        "cosine": 0.7502,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 13,
+        "to_segment": 14,
+        "cosine": 0.7459,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 14,
+        "to_segment": 13,
+        "cosine": 0.7459,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 15,
+        "to_segment": 16,
+        "cosine": 0.7372,
+        "chords": "D#:maj -> D#:maj"
+      },
+      {
+        "from_segment": 16,
+        "to_segment": 15,
+        "cosine": 0.7372,
+        "chords": "D#:maj -> D#:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "haunted",
+        "weight": 0.0457
+      },
+      {
+        "token": "haunted",
+        "weight": 0.0454
+      },
+      {
+        "token": "copy",
+        "weight": 0.0387
+      },
+      {
+        "token": "s",
+        "weight": 0.038
+      },
+      {
+        "token": "graffiti",
+        "weight": 0.0363
+      },
+      {
+        "token": "graffiti",
+        "weight": 0.0347
+      },
+      {
+        "token": "'",
+        "weight": 0.0346
+      },
+      {
+        "token": "##s",
+        "weight": 0.0341
+      },
+      {
+        "token": "his",
+        "weight": 0.0337
+      },
+      {
+        "token": "worn",
+        "weight": 0.0333
+      }
+    ]
+  },
+  {
+    "track_id": "564",
+    "text": "track : the sugar society. artist : cinwaves. album : cinwaves. from deerfield beach, fl. tags : cinwaves.",
+    "true_tags": [
+      "Rock"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Hip-Hop",
+        "p": 0.9633
+      },
+      {
+        "tag": "Rock",
+        "p": 0.0898
+      },
+      {
+        "tag": "Punk",
+        "p": 0.0027
+      },
+      {
+        "tag": "Trip-Hop",
+        "p": 0.0025
+      },
+      {
+        "tag": "Lo-Fi",
+        "p": 0.0017
+      }
+    ],
+    "chord_path": "F#:maj -> C:min -> C:min -> C:min -> C:min -> C:min -> N -> N -> C:min -> C:min -> C:min -> C:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 8,
+        "to_segment": 9,
+        "cosine": 0.9518,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 9,
+        "to_segment": 8,
+        "cosine": 0.9518,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 18,
+        "to_segment": 17,
+        "cosine": 0.9508,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 18,
+        "cosine": 0.9508,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 15,
+        "to_segment": 16,
+        "cosine": 0.9407,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 16,
+        "to_segment": 15,
+        "cosine": 0.9407,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 16,
+        "cosine": 0.8924,
+        "chords": "C:min -> C:min"
+      },
+      {
+        "from_segment": 16,
+        "to_segment": 17,
+        "cosine": 0.8924,
+        "chords": "C:min -> C:min"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "##s",
+        "weight": 0.0399
+      },
+      {
+        "token": "##s",
+        "weight": 0.0386
+      },
+      {
+        "token": "##s",
+        "weight": 0.0381
+      },
+      {
+        "token": ":",
+        "weight": 0.035
+      },
+      {
+        "token": ":",
+        "weight": 0.0334
+      },
+      {
+        "token": ":",
+        "weight": 0.0332
+      },
+      {
+        "token": "deer",
+        "weight": 0.0323
+      },
+      {
+        "token": "from",
+        "weight": 0.0316
+      },
+      {
+        "token": "##wave",
+        "weight": 0.0316
+      },
+      {
+        "token": ".",
+        "weight": 0.0311
+      }
+    ]
+  }
+]

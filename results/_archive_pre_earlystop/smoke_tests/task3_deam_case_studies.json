@@ -1,0 +1,364 @@
+[
+  {
+    "track_id": "69",
+    "text": "track : keep your lamp trimmed and burning [ traditional ]. artist : billy childish.",
+    "true_tags": [
+      "Blues"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Classical",
+        "p": 0.5253
+      },
+      {
+        "tag": "Blues",
+        "p": 0.382
+      },
+      {
+        "tag": "Instrumental",
+        "p": 0.006
+      },
+      {
+        "tag": "Vocal",
+        "p": 0.0058
+      },
+      {
+        "tag": "Jazz",
+        "p": 0.0045
+      }
+    ],
+    "chord_path": "A:maj -> A:maj -> N -> N -> D:maj -> D:min -> D:min -> A:maj -> A:maj -> A:maj -> A:maj -> A:maj",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 11,
+        "to_segment": 10,
+        "cosine": 0.8863,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 10,
+        "to_segment": 11,
+        "cosine": 0.8863,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 12,
+        "to_segment": 11,
+        "cosine": 0.8286,
+        "chords": "A:min -> A:maj"
+      },
+      {
+        "from_segment": 11,
+        "to_segment": 12,
+        "cosine": 0.8286,
+        "chords": "A:maj -> A:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 1,
+        "cosine": 0.0,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 2,
+        "cosine": 0.0,
+        "chords": "A:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 3,
+        "cosine": 0.0,
+        "chords": "A:maj -> N"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 5,
+        "cosine": 0.0,
+        "chords": "A:maj -> D:min"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "keep",
+        "weight": 0.0548
+      },
+      {
+        "token": "billy",
+        "weight": 0.0548
+      },
+      {
+        "token": ":",
+        "weight": 0.0547
+      },
+      {
+        "token": "your",
+        "weight": 0.0543
+      },
+      {
+        "token": "burning",
+        "weight": 0.0541
+      },
+      {
+        "token": "artist",
+        "weight": 0.0541
+      },
+      {
+        "token": "[",
+        "weight": 0.0541
+      },
+      {
+        "token": "trimmed",
+        "weight": 0.0539
+      },
+      {
+        "token": ":",
+        "weight": 0.0539
+      },
+      {
+        "token": "track",
+        "weight": 0.0537
+      }
+    ]
+  },
+  {
+    "track_id": "72",
+    "text": "track : bona fide. artist : crete boom.",
+    "true_tags": [
+      "Blues"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Blues",
+        "p": 0.5277
+      },
+      {
+        "tag": "Classical",
+        "p": 0.4214
+      },
+      {
+        "tag": "Vocal",
+        "p": 0.0133
+      },
+      {
+        "tag": "Instrumental",
+        "p": 0.0102
+      },
+      {
+        "tag": "Jazz",
+        "p": 0.0095
+      }
+    ],
+    "chord_path": "E:min -> E:min -> E:min -> E:min -> E:min -> E:min -> N -> C:maj -> A:min -> A:min -> A:min -> A:min",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 1,
+        "to_segment": 2,
+        "cosine": 0.8339,
+        "chords": "E:min -> E:min"
+      },
+      {
+        "from_segment": 2,
+        "to_segment": 1,
+        "cosine": 0.8339,
+        "chords": "E:min -> E:min"
+      },
+      {
+        "from_segment": 13,
+        "to_segment": 14,
+        "cosine": 0.7593,
+        "chords": "A:min -> A:min"
+      },
+      {
+        "from_segment": 14,
+        "to_segment": 13,
+        "cosine": 0.7593,
+        "chords": "A:min -> A:min"
+      },
+      {
+        "from_segment": 11,
+        "to_segment": 10,
+        "cosine": 0.7107,
+        "chords": "A:min -> A:min"
+      },
+      {
+        "from_segment": 10,
+        "to_segment": 11,
+        "cosine": 0.7107,
+        "chords": "A:min -> A:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 18,
+        "cosine": 0.0,
+        "chords": "E:min -> N"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 0,
+        "cosine": 0.0,
+        "chords": "E:min -> E:min"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "crete",
+        "weight": 0.0814
+      },
+      {
+        "token": "boom",
+        "weight": 0.0805
+      },
+      {
+        "token": "fide",
+        "weight": 0.0805
+      },
+      {
+        "token": "artist",
+        "weight": 0.0791
+      },
+      {
+        "token": "bon",
+        "weight": 0.0789
+      },
+      {
+        "token": "track",
+        "weight": 0.0788
+      },
+      {
+        "token": "##a",
+        "weight": 0.0774
+      },
+      {
+        "token": ":",
+        "weight": 0.0764
+      },
+      {
+        "token": ":",
+        "weight": 0.0759
+      }
+    ]
+  },
+  {
+    "track_id": "78",
+    "text": "track : how to go to sleep. artist : mr. & mrs. smith.",
+    "true_tags": [
+      "Blues"
+    ],
+    "top_predicted_tags": [
+      {
+        "tag": "Classical",
+        "p": 0.5044
+      },
+      {
+        "tag": "Blues",
+        "p": 0.3919
+      },
+      {
+        "tag": "Instrumental",
+        "p": 0.0052
+      },
+      {
+        "tag": "Vocal",
+        "p": 0.0049
+      },
+      {
+        "tag": "International",
+        "p": 0.0039
+      }
+    ],
+    "chord_path": "A:maj -> A:maj -> A:maj -> D:min -> D:min -> D:maj -> G:min -> N -> N -> G:min -> G:min -> G:min",
+    "strongest_similarity_edges": [
+      {
+        "from_segment": 1,
+        "to_segment": 2,
+        "cosine": 0.8344,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 2,
+        "to_segment": 1,
+        "cosine": 0.8344,
+        "chords": "A:maj -> A:maj"
+      },
+      {
+        "from_segment": 3,
+        "to_segment": 4,
+        "cosine": 0.7584,
+        "chords": "D:min -> D:min"
+      },
+      {
+        "from_segment": 4,
+        "to_segment": 3,
+        "cosine": 0.7584,
+        "chords": "D:min -> D:min"
+      },
+      {
+        "from_segment": 16,
+        "to_segment": 17,
+        "cosine": 0.7339,
+        "chords": "E:min -> E:min"
+      },
+      {
+        "from_segment": 17,
+        "to_segment": 16,
+        "cosine": 0.7339,
+        "chords": "E:min -> E:min"
+      },
+      {
+        "from_segment": 0,
+        "to_segment": 4,
+        "cosine": 0.0,
+        "chords": "A:maj -> D:min"
+      },
+      {
+        "from_segment": 1,
+        "to_segment": 0,
+        "cosine": 0.0,
+        "chords": "A:maj -> A:maj"
+      }
+    ],
+    "text_tokens_attended_by_graph": [
+      {
+        "token": "track",
+        "weight": 0.0566
+      },
+      {
+        "token": "&",
+        "weight": 0.0558
+      },
+      {
+        "token": "smith",
+        "weight": 0.0554
+      },
+      {
+        "token": "artist",
+        "weight": 0.0553
+      },
+      {
+        "token": "sleep",
+        "weight": 0.0547
+      },
+      {
+        "token": ":",
+        "weight": 0.0547
+      },
+      {
+        "token": "mrs",
+        "weight": 0.0545
+      },
+      {
+        "token": ":",
+        "weight": 0.0545
+      },
+      {
+        "token": "how",
+        "weight": 0.0543
+      },
+      {
+        "token": "mr",
+        "weight": 0.0542
+      }
+    ]
+  }
+]

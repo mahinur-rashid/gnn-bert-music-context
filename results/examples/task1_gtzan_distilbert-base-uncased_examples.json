@@ -1,0 +1,147 @@
+[
+  {
+    "id": "blues/blues.00091",
+    "text": "A very slow instrumental excerpt at about 63 beats per minute. The timbre is very dark and very focused across the spectrum. The recording is moderate and very smooth. It covers a wide range of pitch classes.",
+    "true_tags": [
+      "blues"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "reggae",
+        "p": 0.4236
+      },
+      {
+        "tag": "blues",
+        "p": 0.202
+      },
+      {
+        "tag": "hiphop",
+        "p": 0.1162
+      },
+      {
+        "tag": "rock",
+        "p": 0.0417
+      },
+      {
+        "tag": "jazz",
+        "p": 0.0254
+      }
+    ]
+  },
+  {
+    "id": "country/country.00052",
+    "text": "A very slow instrumental excerpt at about 72 beats per minute. The timbre is very dark and focused across the spectrum. The recording is quiet and very smooth. It covers a narrow range of pitch classes.",
+    "true_tags": [
+      "country"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "jazz",
+        "p": 0.3656
+      },
+      {
+        "tag": "blues",
+        "p": 0.3405
+      },
+      {
+        "tag": "country",
+        "p": 0.2777
+      },
+      {
+        "tag": "classical",
+        "p": 0.0306
+      },
+      {
+        "tag": "reggae",
+        "p": 0.0246
+      }
+    ]
+  },
+  {
+    "id": "hiphop/hiphop.00007",
+    "text": "A moderate instrumental excerpt at about 123 beats per minute. The timbre is balanced and moderately spread across the spectrum. The recording is very loud and smooth. It covers a wide range of pitch classes.",
+    "true_tags": [
+      "hiphop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "hiphop",
+        "p": 0.7054
+      },
+      {
+        "tag": "metal",
+        "p": 0.4568
+      },
+      {
+        "tag": "blues",
+        "p": 0.0784
+      },
+      {
+        "tag": "reggae",
+        "p": 0.0419
+      },
+      {
+        "tag": "rock",
+        "p": 0.013
+      }
+    ]
+  },
+  {
+    "id": "pop/pop.00048",
+    "text": "A up-tempo instrumental excerpt at about 129 beats per minute. The timbre is very bright and very spread across the spectrum. The recording is loud and very percussive. It covers a wide range of pitch classes.",
+    "true_tags": [
+      "pop"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "pop",
+        "p": 0.5243
+      },
+      {
+        "tag": "disco",
+        "p": 0.2511
+      },
+      {
+        "tag": "hiphop",
+        "p": 0.1239
+      },
+      {
+        "tag": "reggae",
+        "p": 0.0937
+      },
+      {
+        "tag": "rock",
+        "p": 0.0275
+      }
+    ]
+  },
+  {
+    "id": "rock/rock.00005",
+    "text": "A slow instrumental excerpt at about 99 beats per minute. The timbre is dark and focused across the spectrum. The recording is loud and smooth. It covers a moderate range of pitch classes.",
+    "true_tags": [
+      "rock"
+    ],
+    "predicted_tags": [
+      {
+        "tag": "rock",
+        "p": 0.2168
+      },
+      {
+        "tag": "country",
+        "p": 0.2021
+      },
+      {
+        "tag": "reggae",
+        "p": 0.1656
+      },
+      {
+        "tag": "hiphop",
+        "p": 0.1272
+      },
+      {
+        "tag": "blues",
+        "p": 0.1258
+      }
+    ]
+  }
+]
