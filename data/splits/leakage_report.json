@@ -1,0 +1,22 @@
+{
+  "musiccaps": {
+    "artists": 4995,
+    "artists_in_multiple_splits": 0
+  },
+  "mtat": {
+    "artists": 229,
+    "artists_in_multiple_splits": 57
+  },
+  "fma_small": {
+    "artists": 2306,
+    "artists_in_multiple_splits": 0
+  },
+  "fma_medium": {
+    "artists": 5430,
+    "artists_in_multiple_splits": 1
+  },
+  "deam": {
+    "artists": 941,
+    "artists_in_multiple_splits": 0
+  }
+}
