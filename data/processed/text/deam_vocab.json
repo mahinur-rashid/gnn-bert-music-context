@@ -1,0 +1,30 @@
+{
+  "dataset": "deam",
+  "n_rows": 1795,
+  "vocab": [
+    "Rock",
+    "Electronic",
+    "Folk",
+    "Pop",
+    "Jazz",
+    "Classical",
+    "Country",
+    "Blues",
+    "Experimental",
+    "International",
+    "Hiphop",
+    "Soulrb",
+    "Instrumental",
+    "Electric",
+    "Acoustic",
+    "Spoken",
+    "Vocal",
+    "Male",
+    "Drum",
+    "Electricguitar"
+  ],
+  "label_cardinality": 1.5743732590529247,
+  "builder_kwargs": {
+    "top_k": 20
+  }
+}

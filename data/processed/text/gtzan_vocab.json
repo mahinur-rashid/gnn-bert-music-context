@@ -1,0 +1,20 @@
+{
+  "dataset": "gtzan",
+  "n_rows": 1000,
+  "vocab": [
+    "blues",
+    "classical",
+    "country",
+    "disco",
+    "hiphop",
+    "jazz",
+    "metal",
+    "pop",
+    "reggae",
+    "rock"
+  ],
+  "label_cardinality": 1.0,
+  "builder_kwargs": {
+    "top_k": 10
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "99134",
+    "error": "NoBackendError: ",
+    "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\Mahinur Rashid\\AppData\\Roaming\\Python\\Python312\\site-packages\\librosa\\core\\audio.py\", line 176, in load\n    y, sr_native = __soundfile_load(path, offset, duration, dtype)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsoundfile.LibsndfileError: Error opening 'E:\\\\gnn-bert-music-context\\\\Datasets\\\\fma\\\\fma_small\\\\099\\\\099134.mp3': File does not exist or is not a regular file (possibly a pipe?).\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"E:\\gnn-bert-music-context\\src\\graph_builder.py\", line 230, in process_audio_item\n    feat = extract_track(fp, segmentation=o.get(\"segmentation\", \"fixed\"),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\naudioread.exceptions.NoBackendError\n"
+  },
+  {
+    "id": "108925",
+    "error": "NoBackendError: ",
+    "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\Mahinur Rashid\\AppData\\Roaming\\Python\\Python312\\site-packages\\librosa\\core\\audio.py\", line 176, in load\n    y, sr_native = __soundfile_load(path, offset, duration, dtype)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsoundfile.LibsndfileError: Error opening 'E:\\\\gnn-bert-music-context\\\\Datasets\\\\fma\\\\fma_small\\\\108\\\\108925.mp3': File does not exist or is not a regular file (possibly a pipe?).\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"E:\\gnn-bert-music-context\\src\\graph_builder.py\", line 230, in process_audio_item\n    feat = extract_track(fp, segmentation=o.get(\"segmentation\", \"fixed\"),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\naudioread.exceptions.NoBackendError\n"
+  },
+  {
+    "id": "133297",
+    "error": "NoBackendError: ",
+    "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\Mahinur Rashid\\AppData\\Roaming\\Python\\Python312\\site-packages\\librosa\\core\\audio.py\", line 176, in load\n    y, sr_native = __soundfile_load(path, offset, duration, dtype)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsoundfile.LibsndfileError: Error opening 'E:\\\\gnn-bert-music-context\\\\Datasets\\\\fma\\\\fma_small\\\\133\\\\133297.mp3': File does not exist or is not a regular file (possibly a pipe?).\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"E:\\gnn-bert-music-context\\src\\graph_builder.py\", line 230, in process_audio_item\n    feat = extract_track(fp, segmentation=o.get(\"segmentation\", \"fixed\"),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\naudioread.exceptions.NoBackendError\n"
+  }
+]
