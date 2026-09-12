@@ -1,4 +1,10 @@
 Datasets/
+data/processed/
+data/raw/
+results/
 __pycache__/
-
-
+*.pyc
+.ipynb_checkpoints/
+*.pt
+*.npy
+!data/processed/graph_samples/*
