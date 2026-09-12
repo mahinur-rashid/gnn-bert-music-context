@@ -314,7 +314,12 @@ def summarize(pattern: str = "*.json") -> str:
             d = json.loads(f.read_text(encoding="utf-8"))
         except Exception:
             continue
+        # `*_table.json` side-cars are plain lists of rows, not experiment payloads
+        if not isinstance(d, dict):
+            continue
         test = d.get("test", {})
+        if not isinstance(test, dict):
+            continue
         rows.append(
             {
                 "experiment": f.stem,
@@ -323,7 +328,9 @@ def summarize(pattern: str = "*.json") -> str:
                 "model": d.get("model"),
                 **{
                     k: test[k]
-                    for k in ("accuracy", "macro_f1", "micro_f1", "auc_pr", "mae_mean", "r2_valence")
+                    for k in ("accuracy", "macro_f1", "micro_f1", "auc_pr",
+                              "mae_mean", "r2_valence",
+                              "caption_to_audio_R@5", "caption_to_audio_R@10")
                     if k in test
                 },
             }
@@ -332,7 +339,8 @@ def summarize(pattern: str = "*.json") -> str:
         return "no results yet"
 
     cols = ["experiment", "task", "dataset", "model", "accuracy", "macro_f1",
-            "micro_f1", "auc_pr", "mae_mean", "r2_valence"]
+            "micro_f1", "auc_pr", "mae_mean", "r2_valence",
+            "caption_to_audio_R@5", "caption_to_audio_R@10"]
     cols = [c for c in cols if any(c in r for r in rows)]
     lines = ["| " + " | ".join(cols) + " |",
              "| " + " | ".join("---" for _ in cols) + " |"]
