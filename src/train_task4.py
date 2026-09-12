@@ -152,6 +152,7 @@ def train(args) -> dict:
         gnn_layers=args.gnn_layers, conv=args.conv, dropout=args.dropout,
         model_name=args.model_name, freeze_bert=args.freeze_bert,
         n_trainable_layers=args.n_trainable_layers, temperature=args.temperature,
+        learn_temperature=not args.fixed_temperature,
     ).to(device)
     LOG.info("dual encoder: %.1fM trainable params, embed_dim=%d, batch=%d "
              "(=> %d in-batch negatives)",
@@ -253,6 +254,7 @@ def train(args) -> dict:
         "n_classes": len(spec.classes),
         "embed_dim": args.embed_dim,
         "temperature": args.temperature,
+        "temperature_learned": not args.fixed_temperature,
         "args": vars(args),
         "history": history,
         "best_epoch": best["epoch"],
@@ -462,6 +464,9 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--gnn_layers", type=int, default=c["gnn_layers"])
     ap.add_argument("--conv", default="sage", choices=["sage", "gat", "gcn"])
     ap.add_argument("--temperature", type=float, default=c["temperature"])
+    ap.add_argument("--fixed_temperature", action="store_true",
+                    help="keep tau fixed instead of learning it (matches the "
+                         "literal InfoNCE formula in the brief)")
     ap.add_argument("--dropout", type=float, default=0.2)
     ap.add_argument("--max_length", type=int, default=CFG["text"]["max_length"])
     ap.add_argument("--freeze_bert", action="store_true")

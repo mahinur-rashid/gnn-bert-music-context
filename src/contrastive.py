@@ -26,14 +26,18 @@ class DualEncoder(nn.Module):
     def __init__(self, in_dim: int, embed_dim: int = 256, hidden: int = 256,
                  gnn_layers: int = 3, conv: str = "sage", dropout: float = 0.2,
                  model_name: str | None = None, freeze_bert: bool = False,
-                 n_trainable_layers: int | None = None, temperature: float = 0.07):
+                 n_trainable_layers: int | None = None, temperature: float = 0.07,
+                 learn_temperature: bool = True):
         super().__init__()
         self.gnn = GNNEncoder(in_dim, hidden, gnn_layers, conv, dropout, out_dim=hidden)
         self.bert = BertEncoder(model_name, freeze=freeze_bert,
                                 n_trainable_layers=n_trainable_layers)
         self.graph_proj = nn.Linear(hidden, embed_dim)
         self.text_proj = nn.Linear(self.bert.hidden_size, embed_dim)
-        self.logit_scale = nn.Parameter(torch.tensor(1.0 / temperature).log())
+        # CLIP-style learnable temperature by default; set learn_temperature=False
+        # to keep tau fixed at the configured value, exactly as written in the brief
+        self.logit_scale = nn.Parameter(torch.tensor(1.0 / temperature).log(),
+                                        requires_grad=learn_temperature)
 
     def encode_graph(self, data) -> torch.Tensor:
         g, _ = self.gnn(data.x, data.edge_index, data.batch,
