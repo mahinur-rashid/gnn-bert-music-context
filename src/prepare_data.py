@@ -60,9 +60,11 @@ def stage_graphs(args) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description="build every preprocessing artefact")
     ap.add_argument("--stage", default="all", choices=["all", "text", "splits", "graphs"])
+    # FMA-medium graphs are NOT built by default: every comparison uses
+    # FMA-small, and the 25k medium set costs ~35 min for no extra coverage.
+    # Add it explicitly if you want it: --graph_datasets fma_medium
     ap.add_argument("--graph_datasets", nargs="*",
-                    default=["gtzan", "deam", "musiccaps", "fma_small",
-                             "mtat", "fma_medium"])
+                    default=["gtzan", "deam", "musiccaps", "fma_small", "mtat"])
     ap.add_argument("--top_k", type=int, default=CFG["task1"]["top_k_tags"])
     ap.add_argument("--musiccaps_labels", default="aspects", choices=["aspects", "audioset"])
     ap.add_argument("--jobs", type=int, default=8)

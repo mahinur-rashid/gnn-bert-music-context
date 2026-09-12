@@ -7,7 +7,7 @@ dataset (label space, supervision quality, text richness) can be read off
 directly.
 
     python -m src.compare_datasets --task 1
-    python -m src.compare_datasets --task 2 --datasets gtzan fma_medium
+    python -m src.compare_datasets --task 2 --datasets gtzan fma_small
     python -m src.compare_datasets --task 4
     python -m src.compare_datasets --task all
 
@@ -33,16 +33,16 @@ from .utils import LOG, Timer, save_json
 #   Task 4 needs graphs AND free text -> MusicCaps (captions), DEAM, MTAT, FMA
 TASK_DATASETS: dict[int, list[str]] = {
     1: ["musiccaps", "mtat", "fma_small", "fma_medium", "gtzan", "deam"],
-    2: ["gtzan", "fma_medium", "fma_small", "mtat", "deam"],
-    3: ["fma_medium", "mtat", "deam", "fma_small", "musiccaps"],
+    2: ["gtzan", "fma_small", "fma_medium", "mtat", "deam"],
+    3: ["fma_small", "mtat", "deam", "fma_medium", "musiccaps"],
     4: ["deam", "musiccaps", "mtat", "fma_small", "fma_medium"],
 }
 
 # The dataset line-up actually reported for each task.
 DEFAULT_SELECTION: dict[int, list[str]] = {
     1: ["fma_small", "mtat", "gtzan", "musiccaps"],
-    2: ["gtzan", "fma_medium"],
-    3: ["fma_medium", "mtat", "deam"],
+    2: ["gtzan", "fma_small"],
+    3: ["fma_small", "mtat", "deam"],
     4: ["deam", "musiccaps"],
 }
 

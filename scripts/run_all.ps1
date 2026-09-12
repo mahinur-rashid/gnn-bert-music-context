@@ -5,7 +5,8 @@
 param(
     [int]$Jobs = 10,
     [switch]$SkipPrep,
-    [switch]$PrepOnly
+    [switch]$PrepOnly,
+    [switch]$WithFmaMedium   # 25k extra graphs, ~35 min; not used by any comparison
 )
 
 $ErrorActionPreference = "Stop"
@@ -26,10 +27,14 @@ if (-not $SkipPrep) {
     python -m src.graph_builder --dataset gtzan      --jobs $Jobs
     python -m src.graph_builder --dataset deam       --jobs $Jobs
     python -m src.graph_builder --dataset musiccaps  --jobs $Jobs
-    # ~10 min                    ~20 min                    ~35 min (keeps mel for the CNN baseline)
+    # ~10 min (keeps mel for the CNN baseline)   ~20 min
     python -m src.graph_builder --dataset fma_small  --jobs $Jobs
     python -m src.graph_builder --dataset mtat       --jobs $Jobs --no_mel
-    python -m src.graph_builder --dataset fma_medium --jobs $Jobs
+
+    # FMA-medium is optional: every comparison uses FMA-small.
+    if ($WithFmaMedium) {
+        python -m src.graph_builder --dataset fma_medium --jobs $Jobs
+    }
 }
 
 if ($PrepOnly) { Write-Host "`nPreprocessing done." -ForegroundColor Green; exit 0 }
@@ -42,8 +47,8 @@ python -m src.train_task4 --dataset musiccaps --save_model
 
 Write-Host "`n=== 3/3  cross-dataset comparisons ===" -ForegroundColor Cyan
 # Task 1: fma_small, magnatagatune, gtzan, musiccaps (text only)
-# Task 2: gtzan, fma_medium
-# Task 3: fma_medium, magnatagatune, deam
+# Task 2: gtzan, fma_small
+# Task 3: fma_small, magnatagatune, deam
 # Task 4: deam, musiccaps (with audio)
 python -m src.compare_datasets --task 1
 python -m src.compare_datasets --task 2 --pca_mlp

@@ -56,7 +56,7 @@ implemented; only the final report is still outstanding.
 | Cross-attention fusion (Q=gW_Q, K=H_text W_K) | ✅ | `CrossAttentionFusion` |
 | Multi-task loss `L_tags + α‖v−v̂‖² + β‖a−â‖²` | ✅ | `multitask_loss` (α, β in `config.yaml`) |
 | Ablation: BERT-only / GNN-only / early concat / cross-attention | ✅ | `--ablation` (4 modes) |
-| Results on FMA-medium or MagnaTagATune (macro-F1, AUC-PR) | ✅ | MTAT + FMA-small (+ FMA-medium once its graphs are built) |
+| Results on FMA-medium **or** MagnaTagATune (macro-F1, AUC-PR) | ✅ | MagnaTagATune satisfies this clause; FMA-small and DEAM are reported alongside it |
 | t-SNE of z coloured by genre **and** mood | ✅ | `tsne_plots` → `*_tsne_genre.png`, `*_tsne_mood.png` |
 | 3 case studies: graph paths + caption/lyric alignment | ✅ | `case_studies` → `results/case_studies/*.json` |
 
@@ -124,8 +124,8 @@ implemented; only the final report is still outstanding.
   | task | datasets compared |
   |---|---|
   | 1 | FMA-small, MagnaTagATune, GTZAN, MusicCaps |
-  | 2 | GTZAN, FMA-medium |
-  | 3 | FMA-medium, MagnaTagATune, DEAM |
+  | 2 | GTZAN, FMA-small |
+  | 3 | FMA-small, MagnaTagATune, DEAM |
   | 4 | DEAM, MusicCaps (with audio) |
 
 * GTZAN made usable for Task 1 without label leakage, by generating its text from

@@ -56,7 +56,7 @@ Datasets/
 |---|---|---|
 | MusicCaps | Tasks 1, 3, 4 | top-50 caption aspects; free-text captions for retrieval |
 | MagnaTagATune | Tasks 1, 2, 3 | top-50 tags after synonym merging, 25'863 clips |
-| FMA small / medium | Tasks 1, 2, 3 | 8 / 16 top genres, top-50 `genres_all` |
+| FMA small | Tasks 1, 2, 3 | 8 top genres, top-50 `genres_all` (medium is available but unused by default) |
 | GTZAN | Tasks 1, 2 | 10 genres, 1'000 clips |
 | DEAM | Tasks 1–4 | 20 genre tags + valence/arousal (1–9 → [-1,1]) |
 
@@ -77,6 +77,7 @@ python -m src.graph_builder --dataset fma_small --jobs 10
 python -m src.graph_builder --dataset deam      --jobs 10
 python -m src.graph_builder --dataset musiccaps --jobs 10
 python -m src.graph_builder --dataset mtat      --jobs 10 --no_mel
+# optional -- no comparison uses it, every FMA experiment runs on fma_small
 python -m src.graph_builder --dataset fma_medium --jobs 10            # ~35 min
 
 # or all of the above in one call
@@ -152,7 +153,7 @@ comparison table, bar charts and a confusion matrix.
 
 ```powershell
 python -m src.train_task3 --dataset fma_small --ablation
-python -m src.train_task3 --dataset mtat      --ablation --epochs 4
+python -m src.train_task3 --dataset mtat      --ablation
 python -m src.train_task3 --dataset deam      --ablation
 ```
 
@@ -183,8 +184,8 @@ model on the same tags.
 
 ```powershell
 python -m src.compare_datasets --task 1     # fma_small, magnatagatune, gtzan, musiccaps
-python -m src.compare_datasets --task 2     # gtzan, fma_medium
-python -m src.compare_datasets --task 3     # fma_medium, magnatagatune, deam
+python -m src.compare_datasets --task 2     # gtzan, fma_small
+python -m src.compare_datasets --task 3     # fma_small, magnatagatune, deam
 python -m src.compare_datasets --task 4     # deam, musiccaps (with audio)
 python -m src.compare_datasets --task all
 ```
