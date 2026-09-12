@@ -223,7 +223,7 @@ def list_musiccaps_items() -> list[tuple[str, str]]:
     Only ~5.2k of the 5'521 captioned clips are downloadable from YouTube, so
     the intersection with the caption table is taken here.
     """
-    from .text_data import load as load_text
+    import pandas as pd
 
     root = path("musiccaps_audio")
     if not root.exists():
@@ -231,11 +231,9 @@ def list_musiccaps_items() -> list[tuple[str, str]]:
             f"MusicCaps audio not found at {root}. Download the clips first, or "
             "point paths.musiccaps_audio in config.yaml at the wav directory."
         )
-    try:
-        df, _ = load_text("musiccaps")
-        wanted = set(df["id"].astype(str))
-    except FileNotFoundError:
-        wanted = None
+    # Intersect with the *raw* caption CSV rather than the processed tag table:
+    # Task 4 only needs a caption, not a top-50 aspect label.
+    wanted = set(pd.read_csv(path("musiccaps_csv"))["ytid"].astype(str))
 
     items, skipped = [], 0
     for f in sorted(root.glob("*.wav")):
