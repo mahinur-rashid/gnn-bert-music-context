@@ -8,3 +8,4 @@ __pycache__/
 *.pt
 *.npy
 !data/processed/graph_samples/*
+data
