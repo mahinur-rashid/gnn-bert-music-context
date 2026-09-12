@@ -21,9 +21,11 @@ paths:
   mtat_annotations: "Datasets/MagnaTagATune Dataset/annotations_final.csv"
   mtat_audio: "Datasets/MagnaTagATune Dataset/MagnaTagATune"
 
-  # --- MusicCaps (5.5k expert captions, audio NOT downloaded yet) ---------
+  # --- MusicCaps (5.5k expert captions; 5'165 x 10 s wav downloaded) ------
   musiccaps_csv: "Datasets/musiccaps/musiccaps-public.csv"
-  musiccaps_audio: "Datasets/musiccaps/audio"        # for Task 4, later
+  musiccaps_audio: "Datasets/musiccaps_with_audio/wav"
+  musiccaps_downloaded_csv: "Datasets/musiccaps_with_audio/musiccaps-downloaded.csv"
+  musiccaps_manifest: "Datasets/musiccaps_with_audio/download_manifest.csv"
 
   # --- DEAM (valence/arousal + genre metadata) ----------------------------
   deam_audio: "Datasets/Deam_Dataset/MEMD_audio"
@@ -53,6 +55,15 @@ audio:
   max_segments: 24    # hard cap on nodes per graph
   mel_frames: 128     # mel-spectrogram patch width for the CNN baseline
 
+  # Per-dataset overrides -- MusicCaps clips are only 10 s long, so they need a
+  # shorter window/hop to yield a graph with a useful number of nodes.
+  per_dataset:
+    musiccaps:
+      win_s: 2.0
+      hop_s: 1.0
+      max_dur_s: 10.0
+      max_segments: 12
+
 # --- graph construction -----------------------------------------------------
 graph:
   knn: 5              # similarity edges per node
@@ -66,8 +77,15 @@ text:
   max_length: 192
 
 # --- task hyper-parameters --------------------------------------------------
+# Every task trains for up to `epochs` and stops early once the validation
+# metric has not improved for `patience` epochs; `min_epochs` blocks early
+# stopping during the initial noisy phase (the CNN baseline in particular dips
+# mid-training before recovering, and stopping there would understate it).
+# The best-validation checkpoint is always restored before test evaluation.
 task1:
-  epochs: 5
+  epochs: 100
+  patience: 10
+  min_epochs: 3
   batch_size: 32
   lr: 2.0e-5
   head_lr: 1.0e-3
@@ -75,7 +93,9 @@ task1:
   top_k_tags: 50
 
 task2:
-  epochs: 60
+  epochs: 100
+  patience: 10
+  min_epochs: 25
   batch_size: 32
   lr: 1.0e-3
   weight_decay: 5.0e-4
@@ -85,7 +105,9 @@ task2:
   conv: "sage"        # sage | gat | gcn
 
 task3:
-  epochs: 6
+  epochs: 100
+  patience: 10
+  min_epochs: 3
   batch_size: 16
   lr_bert: 2.0e-5
   lr_other: 1.0e-3
@@ -95,3 +117,19 @@ task3:
   n_heads: 4
   alpha: 0.5          # valence loss weight
   beta: 0.5           # arousal loss weight
+
+# Task 4 -- contrastive dual encoder (InfoNCE). A large batch matters here:
+# every other item in the batch is a negative, so batch_size sets the difficulty
+# of the contrastive problem and the resolution of the R@K metrics.
+task4:
+  epochs: 100
+  patience: 10
+  min_epochs: 5
+  batch_size: 64
+  lr_bert: 2.0e-5
+  lr_other: 1.0e-3
+  weight_decay: 0.01
+  embed_dim: 256
+  hidden: 256
+  gnn_layers: 3
+  temperature: 0.07
