@@ -1,11 +1,16 @@
 Datasets/
-data/processed/
-data/raw/
+*.rar
 results/
+results/checkpoints/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 *.pt
 *.npy
-!data/processed/graph_samples/*
-data
+# git can't re-include a file under an excluded directory, so data/ is opened
+# level by level instead of ignored wholesale -- this keeps graph_samples trackable
+data/*
+!data/processed/
+data/processed/*
+!data/processed/graph_samples/
+!data/processed/graph_samples/**
