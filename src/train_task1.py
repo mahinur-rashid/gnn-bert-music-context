@@ -181,6 +181,11 @@ def train_one(dataset: str, args) -> dict:
     tp, tt, _ = predict(model, loaders["test"], device)
     test_metrics = multilabel_metrics(tt, tp, thresholds=thr)
     test_at_half = multilabel_metrics(tt, tp, thresholds=0.5)
+    val_metrics = multilabel_metrics(vt, vp, thresholds=thr)
+    trp, trt, _ = predict(model, loaders["train"], device)
+    train_metrics = multilabel_metrics(trt, trp, thresholds=thr)
+    LOG.info("TRAIN %s | macro-F1 %.4f (generalisation gap %.4f)", dataset,
+             train_metrics["macro_f1"], train_metrics["macro_f1"] - test_metrics["macro_f1"])
     LOG.info("TEST %s | macro-F1 %.4f | micro-F1 %.4f | AUC-PR %.4f",
              dataset, test_metrics["macro_f1"], test_metrics["micro_f1"],
              test_metrics["auc_pr"])
@@ -215,6 +220,8 @@ def train_one(dataset: str, args) -> dict:
         "history": history,
         "best_epoch": best["epoch"],
         "thresholds": (thr.tolist() if isinstance(thr, np.ndarray) else thr),
+        "train": train_metrics,
+        "val": val_metrics,
         "test": test_metrics,
         "test_at_threshold_0.5": test_at_half,
         "baselines": baselines,

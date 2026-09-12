@@ -20,9 +20,9 @@ from . import graph_dataset as gd
 from .baselines import majority_multilabel_baseline, random_multilabel_baseline
 from .bert_encoder import make_tokenizer
 from .config import CFG, SEED, results_dir
-from .evaluate import (multilabel_metrics, plot_bar_comparison, plot_history,
-                       plot_tsne, record_result, regression_metrics, singlelabel_metrics,
-                       tune_thresholds)
+from .evaluate import (graph_coherence, multilabel_metrics, plot_bar_comparison,
+                       plot_history, plot_tsne, record_result, regression_metrics,
+                       singlelabel_metrics, tune_thresholds)
 from .fusion_model import FUSION_MODES, FusionModel, multitask_loss
 from .utils import (LOG, Timer, count_params, get_device, quiet_transformers,
                     save_json, set_seed)
@@ -70,6 +70,30 @@ def evaluate(model, loader, device, multilabel: bool, args, collect_z: bool = Fa
         "va_pred": np.concatenate(vas) if vas else None,
         "ids": ids,
     }
+
+
+# --------------------------------------------------------------------------- #
+# optional analysis: graph coherence score S_graph (Section 6)
+# --------------------------------------------------------------------------- #
+
+
+@torch.no_grad()
+def graph_coherence_score(model, loader, device, tau: float = 0.5,
+                          max_batches: int = 20) -> float:
+    """Fraction of graph edges whose learnt node embeddings agree (cos > tau)."""
+    model.eval()
+    scores = []
+    for i, batch in enumerate(loader):
+        if i >= max_batches:
+            break
+        batch = batch.to(device)
+        out = model(batch)
+        h = out.get("h")
+        if h is None:
+            return float("nan")
+        scores.append(graph_coherence(h.float().cpu().numpy(),
+                                      batch.edge_index.cpu().numpy(), tau))
+    return float(np.nanmean(scores)) if scores else float("nan")
 
 
 # --------------------------------------------------------------------------- #
@@ -166,10 +190,14 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
     val = evaluate(model, loaders["val"], device, multilabel, args)
     thr = tune_thresholds(val["trues"], val["probs"]) if (multilabel and args.tune_thresholds) else 0.5
     test = evaluate(model, loaders["test"], device, multilabel, args, collect_z=True)
-    tm = dict(test["metrics"])
+    train_eval = evaluate(model, loaders["train"], device, multilabel, args)
+    tm, vm, rm = dict(test["metrics"]), dict(val["metrics"]), dict(train_eval["metrics"])
     if multilabel and args.tune_thresholds:
-        tuned = multilabel_metrics(test["trues"], test["probs"], thresholds=thr)
-        tm.update(tuned)
+        tm.update(multilabel_metrics(test["trues"], test["probs"], thresholds=thr))
+        vm.update(multilabel_metrics(val["trues"], val["probs"], thresholds=thr))
+        rm.update(multilabel_metrics(train_eval["trues"], train_eval["probs"], thresholds=thr))
+    if model.use_graph:
+        tm["graph_coherence"] = graph_coherence_score(model, loaders["test"], device)
     LOG.info("[%s] TEST %s", mode,
              " ".join(f"{k}={v:.4f}" for k, v in tm.items() if isinstance(v, float)))
 
@@ -179,8 +207,8 @@ def train_fusion(mode: str, bundle: dict, args, device) -> dict:
     if args.save_model:
         torch.save(model.state_dict(), results_dir("checkpoints") / f"{tag}.pt")
 
-    return {"model": mode, "history": history, "best_epoch": best["epoch"], "test": tm,
-            "n_params": count_params(model),
+    return {"model": mode, "history": history, "best_epoch": best["epoch"],
+            "train": rm, "val": vm, "test": tm, "n_params": count_params(model),
             "thresholds": thr.tolist() if isinstance(thr, np.ndarray) else thr,
             "_model": model, "_test": test, "_loaders": loaders}
 

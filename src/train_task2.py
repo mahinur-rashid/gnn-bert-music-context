@@ -144,8 +144,12 @@ def train_model(model_name: str, bundle: dict, args, device) -> dict:
         vp, vt, _, _ = evaluate_model(model, loaders["val"], device, multilabel, is_cnn, crit)
         thr = tune_thresholds(vt, vp)
     tp, tt, _, tm = evaluate_model(model, loaders["test"], device, multilabel, is_cnn, crit)
+    vp2, vt2, _, vm2 = evaluate_model(model, loaders["val"], device, multilabel, is_cnn, crit)
+    rp, rt, _, rm = evaluate_model(model, loaders["train"], device, multilabel, is_cnn, crit)
     if multilabel and args.tune_thresholds:
         tm = multilabel_metrics(tt, tp, thresholds=thr)
+        vm2 = multilabel_metrics(vt2, vp2, thresholds=thr)
+        rm = multilabel_metrics(rt, rp, thresholds=thr)
     LOG.info("[%s] TEST %s", model_name,
              " ".join(f"{k}={v:.4f}" for k, v in tm.items() if isinstance(v, float)))
 
@@ -160,7 +164,7 @@ def train_model(model_name: str, bundle: dict, args, device) -> dict:
         torch.save(model.state_dict(), results_dir("checkpoints") / f"{tag}.pt")
 
     return {"model": model_name, "history": history, "best_epoch": best["epoch"],
-            "test": tm, "n_params": count_params(model),
+            "train": rm, "val": vm2, "test": tm, "n_params": count_params(model),
             "thresholds": thr.tolist() if isinstance(thr, np.ndarray) else thr}
 
 
