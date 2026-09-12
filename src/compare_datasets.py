@@ -72,7 +72,8 @@ def _args(parser_builder, overrides: dict[str, Any]):
 def run_task1(dataset: str, cli) -> dict:
     args = _args(train_task1.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
-                  "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed})
+                  "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed,
+                  "patience": cli.patience, "min_epochs": cli.min_epochs})
     payload = train_task1.train_one(dataset, args)
     return {
         "dataset": dataset,
@@ -90,7 +91,8 @@ def run_task2(dataset: str, cli) -> dict:
     args = _args(train_task2.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
                   "limit": cli.limit, "seed": cli.seed, "compare": True,
-                  "pca_mlp": cli.pca_mlp, "patience": cli.patience})
+                  "pca_mlp": cli.pca_mlp, "patience": cli.patience,
+                  "min_epochs": cli.min_epochs})
     payload = train_task2.run(args)
     runs = {r["model"]: r for r in payload["runs"]}
     best_name = max((m for m in runs if m in train_task2.MODELS),
@@ -113,7 +115,8 @@ def run_task3(dataset: str, cli) -> dict:
     args = _args(train_task3.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
                   "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed,
-                  "ablation": True, "patience": cli.patience})
+                  "ablation": True, "patience": cli.patience,
+                  "min_epochs": cli.min_epochs})
     payload = train_task3.run(args)
     runs = {r["model"]: r for r in payload["runs"]}
     main = runs.get("cross_attn", list(runs.values())[-1])
@@ -133,7 +136,7 @@ def run_task4(dataset: str, cli) -> dict:
     args = _args(train_task4.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
                   "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed,
-                  "patience": cli.patience})
+                  "patience": cli.patience, "min_epochs": cli.min_epochs})
     payload = train_task4.train(args)
     return {
         "dataset": dataset,
@@ -300,6 +303,9 @@ def main() -> None:
     ap.add_argument("--model_name", default=None)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--pca_mlp", action="store_true")
+    ap.add_argument("--min_epochs", type=int, default=None,
+                    help="never early-stop before this epoch; defaults to the "
+                         "task's config.yaml value")
     ap.add_argument("--patience", type=int, default=None,
                     help="early-stopping patience; defaults to each task's "
                          "config.yaml value. Every model in a comparison gets the "
