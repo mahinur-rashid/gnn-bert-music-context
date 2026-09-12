@@ -1,0 +1,97 @@
+# ---------------------------------------------------------------------------
+# GNN-BERT Music Context Understanding -- central configuration
+# Every path is relative to the repository root.
+# ---------------------------------------------------------------------------
+seed: 42
+
+paths:
+  datasets_root: "Datasets"
+
+  # --- FMA (audio + genre/tag metadata) -----------------------------------
+  fma_metadata: "Datasets/fma/fma_metadata"
+  fma_small: "Datasets/fma/fma_small"
+  fma_medium: "Datasets/fma/fma_medium"
+
+  # --- GTZAN (10 genres, 1000 x 30 s wav) ---------------------------------
+  gtzan_audio: "Datasets/gtzan/genres_original"
+  gtzan_feat30: "Datasets/gtzan/features_30_sec.csv"
+  gtzan_feat3: "Datasets/gtzan/features_3_sec.csv"
+
+  # --- MagnaTagATune (188 tags, ~25.8k x 29 s mp3) ------------------------
+  mtat_annotations: "Datasets/MagnaTagATune Dataset/annotations_final.csv"
+  mtat_audio: "Datasets/MagnaTagATune Dataset/MagnaTagATune"
+
+  # --- MusicCaps (5.5k expert captions, audio NOT downloaded yet) ---------
+  musiccaps_csv: "Datasets/musiccaps/musiccaps-public.csv"
+  musiccaps_audio: "Datasets/musiccaps/audio"        # for Task 4, later
+
+  # --- DEAM (valence/arousal + genre metadata) ----------------------------
+  deam_audio: "Datasets/Deam_Dataset/MEMD_audio"
+  deam_features: "Datasets/Deam_Dataset/features"
+  deam_static_1_2000: "Datasets/Deam_Dataset/annotations/annotations averaged per song/song_level/static_annotations_averaged_songs_1_2000.csv"
+  deam_static_2000_2058: "Datasets/Deam_Dataset/annotations/annotations averaged per song/song_level/static_annotations_averaged_songs_2000_2058.csv"
+  deam_metadata_dir: "Datasets/Deam_Dataset/metadata"
+
+  # --- derived artefacts ---------------------------------------------------
+  processed: "data/processed"
+  graphs: "data/processed/graphs"
+  graph_samples: "data/processed/graph_samples"
+  text: "data/processed/text"
+  splits: "data/splits"
+  results: "results"
+
+# --- audio front-end (Section 3 "Preprocessing pipeline") -------------------
+audio:
+  sr: 22050
+  n_fft: 2048
+  hop_length: 512
+  n_mels: 128
+  n_mfcc: 20
+  win_s: 3.0          # segment length (seconds)
+  hop_s: 1.5          # segment hop  (50 % overlap)
+  max_dur_s: 30.0     # only the first 30 s of a track are used
+  max_segments: 24    # hard cap on nodes per graph
+  mel_frames: 128     # mel-spectrogram patch width for the CNN baseline
+
+# --- graph construction -----------------------------------------------------
+graph:
+  knn: 5              # similarity edges per node
+  sim_threshold: 0.7  # cosine similarity tau
+  temporal_radius: 2  # connect segment i to i+1 .. i+radius
+  chord_edges: true   # add chord-transition induced edges
+
+# --- text / BERT ------------------------------------------------------------
+text:
+  model_name: "distilbert-base-uncased"   # or bert-base-uncased
+  max_length: 192
+
+# --- task hyper-parameters --------------------------------------------------
+task1:
+  epochs: 5
+  batch_size: 32
+  lr: 2.0e-5
+  head_lr: 1.0e-3
+  weight_decay: 0.01
+  top_k_tags: 50
+
+task2:
+  epochs: 60
+  batch_size: 32
+  lr: 1.0e-3
+  weight_decay: 5.0e-4
+  hidden: 128
+  layers: 3
+  dropout: 0.3
+  conv: "sage"        # sage | gat | gcn
+
+task3:
+  epochs: 6
+  batch_size: 16
+  lr_bert: 2.0e-5
+  lr_other: 1.0e-3
+  weight_decay: 0.01
+  hidden: 256
+  gnn_layers: 3
+  n_heads: 4
+  alpha: 0.5          # valence loss weight
+  beta: 0.5           # arousal loss weight
