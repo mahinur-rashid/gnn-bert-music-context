@@ -7,8 +7,8 @@ dataset (label space, supervision quality, text richness) can be read off
 directly.
 
     python -m src.compare_datasets --task 1
-    python -m src.compare_datasets --task 2 --datasets gtzan fma_small
-    python -m src.compare_datasets --task 3 --epochs 4
+    python -m src.compare_datasets --task 2 --datasets gtzan fma_medium
+    python -m src.compare_datasets --task 4
     python -m src.compare_datasets --task all
 
 Results are written to ``results/comparison/``.
@@ -21,26 +21,29 @@ from typing import Any
 
 import numpy as np
 
-from . import train_task1, train_task2, train_task3
+from . import train_task1, train_task2, train_task3, train_task4
 from .config import ROOT, SEED, results_dir
 from .evaluate import summarize
 from .utils import LOG, Timer, save_json
 
-# Which datasets each task can be run on, following Table 1 of the brief.
-#   Task 1 needs text            -> MusicCaps, MagnaTagATune, FMA, DEAM
-#   Task 2 needs audio graphs    -> GTZAN, FMA-small/medium, MagnaTagATune, DEAM
-#   Task 3 needs graphs AND text -> FMA-small/medium, MagnaTagATune, DEAM
+# Which datasets each task *can* run on, following Table 1 of the brief.
+#   Task 1 needs text                 -> MusicCaps, MTAT, FMA, GTZAN, DEAM
+#   Task 2 needs audio graphs         -> GTZAN, FMA, MTAT, DEAM
+#   Task 3 needs graphs AND text      -> FMA, MTAT, DEAM, MusicCaps
+#   Task 4 needs graphs AND free text -> MusicCaps (captions), DEAM, MTAT, FMA
 TASK_DATASETS: dict[int, list[str]] = {
-    1: ["musiccaps", "mtat", "fma_medium", "fma_small", "deam"],
-    2: ["gtzan", "fma_small", "mtat", "deam", "fma_medium"],
-    3: ["fma_small", "mtat", "deam", "fma_medium"],
+    1: ["musiccaps", "mtat", "fma_small", "fma_medium", "gtzan", "deam"],
+    2: ["gtzan", "fma_medium", "fma_small", "mtat", "deam"],
+    3: ["fma_medium", "mtat", "deam", "fma_small", "musiccaps"],
+    4: ["deam", "musiccaps", "mtat", "fma_small", "fma_medium"],
 }
 
-# Sensible defaults so a full comparison finishes in reasonable time.
+# The dataset line-up actually reported for each task.
 DEFAULT_SELECTION: dict[int, list[str]] = {
-    1: ["musiccaps", "mtat", "fma_medium", "deam"],
-    2: ["gtzan", "fma_small", "deam"],
-    3: ["fma_small", "mtat", "deam"],
+    1: ["fma_small", "mtat", "gtzan", "musiccaps"],
+    2: ["gtzan", "fma_medium"],
+    3: ["fma_medium", "mtat", "deam"],
+    4: ["deam", "musiccaps"],
 }
 
 # Columns reported per task.
@@ -48,6 +51,8 @@ REPORT_COLUMNS: dict[int, list[str]] = {
     1: ["macro_f1", "micro_f1", "auc_pr"],
     2: ["accuracy", "macro_f1", "micro_f1", "auc_pr"],
     3: ["macro_f1", "micro_f1", "auc_pr", "mae_mean", "r2_valence", "graph_coherence"],
+    4: ["caption_to_audio_R@1", "caption_to_audio_R@5", "caption_to_audio_R@10",
+        "audio_to_caption_R@5", "caption_to_audio_median_rank"],
 }
 
 
@@ -124,7 +129,27 @@ def run_task3(dataset: str, cli) -> dict:
     }
 
 
-RUNNERS = {1: run_task1, 2: run_task2, 3: run_task3}
+def run_task4(dataset: str, cli) -> dict:
+    args = _args(train_task4.build_argparser,
+                 {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
+                  "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed,
+                  "patience": cli.patience})
+    payload = train_task4.train(args)
+    return {
+        "dataset": dataset,
+        "model": "contrastive",
+        "n_train": payload["n_train"], "n_val": payload["n_val"], "n_test": payload["n_test"],
+        "n_classes": payload["n_classes"],
+        "train": {}, "val": {}, "test": payload["test"],
+        "baseline_random": {
+            "macro_f1": payload["baselines"]["random_retrieval"]["random_R@5"]},
+        "random_retrieval": payload["baselines"]["random_retrieval"],
+        "zero_shot_tags": payload.get("zero_shot_tags", {}),
+        "best_epoch": payload["best_epoch"],
+    }
+
+
+RUNNERS = {1: run_task1, 2: run_task2, 3: run_task3, 4: run_task4}
 
 
 # --------------------------------------------------------------------------- #
@@ -141,19 +166,21 @@ def _fmt(v) -> str:
 def comparison_table(task: int, rows: list[dict]) -> str:
     cols = REPORT_COLUMNS[task]
     present = [c for c in cols if any(c in r["test"] for r in rows)]
+    has_splits = any(r.get("train") for r in rows)
+    extra = present[:2] if has_splits else []
     head = (["dataset", "model", "n_train", "n_test", "n_classes"]
             + [f"test_{c}" for c in present]
-            + [f"val_{c}" for c in present[:2]]
-            + [f"train_{c}" for c in present[:2]]
-            + ["random_macro_f1"])
+            + [f"val_{c}" for c in extra]
+            + [f"train_{c}" for c in extra]
+            + ["random_reference" if task == 4 else "random_macro_f1"])
     lines = ["| " + " | ".join(head) + " |",
              "| " + " | ".join("---" for _ in head) + " |"]
     for r in rows:
         cells = [r["dataset"], str(r["model"]), str(r["n_train"]), str(r["n_test"]),
                  str(r["n_classes"])]
         cells += [_fmt(r["test"].get(c)) for c in present]
-        cells += [_fmt(r.get("val", {}).get(c)) for c in present[:2]]
-        cells += [_fmt(r.get("train", {}).get(c)) for c in present[:2]]
+        cells += [_fmt(r.get("val", {}).get(c)) for c in extra]
+        cells += [_fmt(r.get("train", {}).get(c)) for c in extra]
         cells += [_fmt(r.get("baseline_random", {}).get("macro_f1"))]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
@@ -180,7 +207,8 @@ def grouped_bar(task: int, rows: list[dict], dest) -> None:
                 ax.text(b.get_x() + b.get_width() / 2, v, f"{v:.2f}",
                         ha="center", va="bottom", fontsize=7)
     base = [r.get("baseline_random", {}).get("macro_f1", np.nan) for r in rows]
-    ax.bar(x + (len(metrics) / 2) * w, base, w, label="random macro-F1",
+    ax.bar(x + (len(metrics) / 2) * w, base, w,
+           label="random R@5" if task == 4 else "random macro-F1",
            color="#bbbbbb", hatch="//")
     ax.set_xticks(x)
     ax.set_xticklabels(names, rotation=15)
@@ -264,7 +292,7 @@ def compare(task: int, datasets: list[str], cli) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="cross-dataset comparison for tasks 1-3")
-    ap.add_argument("--task", default="all", choices=["1", "2", "3", "all"])
+    ap.add_argument("--task", default="all", choices=["1", "2", "3", "4", "all"])
     ap.add_argument("--datasets", nargs="*", default=None,
                     help="override the dataset list for the selected task")
     ap.add_argument("--epochs", type=int, default=None)
@@ -272,14 +300,15 @@ def main() -> None:
     ap.add_argument("--model_name", default=None)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--pca_mlp", action="store_true")
-    ap.add_argument("--patience", type=int, default=0,
-                    help="early-stopping patience; 0 (default) gives every model "
-                         "the same fixed epoch budget, which keeps the baseline "
-                         "comparison fair")
+    ap.add_argument("--patience", type=int, default=None,
+                    help="early-stopping patience; defaults to each task's "
+                         "config.yaml value. Every model in a comparison gets the "
+                         "same patience AND the same min_epochs, so the baselines "
+                         "stay comparable")
     ap.add_argument("--seed", type=int, default=SEED)
     cli = ap.parse_args()
 
-    tasks = [1, 2, 3] if cli.task == "all" else [int(cli.task)]
+    tasks = [1, 2, 3, 4] if cli.task == "all" else [int(cli.task)]
     all_payloads = {}
     for t in tasks:
         datasets = cli.datasets or DEFAULT_SELECTION[t]
