@@ -85,7 +85,7 @@ def run_task2(dataset: str, cli) -> dict:
     args = _args(train_task2.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
                   "limit": cli.limit, "seed": cli.seed, "compare": True,
-                  "pca_mlp": cli.pca_mlp})
+                  "pca_mlp": cli.pca_mlp, "patience": cli.patience})
     payload = train_task2.run(args)
     runs = {r["model"]: r for r in payload["runs"]}
     best_name = max((m for m in runs if m in train_task2.MODELS),
@@ -108,7 +108,7 @@ def run_task3(dataset: str, cli) -> dict:
     args = _args(train_task3.build_argparser,
                  {"dataset": dataset, "epochs": cli.epochs, "batch_size": cli.batch_size,
                   "model_name": cli.model_name, "limit": cli.limit, "seed": cli.seed,
-                  "ablation": True})
+                  "ablation": True, "patience": cli.patience})
     payload = train_task3.run(args)
     runs = {r["model"]: r for r in payload["runs"]}
     main = runs.get("cross_attn", list(runs.values())[-1])
@@ -272,6 +272,10 @@ def main() -> None:
     ap.add_argument("--model_name", default=None)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--pca_mlp", action="store_true")
+    ap.add_argument("--patience", type=int, default=0,
+                    help="early-stopping patience; 0 (default) gives every model "
+                         "the same fixed epoch budget, which keeps the baseline "
+                         "comparison fair")
     ap.add_argument("--seed", type=int, default=SEED)
     cli = ap.parse_args()
 
