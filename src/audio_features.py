@@ -186,21 +186,35 @@ def mel_patch(log_mel: np.ndarray, frames: int | None = None) -> np.ndarray:
 # --------------------------------------------------------------------------- #
 
 
+def audio_params(dataset: str | None = None) -> dict:
+    """Audio settings with the per-dataset overrides from config.yaml applied."""
+    a = dict(CFG["audio"])
+    overrides = (a.pop("per_dataset", None) or {})
+    if dataset and dataset in overrides:
+        a.update(overrides[dataset])
+    return a
+
+
 def extract_track(path: str | Path, segmentation: str = "fixed",
-                  want_mel: bool = True, max_dur_s: float | None = None) -> dict:
+                  want_mel: bool = True, max_dur_s: float | None = None,
+                  win_s: float | None = None, hop_s: float | None = None,
+                  max_segments: int | None = None) -> dict:
     """Full front-end for one audio file."""
     a = CFG["audio"]
     sr = int(a["sr"])
+    win_s = float(a["win_s"]) if win_s is None else float(win_s)
+    hop_s = float(a["hop_s"]) if hop_s is None else float(hop_s)
+    max_segments = int(a["max_segments"]) if max_segments is None else int(max_segments)
+
     y = load_audio(path, sr, max_dur_s)
     ff = frame_features(y, sr)
     n_frames = ff["mfcc"].shape[1]
 
     bounds = []
     if segmentation == "beat":
-        bounds = beat_segment_bounds(y, sr, ff["hop_length"], int(a["max_segments"]))
+        bounds = beat_segment_bounds(y, sr, ff["hop_length"], max_segments)
     if not bounds:
-        bounds = segment_bounds(n_frames, sr, ff["hop_length"], float(a["win_s"]),
-                                float(a["hop_s"]), int(a["max_segments"]))
+        bounds = segment_bounds(n_frames, sr, ff["hop_length"], win_s, hop_s, max_segments)
 
     X, chroma_seg, energy = aggregate_segments(ff, bounds)
     chords = estimate_chords(chroma_seg, energy)
