@@ -1,6 +1,6 @@
 # GNN-Based BERT for Understanding Context from Music
 
-Supervised neural-network project for **CSE425 / EEE474 / CSE715**.
+Supervised neural-network project for **CSE715**.
 A hybrid **BERT + Graph Neural Network** system that predicts musical context —
 multi-label genre/mood tags and valence/arousal — by combining contextual language
 representations with message passing over music-structure graphs.
