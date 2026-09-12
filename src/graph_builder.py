@@ -22,8 +22,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import os
+import re
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
@@ -31,11 +31,12 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from .audio_features import CHORD_NAMES, FEATURE_DIM, N_CHORDS, extract_track
+from .audio_features import (CHORD_NAMES, FEATURE_DIM, N_CHORDS, audio_params,
+                             extract_track)
 from .config import CFG, out_dir, path
 from .utils import LOG, save_json
 
-AUDIO_DATASETS = ["gtzan", "fma_small", "fma_medium", "mtat", "deam"]
+AUDIO_DATASETS = ["gtzan", "fma_small", "fma_medium", "mtat", "deam", "musiccaps"]
 DATASETS = AUDIO_DATASETS + ["deam_feats"]
 SHARD_SIZE = 2000
 
@@ -195,6 +196,9 @@ def list_items(dataset: str) -> list[tuple[str, str]]:
                 items.append((str(tid), str(p)))
         return items
 
+    if dataset == "musiccaps":
+        return list_musiccaps_items()
+
     if dataset == "deam_feats":
         from .text_data import load as load_text
 
@@ -208,6 +212,44 @@ def list_items(dataset: str) -> list[tuple[str, str]]:
         return items
 
     raise ValueError(f"unknown dataset {dataset!r}")
+
+
+MUSICCAPS_FILE_RE = re.compile(r"^\[(?P<ytid>.+)\]-\[(?P<start>\d+)-(?P<end>\d+)\]$")
+
+
+def list_musiccaps_items() -> list[tuple[str, str]]:
+    """MusicCaps clips are named ``[<ytid>]-[<start>-<end>].wav``.
+
+    Only ~5.2k of the 5'521 captioned clips are downloadable from YouTube, so
+    the intersection with the caption table is taken here.
+    """
+    from .text_data import load as load_text
+
+    root = path("musiccaps_audio")
+    if not root.exists():
+        raise FileNotFoundError(
+            f"MusicCaps audio not found at {root}. Download the clips first, or "
+            "point paths.musiccaps_audio in config.yaml at the wav directory."
+        )
+    try:
+        df, _ = load_text("musiccaps")
+        wanted = set(df["id"].astype(str))
+    except FileNotFoundError:
+        wanted = None
+
+    items, skipped = [], 0
+    for f in sorted(root.glob("*.wav")):
+        m = MUSICCAPS_FILE_RE.match(f.stem)
+        if not m:
+            skipped += 1
+            continue
+        ytid = m.group("ytid")
+        if wanted is not None and ytid not in wanted:
+            skipped += 1
+            continue
+        items.append((ytid, str(f)))
+    LOG.info("musiccaps: %d clips with audio (%d skipped)", len(items), skipped)
+    return items
 
 
 # --------------------------------------------------------------------------- #
@@ -229,7 +271,9 @@ def process_audio_item(item: tuple[str, str]) -> dict | None:
     try:
         feat = extract_track(fp, segmentation=o.get("segmentation", "fixed"),
                              want_mel=o.get("want_mel", True),
-                             max_dur_s=o.get("max_dur_s"))
+                             max_dur_s=o.get("max_dur_s"),
+                             win_s=o.get("win_s"), hop_s=o.get("hop_s"),
+                             max_segments=o.get("max_segments"))
         rec = build_track_graph(
             feat["x"], feat["chords"],
             knn=o.get("knn"), tau=o.get("tau"),
@@ -298,6 +342,7 @@ def run(dataset: str, jobs: int = 8, limit: int | None = None, want_mel: bool = 
             f.unlink()
     LOG.info("%s: building graphs for %d tracks -> %s", dataset, len(items), dest)
 
+    a = audio_params(dataset)
     opts = {
         "want_mel": want_mel and dataset != "deam_feats",
         "segmentation": segmentation,
@@ -305,7 +350,10 @@ def run(dataset: str, jobs: int = 8, limit: int | None = None, want_mel: bool = 
         "tau": float(CFG["graph"]["sim_threshold"]),
         "temporal_radius": int(CFG["graph"]["temporal_radius"]),
         "chord_edges": bool(CFG["graph"]["chord_edges"]),
-        "max_dur_s": float(CFG["audio"]["max_dur_s"]),
+        "max_dur_s": float(a["max_dur_s"]),
+        "win_s": float(a["win_s"]),
+        "hop_s": float(a["hop_s"]),
+        "max_segments": int(a["max_segments"]),
     }
     worker = process_deam_feature_item if dataset == "deam_feats" else process_audio_item
 
@@ -356,7 +404,7 @@ def run(dataset: str, jobs: int = 8, limit: int | None = None, want_mel: bool = 
         "chord_names": CHORD_NAMES,
         "has_mel": opts["want_mel"],
         "graph_cfg": CFG["graph"],
-        "audio_cfg": CFG["audio"],
+        "audio_cfg": a,
         "segmentation": segmentation,
     }
     save_json(meta, dest / "meta.json")
