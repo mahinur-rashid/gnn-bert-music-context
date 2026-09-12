@@ -1,5 +1,4 @@
 Datasets/
-*.rar
 results/
 results/checkpoints/
 __pycache__/
